@@ -10,10 +10,6 @@ var ladder = function(){
     giants.text('GWS');
     giants.before('<img class="c-ladder__icon" src="img/teams/gws.svg"/>');
 
-    // Port Adelaide
-    var port = $('.c-ladder__team:contains("Port Adelaide")');
-    port.before('<img class="c-ladder__icon" src="img/teams/port.svg"/>');
-
     var hawks = $('.c-ladder__team:contains("Hawthorn")');
     hawks.before('<img class="c-ladder__icon" src="img/teams/hawks.svg"/>');
 
@@ -43,6 +39,11 @@ var ladder = function(){
 
     var blues = $('.c-ladder__team:contains("Carlton")');
     blues.before('<img class="c-ladder__icon" src="img/teams/blues.svg"/>');
+    
+    // Port Adelaide
+    var port = $('.c-ladder__team:contains("Port Adelaide")');
+    port.before('<img class="c-ladder__icon" src="img/teams/port.svg"/>');
+
 
     var lions = $('.c-ladder__team:contains("Brisbane")');
     lions.before('<img class="c-ladder__icon" src="img/teams/lions.svg"/>');
