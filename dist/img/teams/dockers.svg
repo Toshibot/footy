@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="643px" height="643px" viewBox="0 0 643 643" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Teams/Fremantle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="643" height="643"></rect>
+    </defs>
+    <g id="Teams/Fremantle" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#4C2A69" xlink:href="#path-1"></use>
+        <rect id="Rectangle-3" fill="#55BCA5" mask="url(#mask-2)" x="0" y="0" width="643" height="119"></rect>
+        <polygon id="Path-2" fill="#FFFFFF" mask="url(#mask-2)" points="-154 -46 320.139288 470.092713 803.188081 -46"></polygon>
+        <polygon id="Path-2" fill="#62358A" mask="url(#mask-2)" points="-161 -115 319.355763 410.768383 803.325965 -115"></polygon>
+        <polygon id="Path-2" fill="#FFFFFF" mask="url(#mask-2)" points="3 -2.84217094e-14 323.47118 350.768383 646.353747 -2.84217094e-14"></polygon>
+        <polygon id="Path-2" fill="#62358A" mask="url(#mask-2)" points="3 -56 323.47118 294.768383 646.353747 -56"></polygon>
+        <polygon id="Path-2" fill="#FFFFFF" mask="url(#mask-2)" points="3 -115 323.47118 235.768383 646.353747 -115"></polygon>
+        <polygon id="Path-2" fill="#62358A" mask="url(#mask-2)" points="3 -175 323.47118 175.768383 646.353747 -175"></polygon>
+    </g>
+</svg>

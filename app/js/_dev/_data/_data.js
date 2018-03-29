@@ -188,4 +188,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-18 div.c-ladder__points-against').text(json.teams[17].stats.against);
     $('.c-ladder__item-18 div.c-ladder__percentage').text(json.teams[17].stats.percentage);
     $('.c-ladder__item-18 div.c-ladder__points').text(json.teams[17].stats.points);
+
+
+    ladder();
 });

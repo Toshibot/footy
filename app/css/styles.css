@@ -1413,3 +1413,27 @@ body {
   .t-dark .c-button {
     color: #333;
     background-color: #fff; }
+
+.c-ladder {
+  background: #fff; }
+  .c-ladder__item {
+    display: inline-block;
+    width: 100%;
+    background: #efefef;
+    position: relative; }
+    .c-ladder__item-0 {
+      background: #333; }
+      .c-ladder__item-0 div {
+        color: #fff; }
+    .c-ladder__item-1, .c-ladder__item-2, .c-ladder__item-3, .c-ladder__item-4 {
+      background: #abd4cb; }
+    .c-ladder__item-5, .c-ladder__item-6, .c-ladder__item-7, .c-ladder__item-8 {
+      background: #ccc; }
+  .c-ladder__team {
+    text-align: left;
+    padding-left: 81.6px; }
+  .c-ladder__icon {
+    height: 66px;
+    width: 66px;
+    position: absolute;
+    left: 81.6px; }

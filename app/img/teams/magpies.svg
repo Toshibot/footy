@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="643px" height="643px" viewBox="0 0 643 643" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Teams/Collingwood</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="643" height="643"></rect>
+    </defs>
+    <g id="Teams/Collingwood" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FFFFFF" xlink:href="#path-1"></use>
+        <g id="Group" mask="url(#mask-2)" fill="#000000">
+            <g transform="translate(321.500000, 321.500000) rotate(-270.000000) translate(-321.500000, -321.500000) " id="Rectangle">
+                <rect x="0" y="0" width="643" height="129"></rect>
+                <rect x="0" y="257" width="643" height="129"></rect>
+                <rect x="0" y="514" width="643" height="129"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
