@@ -1520,3 +1520,35 @@ body {
     -webkit-flex-basis: 50%;
     flex-basis: 50%;
     max-width: 50%; } }
+
+.c-fixture__game {
+  background: #666;
+  width: 300px;
+  margin: 0 12.5px 25px 12.5px;
+  display: inline-block; }
+
+.c-fixture__venue {
+  padding: 12.5px 0 25px; }
+
+.c-fixture__date {
+  padding: 25px 0 0;
+  line-height: 1.5; }
+
+.c-fixture__vs {
+  display: inline-block;
+  padding: 0 25px;
+  vertical-align: top;
+  margin-top: 50px; }
+
+.c-fixture__team {
+  display: inline-block;
+  text-align: center;
+  width: 75px; }
+  .c-fixture__team img,
+  .c-fixture__team span {
+    display: block; }
+  .c-fixture__team img {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    margin: 12.5px 0; }

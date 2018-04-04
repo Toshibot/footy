@@ -5,7 +5,28 @@
 
 // Dummy Dev File
 $.getJSON('../data/data-fixture.json', function(json){
-    console.log(json);
+    
+    // console.log(json[0].round);
+    var currentRound = [];
+    var currentRoundNo = 3;
 
+    $('.js-fixture-round').text(currentRoundNo);
 
+    for (i = 0; i < json.length; i++) {
+        const element = json[i];
+        
+        if (element.round.number == currentRoundNo) {
+            currentRound.push(element);
+        }
+    }
+    
+    // console.log(currentRound);
+
+    var game1 = currentRound[8];
+
+    for (i = 0; i < currentRound.length; i++) {
+        const element = currentRound[i];
+
+        fixtureItem(element);
+    }
 });

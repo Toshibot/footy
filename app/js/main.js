@@ -1,3 +1,7 @@
+// ==========================================================================
+// Fixture - Functions
+// ==========================================================================
+
 
 // 
 // Ladder
@@ -70,9 +74,30 @@ var ladder = function(){
 
 // Dummy Dev File
 $.getJSON('../data/data-fixture.json', function(json){
-    console.log(json);
+    
+    // console.log(json[0].round);
+    var currentRound = [];
+    var currentRoundNo = 3;
 
+    $('.js-fixture-round').text(currentRoundNo);
 
+    for (i = 0; i < json.length; i++) {
+        const element = json[i];
+        
+        if (element.round.number == currentRoundNo) {
+            currentRound.push(element);
+        }
+    }
+    
+    // console.log(currentRound);
+
+    var game1 = currentRound[8];
+
+    for (i = 0; i < currentRound.length; i++) {
+        const element = currentRound[i];
+
+        fixtureItem(element);
+    }
 });
 
 //
@@ -83,196 +108,157 @@ $.getJSON('../data/data-fixture.json', function(json){
 
 $.getJSON('../data/dummy_data.json', function (json) {
     var round = $('.c-ladder__round');
-    var ladderTeam = $('.c-ladder__team');
-    var ladderWins = $('.c-ladder__wins');
 
-    // console.log(json);
+    console.log(json);
     // Round Number
     round.text('AFL Ladder ' + json.round.name);
-    // 1
-    $('.c-ladder__item-1 div.c-ladder__team').children('span').text(json.teams[0].short_name);
-    $('.c-ladder__item-1 div.c-ladder__played').text(json.teams[0].stats.played);
-    $('.c-ladder__item-1 div.c-ladder__wins').text(json.teams[0].stats.won);
-    $('.c-ladder__item-1 div.c-ladder__draws').text(json.teams[0].stats.drawn);
-    $('.c-ladder__item-1 div.c-ladder__losses').text(json.teams[0].stats.lost);
-    $('.c-ladder__item-1 div.c-ladder__points-for').text(json.teams[0].stats.for);
-    $('.c-ladder__item-1 div.c-ladder__points-against').text(json.teams[0].stats.against);
-    $('.c-ladder__item-1 div.c-ladder__percentage').text(json.teams[0].stats.percentage);
-    $('.c-ladder__item-1 div.c-ladder__points').text(json.teams[0].stats.points);
-    // 2
-    $('.c-ladder__item-2 div.c-ladder__team').children('span').text(json.teams[1].short_name);
-    $('.c-ladder__item-2 div.c-ladder__played').text(json.teams[1].stats.played);
-    $('.c-ladder__item-2 div.c-ladder__wins').text(json.teams[1].stats.won);
-    $('.c-ladder__item-2 div.c-ladder__draws').text(json.teams[1].stats.drawn);
-    $('.c-ladder__item-2 div.c-ladder__losses').text(json.teams[1].stats.lost);
-    $('.c-ladder__item-2 div.c-ladder__points-for').text(json.teams[1].stats.for);
-    $('.c-ladder__item-2 div.c-ladder__points-against').text(json.teams[1].stats.against);
-    $('.c-ladder__item-2 div.c-ladder__percentage').text(json.teams[1].stats.percentage);
-    $('.c-ladder__item-2 div.c-ladder__points').text(json.teams[1].stats.points);
-    // 3
-    $('.c-ladder__item-3 div.c-ladder__team').children('span').text(json.teams[2].short_name);
-    $('.c-ladder__item-3 div.c-ladder__played').text(json.teams[2].stats.played);
-    $('.c-ladder__item-3 div.c-ladder__wins').text(json.teams[2].stats.won);
-    $('.c-ladder__item-3 div.c-ladder__draws').text(json.teams[2].stats.drawn);
-    $('.c-ladder__item-3 div.c-ladder__losses').text(json.teams[2].stats.lost);
-    $('.c-ladder__item-3 div.c-ladder__points-for').text(json.teams[2].stats.for);
-    $('.c-ladder__item-3 div.c-ladder__points-against').text(json.teams[2].stats.against);
-    $('.c-ladder__item-3 div.c-ladder__percentage').text(json.teams[2].stats.percentage);
-    $('.c-ladder__item-3 div.c-ladder__points').text(json.teams[2].stats.points);
-    // 4
-    $('.c-ladder__item-4 div.c-ladder__team').children('span').text(json.teams[3].short_name);
-    $('.c-ladder__item-4 div.c-ladder__played').text(json.teams[3].stats.played);
-    $('.c-ladder__item-4 div.c-ladder__wins').text(json.teams[3].stats.won);
-    $('.c-ladder__item-4 div.c-ladder__draws').text(json.teams[3].stats.drawn);
-    $('.c-ladder__item-4 div.c-ladder__losses').text(json.teams[3].stats.lost);
-    $('.c-ladder__item-4 div.c-ladder__points-for').text(json.teams[3].stats.for);
-    $('.c-ladder__item-4 div.c-ladder__points-against').text(json.teams[3].stats.against);
-    $('.c-ladder__item-4 div.c-ladder__percentage').text(json.teams[3].stats.percentage);
-    $('.c-ladder__item-4 div.c-ladder__points').text(json.teams[3].stats.points);
-    // 5
-    $('.c-ladder__item-5 div.c-ladder__team').children('span').text(json.teams[4].short_name);
-    $('.c-ladder__item-5 div.c-ladder__played').text(json.teams[4].stats.played);
-    $('.c-ladder__item-5 div.c-ladder__wins').text(json.teams[4].stats.won);
-    $('.c-ladder__item-5 div.c-ladder__draws').text(json.teams[4].stats.drawn);
-    $('.c-ladder__item-5 div.c-ladder__losses').text(json.teams[4].stats.lost);
-    $('.c-ladder__item-5 div.c-ladder__points-for').text(json.teams[4].stats.for);
-    $('.c-ladder__item-5 div.c-ladder__points-against').text(json.teams[4].stats.against);
-    $('.c-ladder__item-5 div.c-ladder__percentage').text(json.teams[4].stats.percentage);
-    $('.c-ladder__item-5 div.c-ladder__points').text(json.teams[4].stats.points);
-    // 6
-    $('.c-ladder__item-6 div.c-ladder__team').children('span').text(json.teams[5].short_name);
-    $('.c-ladder__item-6 div.c-ladder__played').text(json.teams[5].stats.played);
-    $('.c-ladder__item-6 div.c-ladder__wins').text(json.teams[5].stats.won);
-    $('.c-ladder__item-6 div.c-ladder__draws').text(json.teams[5].stats.drawn);
-    $('.c-ladder__item-6 div.c-ladder__losses').text(json.teams[5].stats.lost);
-    $('.c-ladder__item-6 div.c-ladder__points-for').text(json.teams[5].stats.for);
-    $('.c-ladder__item-6 div.c-ladder__points-against').text(json.teams[5].stats.against);
-    $('.c-ladder__item-6 div.c-ladder__percentage').text(json.teams[5].stats.percentage);
-    $('.c-ladder__item-6 div.c-ladder__points').text(json.teams[5].stats.points);
-    // 7
-    $('.c-ladder__item-7 div.c-ladder__team').children('span').text(json.teams[6].short_name);
-    $('.c-ladder__item-7 div.c-ladder__played').text(json.teams[6].stats.played);
-    $('.c-ladder__item-7 div.c-ladder__wins').text(json.teams[6].stats.won);
-    $('.c-ladder__item-7 div.c-ladder__draws').text(json.teams[6].stats.drawn);
-    $('.c-ladder__item-7 div.c-ladder__losses').text(json.teams[6].stats.lost);
-    $('.c-ladder__item-7 div.c-ladder__points-for').text(json.teams[6].stats.for);
-    $('.c-ladder__item-7 div.c-ladder__points-against').text(json.teams[6].stats.against);
-    $('.c-ladder__item-7 div.c-ladder__percentage').text(json.teams[6].stats.percentage);
-    $('.c-ladder__item-7 div.c-ladder__points').text(json.teams[6].stats.points);
-    // 8
-    $('.c-ladder__item-8 div.c-ladder__team').children('span').text(json.teams[7].short_name);
-    $('.c-ladder__item-8 div.c-ladder__played').text(json.teams[7].stats.played);
-    $('.c-ladder__item-8 div.c-ladder__wins').text(json.teams[7].stats.won);
-    $('.c-ladder__item-8 div.c-ladder__draws').text(json.teams[7].stats.drawn);
-    $('.c-ladder__item-8 div.c-ladder__losses').text(json.teams[7].stats.lost);
-    $('.c-ladder__item-8 div.c-ladder__points-for').text(json.teams[7].stats.for);
-    $('.c-ladder__item-8 div.c-ladder__points-against').text(json.teams[7].stats.against);
-    $('.c-ladder__item-8 div.c-ladder__percentage').text(json.teams[7].stats.percentage);
-    $('.c-ladder__item-8 div.c-ladder__points').text(json.teams[7].stats.points);
-    // 9
-    $('.c-ladder__item-9 div.c-ladder__team').children('span').text(json.teams[8].short_name);
-    $('.c-ladder__item-9 div.c-ladder__played').text(json.teams[8].stats.played);
-    $('.c-ladder__item-9 div.c-ladder__wins').text(json.teams[8].stats.won);
-    $('.c-ladder__item-9 div.c-ladder__draws').text(json.teams[8].stats.drawn);
-    $('.c-ladder__item-9 div.c-ladder__losses').text(json.teams[8].stats.lost);
-    $('.c-ladder__item-9 div.c-ladder__points-for').text(json.teams[8].stats.for);
-    $('.c-ladder__item-9 div.c-ladder__points-against').text(json.teams[8].stats.against);
-    $('.c-ladder__item-9 div.c-ladder__percentage').text(json.teams[8].stats.percentage);
-    $('.c-ladder__item-9 div.c-ladder__points').text(json.teams[8].stats.points);
-    // 10
-    $('.c-ladder__item-10 div.c-ladder__team').children('span').text(json.teams[9].short_name);
-    $('.c-ladder__item-10 div.c-ladder__played').text(json.teams[9].stats.played);
-    $('.c-ladder__item-10 div.c-ladder__wins').text(json.teams[9].stats.won);
-    $('.c-ladder__item-10 div.c-ladder__draws').text(json.teams[9].stats.drawn);
-    $('.c-ladder__item-10 div.c-ladder__losses').text(json.teams[9].stats.lost);
-    $('.c-ladder__item-10 div.c-ladder__points-for').text(json.teams[9].stats.for);
-    $('.c-ladder__item-10 div.c-ladder__points-against').text(json.teams[9].stats.against);
-    $('.c-ladder__item-10 div.c-ladder__percentage').text(json.teams[9].stats.percentage);
-    $('.c-ladder__item-10 div.c-ladder__points').text(json.teams[9].stats.points);
-    // 11
-    $('.c-ladder__item-11 div.c-ladder__team').children('span').text(json.teams[10].short_name);
-    $('.c-ladder__item-11 div.c-ladder__played').text(json.teams[10].stats.played);
-    $('.c-ladder__item-11 div.c-ladder__wins').text(json.teams[10].stats.won);
-    $('.c-ladder__item-11 div.c-ladder__draws').text(json.teams[10].stats.drawn);
-    $('.c-ladder__item-11 div.c-ladder__losses').text(json.teams[10].stats.lost);
-    $('.c-ladder__item-11 div.c-ladder__points-for').text(json.teams[10].stats.for);
-    $('.c-ladder__item-11 div.c-ladder__points-against').text(json.teams[10].stats.against);
-    $('.c-ladder__item-11 div.c-ladder__percentage').text(json.teams[10].stats.percentage);
-    $('.c-ladder__item-11 div.c-ladder__points').text(json.teams[10].stats.points);
-    // 12
-    $('.c-ladder__item-12 div.c-ladder__team').children('span').text(json.teams[11].short_name);
-    $('.c-ladder__item-12 div.c-ladder__played').text(json.teams[11].stats.played);
-    $('.c-ladder__item-12 div.c-ladder__wins').text(json.teams[11].stats.won);
-    $('.c-ladder__item-12 div.c-ladder__draws').text(json.teams[11].stats.drawn);
-    $('.c-ladder__item-12 div.c-ladder__losses').text(json.teams[11].stats.lost);
-    $('.c-ladder__item-12 div.c-ladder__points-for').text(json.teams[11].stats.for);
-    $('.c-ladder__item-12 div.c-ladder__points-against').text(json.teams[11].stats.against);
-    $('.c-ladder__item-12 div.c-ladder__percentage').text(json.teams[11].stats.percentage);
-    $('.c-ladder__item-12 div.c-ladder__points').text(json.teams[11].stats.points);
-    // 13
-    $('.c-ladder__item-13 div.c-ladder__team').children('span').text(json.teams[12].short_name);
-    $('.c-ladder__item-13 div.c-ladder__played').text(json.teams[12].stats.played);
-    $('.c-ladder__item-13 div.c-ladder__wins').text(json.teams[12].stats.won);
-    $('.c-ladder__item-13 div.c-ladder__draws').text(json.teams[12].stats.drawn);
-    $('.c-ladder__item-13 div.c-ladder__losses').text(json.teams[12].stats.lost);
-    $('.c-ladder__item-13 div.c-ladder__points-for').text(json.teams[12].stats.for);
-    $('.c-ladder__item-13 div.c-ladder__points-against').text(json.teams[12].stats.against);
-    $('.c-ladder__item-13 div.c-ladder__percentage').text(json.teams[12].stats.percentage);
-    $('.c-ladder__item-13 div.c-ladder__points').text(json.teams[12].stats.points);
-    // 14
-    $('.c-ladder__item-14 div.c-ladder__team').children('span').text(json.teams[13].short_name);
-    $('.c-ladder__item-14 div.c-ladder__played').text(json.teams[13].stats.played);
-    $('.c-ladder__item-14 div.c-ladder__wins').text(json.teams[13].stats.won);
-    $('.c-ladder__item-14 div.c-ladder__draws').text(json.teams[13].stats.drawn);
-    $('.c-ladder__item-14 div.c-ladder__losses').text(json.teams[13].stats.lost);
-    $('.c-ladder__item-14 div.c-ladder__points-for').text(json.teams[13].stats.for);
-    $('.c-ladder__item-14 div.c-ladder__points-against').text(json.teams[13].stats.against);
-    $('.c-ladder__item-14 div.c-ladder__percentage').text(json.teams[13].stats.percentage);
-    $('.c-ladder__item-14 div.c-ladder__points').text(json.teams[13].stats.points);
-    // 15
-    $('.c-ladder__item-15 div.c-ladder__team').children('span').text(json.teams[14].short_name);
-    $('.c-ladder__item-15 div.c-ladder__played').text(json.teams[14].stats.played);
-    $('.c-ladder__item-15 div.c-ladder__wins').text(json.teams[14].stats.won);
-    $('.c-ladder__item-15 div.c-ladder__draws').text(json.teams[14].stats.drawn);
-    $('.c-ladder__item-15 div.c-ladder__losses').text(json.teams[14].stats.lost);
-    $('.c-ladder__item-15 div.c-ladder__points-for').text(json.teams[14].stats.for);
-    $('.c-ladder__item-15 div.c-ladder__points-against').text(json.teams[14].stats.against);
-    $('.c-ladder__item-15 div.c-ladder__percentage').text(json.teams[14].stats.percentage);
-    $('.c-ladder__item-15 div.c-ladder__points').text(json.teams[14].stats.points);
-    // 16
-    $('.c-ladder__item-16 div.c-ladder__team').children('span').text(json.teams[15].short_name);
-    $('.c-ladder__item-16 div.c-ladder__played').text(json.teams[15].stats.played);
-    $('.c-ladder__item-16 div.c-ladder__wins').text(json.teams[15].stats.won);
-    $('.c-ladder__item-16 div.c-ladder__draws').text(json.teams[15].stats.drawn);
-    $('.c-ladder__item-16 div.c-ladder__losses').text(json.teams[15].stats.lost);
-    $('.c-ladder__item-16 div.c-ladder__points-for').text(json.teams[15].stats.for);
-    $('.c-ladder__item-16 div.c-ladder__points-against').text(json.teams[15].stats.against);
-    $('.c-ladder__item-16 div.c-ladder__percentage').text(json.teams[15].stats.percentage);
-    $('.c-ladder__item-16 div.c-ladder__points').text(json.teams[15].stats.points);
-    // 17
-    $('.c-ladder__item-17 div.c-ladder__team').children('span').text(json.teams[16].short_name);
-    $('.c-ladder__item-17 div.c-ladder__played').text(json.teams[16].stats.played);
-    $('.c-ladder__item-17 div.c-ladder__wins').text(json.teams[16].stats.won);
-    $('.c-ladder__item-17 div.c-ladder__draws').text(json.teams[16].stats.drawn);
-    $('.c-ladder__item-17 div.c-ladder__losses').text(json.teams[16].stats.lost);
-    $('.c-ladder__item-17 div.c-ladder__points-for').text(json.teams[16].stats.for);
-    $('.c-ladder__item-17 div.c-ladder__points-against').text(json.teams[16].stats.against);
-    $('.c-ladder__item-17 div.c-ladder__percentage').text(json.teams[16].stats.percentage);
-    $('.c-ladder__item-17 div.c-ladder__points').text(json.teams[16].stats.points);
-    // 18
-    $('.c-ladder__item-18 div.c-ladder__team').children('span').text(json.teams[17].short_name);
-    $('.c-ladder__item-18 div.c-ladder__played').text(json.teams[17].stats.played);
-    $('.c-ladder__item-18 div.c-ladder__wins').text(json.teams[17].stats.won);
-    $('.c-ladder__item-18 div.c-ladder__draws').text(json.teams[17].stats.drawn);
-    $('.c-ladder__item-18 div.c-ladder__losses').text(json.teams[17].stats.lost);
-    $('.c-ladder__item-18 div.c-ladder__points-for').text(json.teams[17].stats.for);
-    $('.c-ladder__item-18 div.c-ladder__points-against').text(json.teams[17].stats.against);
-    $('.c-ladder__item-18 div.c-ladder__percentage').text(json.teams[17].stats.percentage);
-    $('.c-ladder__item-18 div.c-ladder__points').text(json.teams[17].stats.points);
 
-
-    ladder();
+    // Construct the Ladder
+    for (i = 0; i < json.teams.length; i++) {
+        const element = json.teams[i];
+        ladderItem(element, i+1);
+    }
 });
+
+var dateTime = function(d) {
+
+    var date = new Date(d);
+
+    var day = function(d) {
+        var day = d.getDay();
+
+        if (day == 0) {
+            return 'Sunday';
+        } else if (day == 1) {
+            return 'Monday';
+        } else if (day == 2) {
+            return 'Tuesday';
+        } else if (day == 3) {
+            return 'Wednesday';
+        } else if (day == 4) {
+            return 'Thursday';
+        } else if (day == 5) {
+            return 'Friday';
+        } else if (day == 6) {
+            return 'Saturday';
+        }
+    }
+
+    var month = function(d) {
+        var m = d.getMonth();
+
+        if (m == 0) {
+            return 'Jan';
+        } else if (m == 1) {
+            return 'Feb';
+        } else if (m == 2) {
+            return 'Mar';
+        } else if (m == 3) {
+            return 'Apr';
+        } else if (m == 4) {
+            return 'May';
+        } else if (m == 5) {
+            return 'Jun';
+        } else if (m == 6) {
+            return 'Jul';
+        } else if (m == 7) {
+            return 'Aug';
+        } else if (m == 8) {
+            return 'Sep';
+        } else if (m == 9) {
+            return 'Oct';
+        } else if (m == 10) {
+            return 'Nov';
+        } else if (m == 11) {
+            return 'Dec';
+        }
+    }
+
+    var dd = date.getDate();
+
+    var time = function(d) {
+        var h = d.getHours();
+        var m = d.getMinutes();
+
+        return h + ':' + m;
+    }
+
+    return day(date) + ' ' + month(date) + ' ' + dd + '<br>' + time(date);
+}
+
+var fixtureItem = function(array) {
+
+    $('.js-fixture').before(
+        '<div class="c-fixture__game">' +
+            '<div class= "c-fixture__date js-fixture-date" >' + dateTime(array.match_start_date) + '</div >' +
+            '<div class="c-fixture__team js-fixture-team-1">' +
+                '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
+                '<span class="js-team-text">' + array.team_A.code + '</span>' +
+            '</div>' +
+            '<div class="c-fixture__vs">vs</div>' +
+            '<div class="c-fixture__team js-fixture-team-2">' +
+            '<img class="js-team-img" src="' + teamImg(array.team_B.code) + '" />' +
+            '<span class="js-team-text">' + array.team_B.code + '</span>' +
+            '</div>' +
+            '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
+        '</div>'
+    );
+}
+
+// Constructs the ladder Items
+var ladderItem = function(array, number) {
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.short_name);
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.code));
+    $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.stats.played);
+    $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.stats.won);
+    $('.c-ladder__item-' + number + ' div.c-ladder__draws').text(array.stats.drawn);
+    $('.c-ladder__item-' + number + ' div.c-ladder__losses').text(array.stats.lost);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points-for').text(array.stats.for);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points-against').text(array.stats.against);
+    $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(array.stats.percentage);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points').text(array.stats.points);
+}
+
+// Applies the correct team image to the referenced team code.
+var teamImg = function (team) {
+    if (team == 'ADE') {
+        return 'img/teams/crows.svg';
+    } else if (team == 'BRI') {
+        return 'img/teams/lions.svg';
+    } else if (team == 'CAR') {
+        return 'img/teams/blues.svg';
+    } else if (team == 'COL') {
+        return 'img/teams/magpies.svg';
+    } else if (team == 'ESS') {
+        return 'img/teams/bombers.svg';
+    } else if (team == 'FRE') {
+        return 'img/teams/dockers.svg';
+    } else if (team == 'GEE') {
+        return 'img/teams/cats.svg';
+    } else if (team == 'GCS') {
+        return 'img/teams/suns.svg';
+    } else if (team == 'GWS') {
+        return 'img/teams/gws.svg';
+    } else if (team == 'HAW') {
+        return 'img/teams/hawks.svg';
+    } else if (team == 'MEL') {
+        return 'img/teams/demons.svg';
+    } else if (team == 'NM') {
+        return 'img/teams/kangaroos.svg';
+    } else if (team == 'POR') {
+        return 'img/teams/port.svg';
+    } else if (team == 'RIC') {
+        return 'img/teams/tigers.svg';
+    } else if (team == 'STK') {
+        return 'img/teams/saints.svg';
+    } else if (team == 'SYD') {
+        return 'img/teams/swans.svg';
+    } else if (team == 'WCE') {
+        return 'img/teams/eagles.svg';
+    } else if (team == 'WBD') {
+        return 'img/teams/dogs.svg';
+    }
+}
 //
 // Layout - Vertically Centered
 // ==========================================================================

@@ -1,0 +1,48 @@
+.c-fixture {
+
+    &__game {
+        background: $color-grey-dark;
+        width: 300px;
+        margin: 0 $size-base-s $size-base $size-base-s;
+        display: inline-block;
+    }
+
+    &__venue {
+        padding: $size-base-s 0 $size-base;
+    }
+    
+    
+    &__date {
+        padding: $size-base 0 0;
+        line-height: 1.5;
+    }
+
+    &__vs {
+        display: inline-block;
+        padding: 0 $size-base;
+        vertical-align: top;
+        margin-top: $size-base-lg;
+    }
+
+    &__team {
+        display: inline-block;
+        text-align: center;
+        width: 75px;
+
+        img,
+        span {
+            display: block;
+        }
+
+        img {
+            width: 75px;
+            height: 75px;
+            text-align: center;
+            margin: $size-base-s 0;
+        }
+
+        span {
+            
+        }
+    }
+}
