@@ -3,7 +3,7 @@
 
 // ***
 // Variable Sizes
-// ---
+// --------------
 // It is important to keep this first
 // as it will define the base sizes including
 // the base font-size for the entire layout.
@@ -12,13 +12,13 @@
 
 // ***
 // Functions
-// ---
+// ---------
 @import '_functions/_sizes.scss';
 // *
 
 // ***
 // Variables
-// ---
+// ---------
 @import '_variables/_breakpoints.scss';
 @import '_variables/_colors.scss';
 @import '_variables/_heights.scss';
@@ -27,7 +27,7 @@
 
 // ***
 // Mixins
-// ---
+// ------
 @import '_mixins/_cosmetic.scss';
 @import '_mixins/_utilities.scss';
 @import '_mixins/_transitions.scss';
@@ -36,7 +36,7 @@
 
 // ***
 // Fonts
-// ---
+// -----
 // This must be loaded at the start of the
 // CSS file or the fonts will not load.
 @import '_variables/_fonts.scss';
@@ -50,7 +50,7 @@
 
 // ***
 // Utilities
-// ---
+// ---------
 // The reset can be disabled if the application
 // this is written for already includes it.
 @import '_utilities/_reset.scss';
@@ -71,7 +71,7 @@
 
 // ***
 // Objects
-// ---
+// -------
 @import '_objects/_body.scss';
 @import '_objects/_inline.scss';
 @import '_objects/_section.scss';
@@ -86,7 +86,7 @@
 
 // ***
 // Components
-// ---
+// ----------
 @import '_components/_info.scss';
 @import '_components/_slideshow.scss';
 @import '_components/_button.scss';

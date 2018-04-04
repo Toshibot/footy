@@ -1,17 +1,37 @@
 .c-ladder {
-    background: $color-white;
+    // background: $color-white;
 
     &__item {
         display: inline-block;
         width: 100%;
-        background: $color-offwhite;
+        background: $color-grey-light;
         position: relative;
+        text-align: left;
+        color: $color-black;
+
+        // Flex
+        @include flex-prep;
+        margin: 3px auto;
+
+        div {
+            display: inline-block;
+            padding: $size-base-s;
+        }
+
+        div:nth-child(even) {
+            background: rgba(0,0,0,0.05);
+        }
 
         &-0 {
             background: $color-black;
 
             div {
                 color: $color-white;
+                background: transparent !important;
+
+                &.c-ladder__team {
+                    padding: $size-base-s !important;
+                }
             }
         }
 
@@ -19,30 +39,94 @@
         &-2, 
         &-3, 
         &-4 {
-            background: $color-green;
+            background: $color-white;
         }
 
         &-5,
         &-6,
         &-7,
         &-8 {
-            background: $color-grey-light;
+            background: $color-offwhite;
         }
+    }
 
-        div:nth-child(even) {
-            // background: rgba(0,0,0,0.05);
-        }
+    &__position {
+        @include flex-size($width-1);
+        text-align: center;
     }
 
     &__team {
+        @include flex-size($width-3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: left;
-        padding-left: 81.6px;
+        position: relative;
+        padding: 0 !important;
+
+        span {
+            padding-left: $size-base-s;
+            margin-top: $size-base-s;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    &__played,
+    &__wins,
+    &__draws,
+    &__losses,
+    &__points-for,
+    &__points-against,
+    &__percentage,
+    &__points {
+        @include flex-size($width-1);
+        text-align: center;
     }
 
     &__icon {
-        height: 66px;
-        width: 66px;
-        position: absolute;
-        left: 81.6px;
+        height: 41px;
+        width: 41px;
+        margin-bottom: -2px;
+    }
+
+    // Media Queries
+
+    @media screen and (max-width: $break-m){
+
+        &__points-for,
+        &__points-against {
+            display: none !important;
+        }
+
+        &__percentage {
+            @include flex-size($width-2);
+        }
+
+        &__team {
+            @include flex-size($width-4);
+        }
+    }
+
+    @media screen and (max-width: $break-xs){
+
+        &__item {
+            div {
+                padding-left: $size-base-xs;
+                padding-right: $size-base-xs;
+            }
+
+            div:nth-child(even) {
+                background: transparent;
+            }
+        }
+
+        &__percentage {
+            display: none !important;
+        }
+
+        &__team {
+            @include flex-size($width-6);
+        }
     }
 }

@@ -7,75 +7,90 @@ var ladder = function(){
 
     // GWS
     var giants = $('.c-ladder__team:contains("Greater Western Sydney")'); 
-    giants.text('GWS');
-    giants.before('<img class="c-ladder__icon" src="img/teams/gws.svg"/>');
+    giants.children('span').text('GWS');
+    giants.children('img').attr('src', 'img/teams/gws.svg');
 
     var hawks = $('.c-ladder__team:contains("Hawthorn")');
-    hawks.before('<img class="c-ladder__icon" src="img/teams/hawks.svg"/>');
+    hawks.children('img').attr('src', 'img/teams/hawks.svg');
 
     var suns = $('.c-ladder__team:contains("Gold Coast")');
-    suns.before('<img class="c-ladder__icon" src="img/teams/suns.svg"/>');
+    suns.children('img').attr('src', 'img/teams/suns.svg');
 
     var swans = $('.c-ladder__team:contains("Sydney")');
-    swans.before('<img class="c-ladder__icon" src="img/teams/swans.svg"/>');
+    swans.children('img').attr('src', 'img/teams/swans.svg');
 
     var saints = $('.c-ladder__team:contains("St Kilda")');
-    saints.before('<img class="c-ladder__icon" src="img/teams/saints.svg"/>');
+    saints.children('img').attr('src', 'img/teams/saints.svg');
 
     var tigers = $('.c-ladder__team:contains("Richmond")');
-    tigers.before('<img class="c-ladder__icon" src="img/teams/tigers.svg"/>');
+    tigers.children('img').attr('src', 'img/teams/tigers.svg');
 
     var bombers = $('.c-ladder__team:contains("Essendon")');
-    bombers.before('<img class="c-ladder__icon" src="img/teams/bombers.svg"/>');
+    bombers.children('img').attr('src', 'img/teams/bombers.svg');
 
     var cats = $('.c-ladder__team:contains("Geelong")');
-    cats.before('<img class="c-ladder__icon" src="img/teams/cats.svg"/>');
+    cats.children('img').attr('src', 'img/teams/cats.svg');
 
     var demons = $('.c-ladder__team:contains("Melbourne")');
-    demons.before('<img class="c-ladder__icon" src="img/teams/demons.svg"/>');
+    demons.children('img').attr('src', 'img/teams/demons.svg');
 
     var crows = $('.c-ladder__team:contains("Adelaide")');
-    crows.before('<img class="c-ladder__icon" src="img/teams/crows.svg"/>');
+    crows.children('img').attr('src', 'img/teams/crows.svg');
 
     var blues = $('.c-ladder__team:contains("Carlton")');
-    blues.before('<img class="c-ladder__icon" src="img/teams/blues.svg"/>');
+    blues.children('img').attr('src', 'img/teams/blues.svg');
     
     // Port Adelaide
     var port = $('.c-ladder__team:contains("Port Adelaide")');
-    port.before('<img class="c-ladder__icon" src="img/teams/port.svg"/>');
-
+    port.children('img').attr('src', 'img/teams/port.svg');
 
     var lions = $('.c-ladder__team:contains("Brisbane")');
-    lions.before('<img class="c-ladder__icon" src="img/teams/lions.svg"/>');
+    lions.children('img').attr('src', 'img/teams/lions.svg');
 
     var eagles = $('.c-ladder__team:contains("West Coast")');
-    eagles.before('<img class="c-ladder__icon" src="img/teams/eagles.svg"/>');
+    eagles.children('img').attr('src', 'img/teams/eagles.svg');
 
     var kangaroos = $('.c-ladder__team:contains("North Melbourne")');
-    kangaroos.before('<img class="c-ladder__icon" src="img/teams/kangaroos.svg"/>');
+    kangaroos.children('img').attr('src', 'img/teams/kangaroos.svg');
 
     var magpies = $('.c-ladder__team:contains("Collingwood")');
-    magpies.before('<img class="c-ladder__icon" src="img/teams/magpies.svg"/>');
+    magpies.children('img').attr('src', 'img/teams/magpies.svg');
 
     var dockers = $('.c-ladder__team:contains("Fremantle")');
-    dockers.before('<img class="c-ladder__icon" src="img/teams/dockers.svg"/>');
+    dockers.children('img').attr('src', 'img/teams/dockers.svg');
 
     var dogs = $('.c-ladder__team:contains("Bulldogs")');
-    dogs.before('<img class="c-ladder__icon" src="img/teams/dogs.svg"/>');
+    dogs.children('img').attr('src', 'img/teams/dogs.svg');
 
 }
+
+// Data - Fixture/Results
+
+// $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+// Dummy Dev File
+$.getJSON('../data/data-fixture.json', function(json){
+    console.log(json);
+
+
+});
 
 //
 // Data
 // ====
 
-$.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json', function(json){
+// $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json', function(json){
+
+$.getJSON('../data/dummy_data.json', function (json) {
+    var round = $('.c-ladder__round');
     var ladderTeam = $('.c-ladder__team');
     var ladderWins = $('.c-ladder__wins');
 
-    console.log(json);
+    // console.log(json);
+    // Round Number
+    round.text('AFL Ladder ' + json.round.name);
     // 1
-    $('.c-ladder__item-1 div.c-ladder__team').text(json.teams[0].short_name);
+    $('.c-ladder__item-1 div.c-ladder__team').children('span').text(json.teams[0].short_name);
     $('.c-ladder__item-1 div.c-ladder__played').text(json.teams[0].stats.played);
     $('.c-ladder__item-1 div.c-ladder__wins').text(json.teams[0].stats.won);
     $('.c-ladder__item-1 div.c-ladder__draws').text(json.teams[0].stats.drawn);
@@ -85,7 +100,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-1 div.c-ladder__percentage').text(json.teams[0].stats.percentage);
     $('.c-ladder__item-1 div.c-ladder__points').text(json.teams[0].stats.points);
     // 2
-    $('.c-ladder__item-2 div.c-ladder__team').text(json.teams[1].short_name);
+    $('.c-ladder__item-2 div.c-ladder__team').children('span').text(json.teams[1].short_name);
     $('.c-ladder__item-2 div.c-ladder__played').text(json.teams[1].stats.played);
     $('.c-ladder__item-2 div.c-ladder__wins').text(json.teams[1].stats.won);
     $('.c-ladder__item-2 div.c-ladder__draws').text(json.teams[1].stats.drawn);
@@ -95,7 +110,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-2 div.c-ladder__percentage').text(json.teams[1].stats.percentage);
     $('.c-ladder__item-2 div.c-ladder__points').text(json.teams[1].stats.points);
     // 3
-    $('.c-ladder__item-3 div.c-ladder__team').text(json.teams[2].short_name);
+    $('.c-ladder__item-3 div.c-ladder__team').children('span').text(json.teams[2].short_name);
     $('.c-ladder__item-3 div.c-ladder__played').text(json.teams[2].stats.played);
     $('.c-ladder__item-3 div.c-ladder__wins').text(json.teams[2].stats.won);
     $('.c-ladder__item-3 div.c-ladder__draws').text(json.teams[2].stats.drawn);
@@ -105,7 +120,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-3 div.c-ladder__percentage').text(json.teams[2].stats.percentage);
     $('.c-ladder__item-3 div.c-ladder__points').text(json.teams[2].stats.points);
     // 4
-    $('.c-ladder__item-4 div.c-ladder__team').text(json.teams[3].short_name);
+    $('.c-ladder__item-4 div.c-ladder__team').children('span').text(json.teams[3].short_name);
     $('.c-ladder__item-4 div.c-ladder__played').text(json.teams[3].stats.played);
     $('.c-ladder__item-4 div.c-ladder__wins').text(json.teams[3].stats.won);
     $('.c-ladder__item-4 div.c-ladder__draws').text(json.teams[3].stats.drawn);
@@ -115,7 +130,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-4 div.c-ladder__percentage').text(json.teams[3].stats.percentage);
     $('.c-ladder__item-4 div.c-ladder__points').text(json.teams[3].stats.points);
     // 5
-    $('.c-ladder__item-5 div.c-ladder__team').text(json.teams[4].short_name);
+    $('.c-ladder__item-5 div.c-ladder__team').children('span').text(json.teams[4].short_name);
     $('.c-ladder__item-5 div.c-ladder__played').text(json.teams[4].stats.played);
     $('.c-ladder__item-5 div.c-ladder__wins').text(json.teams[4].stats.won);
     $('.c-ladder__item-5 div.c-ladder__draws').text(json.teams[4].stats.drawn);
@@ -125,7 +140,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-5 div.c-ladder__percentage').text(json.teams[4].stats.percentage);
     $('.c-ladder__item-5 div.c-ladder__points').text(json.teams[4].stats.points);
     // 6
-    $('.c-ladder__item-6 div.c-ladder__team').text(json.teams[5].short_name);
+    $('.c-ladder__item-6 div.c-ladder__team').children('span').text(json.teams[5].short_name);
     $('.c-ladder__item-6 div.c-ladder__played').text(json.teams[5].stats.played);
     $('.c-ladder__item-6 div.c-ladder__wins').text(json.teams[5].stats.won);
     $('.c-ladder__item-6 div.c-ladder__draws').text(json.teams[5].stats.drawn);
@@ -135,7 +150,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-6 div.c-ladder__percentage').text(json.teams[5].stats.percentage);
     $('.c-ladder__item-6 div.c-ladder__points').text(json.teams[5].stats.points);
     // 7
-    $('.c-ladder__item-7 div.c-ladder__team').text(json.teams[6].short_name);
+    $('.c-ladder__item-7 div.c-ladder__team').children('span').text(json.teams[6].short_name);
     $('.c-ladder__item-7 div.c-ladder__played').text(json.teams[6].stats.played);
     $('.c-ladder__item-7 div.c-ladder__wins').text(json.teams[6].stats.won);
     $('.c-ladder__item-7 div.c-ladder__draws').text(json.teams[6].stats.drawn);
@@ -145,7 +160,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-7 div.c-ladder__percentage').text(json.teams[6].stats.percentage);
     $('.c-ladder__item-7 div.c-ladder__points').text(json.teams[6].stats.points);
     // 8
-    $('.c-ladder__item-8 div.c-ladder__team').text(json.teams[7].short_name);
+    $('.c-ladder__item-8 div.c-ladder__team').children('span').text(json.teams[7].short_name);
     $('.c-ladder__item-8 div.c-ladder__played').text(json.teams[7].stats.played);
     $('.c-ladder__item-8 div.c-ladder__wins').text(json.teams[7].stats.won);
     $('.c-ladder__item-8 div.c-ladder__draws').text(json.teams[7].stats.drawn);
@@ -155,7 +170,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-8 div.c-ladder__percentage').text(json.teams[7].stats.percentage);
     $('.c-ladder__item-8 div.c-ladder__points').text(json.teams[7].stats.points);
     // 9
-    $('.c-ladder__item-9 div.c-ladder__team').text(json.teams[8].short_name);
+    $('.c-ladder__item-9 div.c-ladder__team').children('span').text(json.teams[8].short_name);
     $('.c-ladder__item-9 div.c-ladder__played').text(json.teams[8].stats.played);
     $('.c-ladder__item-9 div.c-ladder__wins').text(json.teams[8].stats.won);
     $('.c-ladder__item-9 div.c-ladder__draws').text(json.teams[8].stats.drawn);
@@ -165,7 +180,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-9 div.c-ladder__percentage').text(json.teams[8].stats.percentage);
     $('.c-ladder__item-9 div.c-ladder__points').text(json.teams[8].stats.points);
     // 10
-    $('.c-ladder__item-10 div.c-ladder__team').text(json.teams[9].short_name);
+    $('.c-ladder__item-10 div.c-ladder__team').children('span').text(json.teams[9].short_name);
     $('.c-ladder__item-10 div.c-ladder__played').text(json.teams[9].stats.played);
     $('.c-ladder__item-10 div.c-ladder__wins').text(json.teams[9].stats.won);
     $('.c-ladder__item-10 div.c-ladder__draws').text(json.teams[9].stats.drawn);
@@ -175,7 +190,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-10 div.c-ladder__percentage').text(json.teams[9].stats.percentage);
     $('.c-ladder__item-10 div.c-ladder__points').text(json.teams[9].stats.points);
     // 11
-    $('.c-ladder__item-11 div.c-ladder__team').text(json.teams[10].short_name);
+    $('.c-ladder__item-11 div.c-ladder__team').children('span').text(json.teams[10].short_name);
     $('.c-ladder__item-11 div.c-ladder__played').text(json.teams[10].stats.played);
     $('.c-ladder__item-11 div.c-ladder__wins').text(json.teams[10].stats.won);
     $('.c-ladder__item-11 div.c-ladder__draws').text(json.teams[10].stats.drawn);
@@ -185,7 +200,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-11 div.c-ladder__percentage').text(json.teams[10].stats.percentage);
     $('.c-ladder__item-11 div.c-ladder__points').text(json.teams[10].stats.points);
     // 12
-    $('.c-ladder__item-12 div.c-ladder__team').text(json.teams[11].short_name);
+    $('.c-ladder__item-12 div.c-ladder__team').children('span').text(json.teams[11].short_name);
     $('.c-ladder__item-12 div.c-ladder__played').text(json.teams[11].stats.played);
     $('.c-ladder__item-12 div.c-ladder__wins').text(json.teams[11].stats.won);
     $('.c-ladder__item-12 div.c-ladder__draws').text(json.teams[11].stats.drawn);
@@ -195,7 +210,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-12 div.c-ladder__percentage').text(json.teams[11].stats.percentage);
     $('.c-ladder__item-12 div.c-ladder__points').text(json.teams[11].stats.points);
     // 13
-    $('.c-ladder__item-13 div.c-ladder__team').text(json.teams[12].short_name);
+    $('.c-ladder__item-13 div.c-ladder__team').children('span').text(json.teams[12].short_name);
     $('.c-ladder__item-13 div.c-ladder__played').text(json.teams[12].stats.played);
     $('.c-ladder__item-13 div.c-ladder__wins').text(json.teams[12].stats.won);
     $('.c-ladder__item-13 div.c-ladder__draws').text(json.teams[12].stats.drawn);
@@ -205,7 +220,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-13 div.c-ladder__percentage').text(json.teams[12].stats.percentage);
     $('.c-ladder__item-13 div.c-ladder__points').text(json.teams[12].stats.points);
     // 14
-    $('.c-ladder__item-14 div.c-ladder__team').text(json.teams[13].short_name);
+    $('.c-ladder__item-14 div.c-ladder__team').children('span').text(json.teams[13].short_name);
     $('.c-ladder__item-14 div.c-ladder__played').text(json.teams[13].stats.played);
     $('.c-ladder__item-14 div.c-ladder__wins').text(json.teams[13].stats.won);
     $('.c-ladder__item-14 div.c-ladder__draws').text(json.teams[13].stats.drawn);
@@ -215,7 +230,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-14 div.c-ladder__percentage').text(json.teams[13].stats.percentage);
     $('.c-ladder__item-14 div.c-ladder__points').text(json.teams[13].stats.points);
     // 15
-    $('.c-ladder__item-15 div.c-ladder__team').text(json.teams[14].short_name);
+    $('.c-ladder__item-15 div.c-ladder__team').children('span').text(json.teams[14].short_name);
     $('.c-ladder__item-15 div.c-ladder__played').text(json.teams[14].stats.played);
     $('.c-ladder__item-15 div.c-ladder__wins').text(json.teams[14].stats.won);
     $('.c-ladder__item-15 div.c-ladder__draws').text(json.teams[14].stats.drawn);
@@ -225,7 +240,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-15 div.c-ladder__percentage').text(json.teams[14].stats.percentage);
     $('.c-ladder__item-15 div.c-ladder__points').text(json.teams[14].stats.points);
     // 16
-    $('.c-ladder__item-16 div.c-ladder__team').text(json.teams[15].short_name);
+    $('.c-ladder__item-16 div.c-ladder__team').children('span').text(json.teams[15].short_name);
     $('.c-ladder__item-16 div.c-ladder__played').text(json.teams[15].stats.played);
     $('.c-ladder__item-16 div.c-ladder__wins').text(json.teams[15].stats.won);
     $('.c-ladder__item-16 div.c-ladder__draws').text(json.teams[15].stats.drawn);
@@ -235,7 +250,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-16 div.c-ladder__percentage').text(json.teams[15].stats.percentage);
     $('.c-ladder__item-16 div.c-ladder__points').text(json.teams[15].stats.points);
     // 17
-    $('.c-ladder__item-17 div.c-ladder__team').text(json.teams[16].short_name);
+    $('.c-ladder__item-17 div.c-ladder__team').children('span').text(json.teams[16].short_name);
     $('.c-ladder__item-17 div.c-ladder__played').text(json.teams[16].stats.played);
     $('.c-ladder__item-17 div.c-ladder__wins').text(json.teams[16].stats.won);
     $('.c-ladder__item-17 div.c-ladder__draws').text(json.teams[16].stats.drawn);
@@ -245,7 +260,7 @@ $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons
     $('.c-ladder__item-17 div.c-ladder__percentage').text(json.teams[16].stats.percentage);
     $('.c-ladder__item-17 div.c-ladder__points').text(json.teams[16].stats.points);
     // 18
-    $('.c-ladder__item-18 div.c-ladder__team').text(json.teams[17].short_name);
+    $('.c-ladder__item-18 div.c-ladder__team').children('span').text(json.teams[17].short_name);
     $('.c-ladder__item-18 div.c-ladder__played').text(json.teams[17].stats.played);
     $('.c-ladder__item-18 div.c-ladder__wins').text(json.teams[17].stats.won);
     $('.c-ladder__item-18 div.c-ladder__draws').text(json.teams[17].stats.drawn);

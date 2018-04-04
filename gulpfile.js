@@ -135,9 +135,15 @@ gulp.task('icons', function() {
         .pipe(gulp.dest('dist'));
 });
 
+// Copy data to 'dist'
+gulp.task('data', function(){
+    return gulp.src('app/data/*.{json,xml}')
+        .pipe(gulp.dest('dist/data'));
+})
+
 // Migration Sequence
 gulp.task('migrate-assets', function(callback) {
-    runSequence('fonts', 'html', 'images', 'icons', callback);
+    runSequence('fonts', 'html', 'images', 'icons', 'data', callback);
 });
 
 //
