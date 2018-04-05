@@ -62,5 +62,12 @@ var dateTime = function(d) {
         return h + ':' + m;
     }
 
-    return day(date) + ' ' + month(date) + ' ' + dd + '<br>' + time(date);
+    var dateObj = {
+        day: day(date),
+        month: month(date),
+        date: dd,
+        time: time(date)
+    }
+
+    return dateObj;
 }

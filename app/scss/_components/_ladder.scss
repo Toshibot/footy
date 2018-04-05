@@ -15,7 +15,7 @@
 
         div {
             display: inline-block;
-            padding: $size-base-s;
+            padding: $size-base-s 0;
         }
 
         div:nth-child(even) {
@@ -85,9 +85,23 @@
     }
 
     &__icon {
+        @include boxShadow(2, $color-black);
         height: 41px;
         width: 41px;
         margin-bottom: -2px;
+    }
+
+    &__points-for,
+    &__points-against {
+        display: none !important;
+    }
+
+    &__percentage {
+        @include flex-size($width-2);
+    }
+
+    &__team {
+        @include flex-size($width-4);
     }
 
     // Media Queries

@@ -1,14 +1,17 @@
 
 // Data - Fixture/Results
 
-// $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+$.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
 // Dummy Dev File
-$.getJSON('../data/data-fixture.json', function(json){
+// $.getJSON('../data/data-fixture.json', function(json){
+
+    console.log(json);
     
-    // console.log(json[0].round);
+    var today = new Date;
     var currentRound = [];
-    var currentRoundNo = 3;
+    var currentRoundNo = roundCalc(today);
+    // var currentRoundNo = 2;
 
     $('.js-fixture-round').text(currentRoundNo);
 
@@ -19,7 +22,7 @@ $.getJSON('../data/data-fixture.json', function(json){
             currentRound.push(element);
         }
     }
-    
+
     // console.log(currentRound);
 
     var game1 = currentRound[8];

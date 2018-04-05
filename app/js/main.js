@@ -70,14 +70,17 @@ var ladder = function(){
 
 // Data - Fixture/Results
 
-// $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+$.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
 // Dummy Dev File
-$.getJSON('../data/data-fixture.json', function(json){
+// $.getJSON('../data/data-fixture.json', function(json){
+
+    console.log(json);
     
-    // console.log(json[0].round);
+    var today = new Date;
     var currentRound = [];
-    var currentRoundNo = 3;
+    var currentRoundNo = roundCalc(today);
+    // var currentRoundNo = 2;
 
     $('.js-fixture-round').text(currentRoundNo);
 
@@ -88,7 +91,7 @@ $.getJSON('../data/data-fixture.json', function(json){
             currentRound.push(element);
         }
     }
-    
+
     // console.log(currentRound);
 
     var game1 = currentRound[8];
@@ -104,12 +107,12 @@ $.getJSON('../data/data-fixture.json', function(json){
 // Data
 // ====
 
-// $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json', function(json){
+$.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
 
-$.getJSON('../data/dummy_data.json', function (json) {
+// $.getJSON('../data/dummy_data.json', function (json) {
     var round = $('.c-ladder__round');
 
-    console.log(json);
+    // console.log(json);
     // Round Number
     round.text('AFL Ladder ' + json.round.name);
 
@@ -183,31 +186,73 @@ var dateTime = function(d) {
         return h + ':' + m;
     }
 
-    return day(date) + ' ' + month(date) + ' ' + dd + '<br>' + time(date);
+    var dateObj = {
+        day: day(date),
+        month: month(date),
+        date: dd,
+        time: time(date)
+    }
+
+    return dateObj;
 }
 
 var fixtureItem = function(array) {
 
-    $('.js-fixture').before(
-        '<div class="c-fixture__game">' +
-            '<div class= "c-fixture__date js-fixture-date" >' + dateTime(array.match_start_date) + '</div >' +
+    var date = dateTime(array.match_start_date);
+    var match_status = array.match_status;
+
+    if (match_status == 'Pre Game') {
+
+        $('.js-fixture').before(
+            '<div class="c-fixture__game">' +
+                '<div class= "c-fixture__date c-date" >' + 
+                    '<span class="c-date__day">' + date.day + '</span>' +
+                    '<span class="c-date__month">' + date.month + '</span>' +
+                    '<span class="c-date__date">' + date.date + '</span>' +
+                    '<span class="c-date__time">' + date.time + '</span>' +
+                '</div >' +
+                '<div class="c-fixture__team js-fixture-team-1">' +
+                    '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
+                    '<span class="js-team-text">' + array.team_A.code + '</span>' +
+                '</div>' +
+                '<div class="c-fixture__vs">vs</div>' +
+                '<div class="c-fixture__team js-fixture-team-2">' +
+                '<img class="js-team-img" src="' + teamImg(array.team_B.code) + '" />' +
+                '<span class="js-team-text">' + array.team_B.code + '</span>' +
+                '</div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
+            '</div>'
+        );
+
+    } else {
+        $('.js-fixture').before(
+            '<div class="c-fixture__game c-fixture__game--completed">' +
+            '<div class= "c-fixture__date c-date" >' +
+            '<span class="c-date__day">' + date.day + '</span>' +
+            '<span class="c-date__month">' + date.month + '</span>' +
+            '<span class="c-date__date">' + date.date + '</span>' +
+            '<span class="c-date__time">' + date.time + '</span>' +
+            '</div >' +
             '<div class="c-fixture__team js-fixture-team-1">' +
-                '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
-                '<span class="js-team-text">' + array.team_A.code + '</span>' +
+            '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
+            '<span class="js-team-text">' + array.team_A.code + '</span>' +
+            '<span class="js-score-text">' + array.team_A.score + '</span>' +
             '</div>' +
             '<div class="c-fixture__vs">vs</div>' +
             '<div class="c-fixture__team js-fixture-team-2">' +
             '<img class="js-team-img" src="' + teamImg(array.team_B.code) + '" />' +
             '<span class="js-team-text">' + array.team_B.code + '</span>' +
+            '<span class="js-score-text">' + array.team_B.score + '</span>' +
             '</div>' +
             '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
-        '</div>'
-    );
+            '</div>'
+        );
+    }
 }
 
 // Constructs the ladder Items
 var ladderItem = function(array, number) {
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.short_name);
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.code);
     $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.code));
     $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.stats.played);
     $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.stats.won);
@@ -217,6 +262,49 @@ var ladderItem = function(array, number) {
     $('.c-ladder__item-' + number + ' div.c-ladder__points-against').text(array.stats.against);
     $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(array.stats.percentage);
     $('.c-ladder__item-' + number + ' div.c-ladder__points').text(array.stats.points);
+}
+var roundCalc = function(d) {
+    var currentDate = new Date(d);
+    var month = currentDate.getMonth();
+    var date = currentDate.getDate();
+
+    // Round 3
+    if (month == 3 && date <= 8) {
+        return 3;
+
+    // Round 4    
+    } else if (month == 3 && date <= 15) {
+        return 4;
+
+    // Round 5    
+    } else if (month == 3 && date <= 25) {
+        return 5;
+
+    // Round 6
+    } else if (month == 3 && date <= 29) {
+        return 6;
+
+    // Round 7
+    } else if (month == 4 && date <= 6) {
+        return 7;
+
+    // Round 8    
+    } else if (month == 4 && date <= 13) {
+        return 8;
+
+    // Round 9
+    } else if (month == 4 && date <= 20) {
+        return 9;
+
+    // Round 10
+    } else if (month == 4 && date <= 27) {
+        return 10;
+
+    // Round 11
+    } else if (month == 5 && date <= 3) {
+        return 11;
+    }
+
 }
 
 // Applies the correct team image to the referenced team code.

@@ -1,49 +1,23 @@
 .c-date {
-	width: 240px;
-	float: left;
-	padding: $size-base 0;
-
-	@media (max-width: $break-s) {
-		float: none;
-		margin: 0 auto;
-	}
 
 	&__day {
-		font-family: $font-body;
-		text-transform: uppercase;
-		height: 42px;
-		line-height: 42px;
-		vertical-align: bottom;
-		float: none;
-		font-size: 42px;
-		display: block;
-
-		@media (max-width: $break-s) {
-			height: auto;
-		}
+		display: inline-block;
+		margin-right: 5px;
+		font-weight: 600;
 	}
 
 	&__date {
-		font-family: $font-body;
-		font-size: 100px;
 		display: inline-block;
-	}
-
-	div {
-		display: inline-block;
+		margin-right: 10px;
+		font-weight: 600;
 	}
 
 	&__month {
-		font-family: $font-body;
-		font-size: 40px;
-		text-transform: uppercase;
-		display: block;
-		padding-bottom: 10px;
+		display: inline-block;
+		margin-right: 5px;
+		font-weight: 600;
 	}
 
-	&__year {
-		font-family: $font-body;
-		font-size: 40px;
-		display: block;
+	&__time {
 	}
 }
