@@ -1,6 +1,16 @@
 .c-ladder {
     // background: $color-white;
 
+    &__container {
+        @media screen and (min-width: $break-l) {
+            padding-right: 0;
+        }
+    }
+
+    h2 {
+        padding-bottom: 15px;
+    }
+
     &__item {
         display: inline-block;
         width: 100%;

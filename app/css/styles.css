@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Dancing+Script:700|Lato:400,400i,700|Montserrat:700");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700|Montserrat:300,700");
 @font-face {
   font-family: 'Font Awesome';
   src: url("../fonts/fontawesome-webfont.eot");
@@ -109,6 +109,9 @@ table {
       @media (max-width: 64em) {
         .u-flex-full--no-pad\@sm {
           padding: 0; } }
+  .u-flex-grid-thirds {
+    display: flex;
+    justify-content: space-between; }
 
 .u-1, .u-12\/12, .u-12 {
   width: 100%;
@@ -1107,13 +1110,20 @@ body {
   display: inline-block; }
 
 .o-section {
-  padding: 50px 0;
+  padding: 0 0 25px;
   width: 100%;
   position: relative;
   z-index: 999; }
+  .o-section h1 {
+    display: inline-block;
+    font-size: 2rem;
+    width: 100%;
+    padding: 25px 0 12.5px !important;
+    background: #222; }
   .o-section h2 {
     font-family: "Montserrat", sans-serif;
-    font-size: 2rem;
+    font-weight: 300;
+    font-size: 1.5rem;
     padding: 25px 0; }
   .o-section--white {
     background: #fff; }
@@ -1293,7 +1303,7 @@ body {
 .o-footer {
   height: 100px;
   clear: both;
-  background: #333;
+  background: #222;
   color: #fff;
   padding-top: 25px; }
   @media only screen and (max-width: 64em) {
@@ -1324,7 +1334,7 @@ body {
       text-decoration: none; }
   .t-dark .o-footer {
     color: #fff;
-    background-color: #666; }
+    background-color: #222; }
     .t-dark .o-footer__subtext {
       color: #fff; }
       .t-dark .o-footer__subtext a:link,
@@ -1417,6 +1427,13 @@ body {
   .t-dark .c-button {
     color: #333;
     background-color: #fff; }
+
+@media screen and (min-width: 90em) {
+  .c-ladder__container {
+    padding-right: 0; } }
+
+.c-ladder h2 {
+  padding-bottom: 15px; }
 
 .c-ladder__item {
   display: inline-block;
@@ -1545,13 +1562,19 @@ body {
 
 @media screen and (min-width: 75em) {
   .c-fixture h2 {
-    padding-bottom: 70px; } }
+    padding-bottom: 62px; } }
 
 .c-fixture__game {
   background: #666;
-  width: 260px;
-  margin: 0 18px 36px;
+  width: 32%;
+  margin-bottom: 35px;
+  margin-right: 1.5%;
   display: inline-block; }
+  .c-fixture__game:nth-child(4), .c-fixture__game:nth-child(7), .c-fixture__game:nth-child(10) {
+    margin-right: 0; }
+  .c-fixture__game--in-progress {
+    background: #efefef;
+    color: #333; }
   .c-fixture__game--completed {
     background: transparent; }
   @media screen and (max-width: 64em) {

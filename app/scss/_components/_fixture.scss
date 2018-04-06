@@ -2,16 +2,28 @@
 
     h2 {
         @media screen and (min-width: $break-m){
-            padding-bottom: 70px;
+            padding-bottom: 62px;
         }
     }
 
     &__game {
         background: $color-grey-dark;
-        width: 260px;
-        margin: 0 18px 36px;
+        width: 32%;
+        margin-bottom: 35px;
+        margin-right: 1.5%;
         display: inline-block;
 
+        &:nth-child(4),
+        &:nth-child(7),
+        &:nth-child(10) {
+            margin-right: 0;
+        }
+
+        &--in-progress {
+            background: $color-offwhite;
+            color: $color-black;
+        }
+        
         &--completed {
             background: transparent;
         }

@@ -1,6 +1,6 @@
 
 // Applies the correct team image to the referenced team code.
-var teamImg = function (team) {
+function teamImg(team) {
     if (team == 'ADE') {
         return 'img/teams/crows.svg';
     } else if (team == 'BRI') {

@@ -1,7 +1,7 @@
 .o-footer {
     height: $height-footer;
     clear: both;
-    background: $color-black;
+    background: $color-black-dark;
     color: $color-white;
     padding-top: $size-base;
 
@@ -43,7 +43,7 @@
 
     .t-dark & {
         color: $color-white;
-        background-color: $color-grey-dark;
+        background-color: $color-black-dark;
 
         &__subtext {
             color: $color-white;

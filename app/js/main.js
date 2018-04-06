@@ -1,4 +1,11 @@
 // ==========================================================================
+// Initialisation
+// ==========================================================================
+
+// Core Functions 
+dataLadder();
+dataFixture();
+// ==========================================================================
 // Fixture - Functions
 // ==========================================================================
 
@@ -70,64 +77,75 @@ var ladder = function(){
 
 // Data - Fixture/Results
 
-$.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-// Dummy Dev File
-// $.getJSON('../data/data-fixture.json', function(json){
-
-    console.log(json);
+function dataFixture() {
     
-    var today = new Date;
-    var currentRound = [];
-    var currentRoundNo = roundCalc(today);
-    // var currentRoundNo = 2;
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
-    $('.js-fixture-round').text(currentRoundNo);
+    // Dummy Dev File
+    // $.getJSON('../data/data-fixture.json', function(json){
 
-    for (i = 0; i < json.length; i++) {
-        const element = json[i];
+        // console.log(json);
+        console.log('fixture loaded');
         
-        if (element.round.number == currentRoundNo) {
-            currentRound.push(element);
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var currentRoundNo = roundCalc(today);
+        // var currentRoundNo = 2;
+
+        $('.js-fixture-round').text(currentRoundNo);
+
+        for (i = 0; i < json.length; i++) {
+            const element = json[i];
+            
+            if (element.round.number == currentRoundNo) {
+                currentRound.push(element);
+            }
         }
-    }
 
-    // console.log(currentRound);
+        // console.log(currentRound);
 
-    var game1 = currentRound[8];
+        var game1 = currentRound[8];
 
-    for (i = 0; i < currentRound.length; i++) {
-        const element = currentRound[i];
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
 
-        fixtureItem(element);
-    }
-});
+            fixtureItem(element);
+        }
+    });
+
+}
+
+
 
 //
 // Data
 // ====
+function dataLadder() { 
 
-$.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
 
-// $.getJSON('../data/dummy_data.json', function (json) {
-    var round = $('.c-ladder__round');
+    // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
 
-    // console.log(json);
-    // Round Number
-    round.text('AFL Ladder ' + json.round.name);
+        // console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
 
-    // Construct the Ladder
-    for (i = 0; i < json.teams.length; i++) {
-        const element = json.teams[i];
-        ladderItem(element, i+1);
-    }
-});
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const element = json.teams[i];
+            ladderItem(element, i+1);
+        }
+    });
 
-var dateTime = function(d) {
+}
+
+function dateTime(d) {
 
     var date = new Date(d);
 
-    var day = function(d) {
+    function day(d) {
         var day = d.getDay();
 
         if (day == 0) {
@@ -147,7 +165,7 @@ var dateTime = function(d) {
         }
     }
 
-    var month = function(d) {
+    function month(d) {
         var m = d.getMonth();
 
         if (m == 0) {
@@ -179,7 +197,7 @@ var dateTime = function(d) {
 
     var dd = date.getDate();
 
-    var time = function(d) {
+    function time(d) {
         var h = d.getHours();
         var m = d.getMinutes();
 
@@ -196,7 +214,7 @@ var dateTime = function(d) {
     return dateObj;
 }
 
-var fixtureItem = function(array) {
+function fixtureItem(array) {
 
     var date = dateTime(array.match_start_date);
     var match_status = array.match_status;
@@ -224,7 +242,8 @@ var fixtureItem = function(array) {
             '</div>'
         );
 
-    } else {
+    } else if (match_status == "Full Time") {
+
         $('.js-fixture').before(
             '<div class="c-fixture__game c-fixture__game--completed">' +
             '<div class= "c-fixture__date c-date" >' +
@@ -235,14 +254,35 @@ var fixtureItem = function(array) {
             '</div >' +
             '<div class="c-fixture__team js-fixture-team-1">' +
             '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
-            '<span class="js-team-text">' + array.team_A.code + '</span>' +
-            '<span class="js-score-text">' + array.team_A.score + '</span>' +
+            '<span class="js-team-text">' + array.team_A.score + '</span>' +
             '</div>' +
             '<div class="c-fixture__vs">vs</div>' +
             '<div class="c-fixture__team js-fixture-team-2">' +
             '<img class="js-team-img" src="' + teamImg(array.team_B.code) + '" />' +
-            '<span class="js-team-text">' + array.team_B.code + '</span>' +
-            '<span class="js-score-text">' + array.team_B.score + '</span>' +
+            '<span class="js-team-text">' + array.team_B.score + '</span>' +
+            '</div>' +
+            '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
+            '</div>'
+        );
+
+    } else {
+
+        $('.js-fixture').before(
+            '<div class="c-fixture__game c-fixture__game--in-progress">' +
+            '<div class= "c-fixture__date c-date" >' +
+            '<span class="c-date__day">' + date.day + '</span>' +
+            '<span class="c-date__month">' + date.month + '</span>' +
+            '<span class="c-date__date">' + date.date + '</span>' +
+            '<span class="c-date__time">' + date.time + '</span>' +
+            '</div >' +
+            '<div class="c-fixture__team js-fixture-team-1">' +
+            '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
+            '<span class="js-team-text">' + array.team_A.score + '</span>' +
+            '</div>' +
+            '<div class="c-fixture__vs">vs</div>' +
+            '<div class="c-fixture__team js-fixture-team-2">' +
+            '<img class="js-team-img" src="' + teamImg(array.team_B.code) + '" />' +
+            '<span class="js-team-text">' + array.team_B.score + '</span>' +
             '</div>' +
             '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
             '</div>'
@@ -251,7 +291,7 @@ var fixtureItem = function(array) {
 }
 
 // Constructs the ladder Items
-var ladderItem = function(array, number) {
+function ladderItem(array, number) {
     $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.code);
     $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.code));
     $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.stats.played);
@@ -263,7 +303,7 @@ var ladderItem = function(array, number) {
     $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(array.stats.percentage);
     $('.c-ladder__item-' + number + ' div.c-ladder__points').text(array.stats.points);
 }
-var roundCalc = function(d) {
+function roundCalc(d) {
     var currentDate = new Date(d);
     var month = currentDate.getMonth();
     var date = currentDate.getDate();
@@ -303,12 +343,60 @@ var roundCalc = function(d) {
     // Round 11
     } else if (month == 5 && date <= 3) {
         return 11;
+
+    // Round 12
+    } else if (month == 5 && date <= 11) {
+        return 12;
+
+    // Round 13
+    } else if (month == 5 && date <= 17) {
+        return 13;
+
+    // Round 14
+    } else if (month == 5 && date <= 24) {
+        return 14;
+
+    // Round 15
+    } else if (month == 5 && date <= 31 || month == 6 && date <= 1) {
+        return 15;
+
+    // Round 16
+    } else if (month == 6 && date <= 8) {
+        return 16;
+
+    // Round 17
+    } else if (month == 6 && date <= 15) {
+        return 17;
+
+    // Round 18
+    } else if (month == 6 && date <= 22) {
+        return 18;
+
+    // Round 19
+    } else if (month == 6 && date <= 29) {
+        return 19;
+
+    // Round 20
+    } else if (month == 7 && date <= 5) {
+        return 20;
+
+    // Round 21
+    } else if (month == 7 && date <= 12) {
+        return 21;
+
+    // Round 22
+    } else if (month == 7 && date <= 19) {
+        return 22;
+
+    // Round 23
+    } else if (month == 7 && date <= 23) {
+        return 23;
     }
 
 }
 
 // Applies the correct team image to the referenced team code.
-var teamImg = function (team) {
+function teamImg(team) {
     if (team == 'ADE') {
         return 'img/teams/crows.svg';
     } else if (team == 'BRI') {

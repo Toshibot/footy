@@ -1,9 +1,9 @@
 
-var dateTime = function(d) {
+function dateTime(d) {
 
     var date = new Date(d);
 
-    var day = function(d) {
+    function day(d) {
         var day = d.getDay();
 
         if (day == 0) {
@@ -23,7 +23,7 @@ var dateTime = function(d) {
         }
     }
 
-    var month = function(d) {
+    function month(d) {
         var m = d.getMonth();
 
         if (m == 0) {
@@ -55,7 +55,7 @@ var dateTime = function(d) {
 
     var dd = date.getDate();
 
-    var time = function(d) {
+    function time(d) {
         var h = d.getHours();
         var m = d.getMinutes();
 
