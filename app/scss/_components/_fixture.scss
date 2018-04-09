@@ -25,7 +25,7 @@
         }
         
         &--completed {
-            background: transparent;
+            background: #444;
         }
 
         @media screen and (max-width: $break-s) {
@@ -71,8 +71,7 @@
             height: 75px;
             text-align: center;
             margin: $size-base-s 0;
-            @include boxShadow(3, $color-black);
-            @include borderRadius(75px);
+            // @include boxShadow(3, $color-black);
         }
     }
 }

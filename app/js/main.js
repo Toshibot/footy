@@ -79,10 +79,10 @@ var ladder = function(){
 
 function dataFixture() {
     
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    // $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
     // Dummy Dev File
-    // $.getJSON('../data/data-fixture.json', function(json){
+    $.getJSON('../data/data-fixture.json', function(json){
 
         // console.log(json);
         console.log('fixture loaded');
@@ -123,9 +123,9 @@ function dataFixture() {
 // ====
 function dataLadder() { 
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+    // $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
 
-    // $.getJSON('../data/dummy_data.json', function (json) {
+    $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
 
         // console.log(json);
@@ -230,12 +230,12 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + date.time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + teamImg(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
                     '<span class="js-team-text">' + array.team_A.code + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                '<img class="js-team-img" src="' + teamImg(array.team_B.code) + '" />' +
+                '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
                 '<span class="js-team-text">' + array.team_B.code + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
@@ -287,6 +287,89 @@ function fixtureItem(array) {
             '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
             '</div>'
         );
+    }
+}
+function homeKit(array) {
+    var team = array;
+
+    if (team == 'ADE') {
+        return 'img/teams/crows-home.png';
+    } else if (team == 'BRI') {
+        return 'img/teams/lions-home.png';
+    } else if (team == 'CAR') {
+        return 'img/teams/blues-home.png';
+    } else if (team == 'COL') {
+        return 'img/teams/magpies-home.png';
+    } else if (team == 'ESS') {
+        return 'img/teams/bombers-home.png';
+    } else if (team == 'FRE') {
+        return 'img/teams/dockers-home.png';
+    } else if (team == 'GEE') {
+        return 'img/teams/cats-home.png';
+    } else if (team == 'GCS') {
+        return 'img/teams/suns-home.png';
+    } else if (team == 'GWS') {
+        return 'img/teams/gws-home.png';
+    } else if (team == 'HAW') {
+        return 'img/teams/hawks-home.png';
+    } else if (team == 'MEL') {
+        return 'img/teams/demons-home.png';
+    } else if (team == 'NM') {
+        return 'img/teams/kangaroos-home.png';
+    } else if (team == 'POR') {
+        return 'img/teams/port-home.png';
+    } else if (team == 'RIC') {
+        return 'img/teams/tigers-home.png';
+    } else if (team == 'STK') {
+        return 'img/teams/saints-home.png';
+    } else if (team == 'SYD') {
+        return 'img/teams/swans-home.png';
+    } else if (team == 'WCE') {
+        return 'img/teams/eagles-home.png';
+    } else if (team == 'WBD') {
+        return 'img/teams/dogs-home.png';
+    }
+}
+
+function awayKit(array) {
+    var team = array;
+
+    if (team == 'ADE') {
+        return 'img/teams/crows-away.png';
+    } else if (team == 'BRI') {
+        return 'img/teams/lions-away.png';
+    } else if (team == 'CAR') {
+        return 'img/teams/blues-clash.png';
+    } else if (team == 'COL') {
+        return 'img/teams/magpies-clash.png';
+    } else if (team == 'ESS') {
+        return 'img/teams/bombers-clash.png';
+    } else if (team == 'FRE') {
+        return 'img/teams/dockers-away.png';
+    } else if (team == 'GEE') {
+        return 'img/teams/cats-home.png';
+    } else if (team == 'GCS') {
+        return 'img/teams/suns-away.png';
+    } else if (team == 'GWS') {
+        return 'img/teams/gws-away.png';
+    } else if (team == 'HAW') {
+        return 'img/teams/hawks-away.png';
+    } else if (team == 'MEL') {
+        return 'img/teams/demons-clash.png';
+    } else if (team == 'NM') {
+        return 'img/teams/kangaroos-clash.png';
+    } else if (team == 'POR') {
+        return 'img/teams/port-away.png';
+    } else if (team == 'RIC') {
+        return 'img/teams/tigers-away.png';
+    } else if (team == 'STK') {
+        return 'img/teams/saints-away.png';
+    } else if (team == 'SYD') {
+        return 'img/teams/swans-home.png';
+    } else if (team == 'WCE') {
+        return 'img/teams/eagles-away.png';
+    } else if (team == 'WBD') {
+        return 'img/teams/dogs-away.png';
     }
 }
 
