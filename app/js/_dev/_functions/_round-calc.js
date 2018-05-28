@@ -36,7 +36,7 @@ function roundCalc(d) {
         return 10;
 
     // Round 11
-    } else if (month == 5 && date <= 3) {
+    } else if (month == 4 && date <= 31 || month == 5 && date <= 3) {
         return 11;
 
     // Round 12
