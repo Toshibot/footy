@@ -72,7 +72,7 @@ function roundCalc(d) {
         return 19;
 
     // Round 20
-    } else if (month == 7 && date <= 5) {
+    } else if (month == 6 && date <= 31 || month == 7 && date <= 5) {
         return 20;
 
     // Round 21
