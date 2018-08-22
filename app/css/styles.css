@@ -1612,6 +1612,69 @@ body {
     text-align: center;
     margin: 12.5px 0; }
 
+.c-finals-alt {
+  background: #222; }
+
+@media screen and (min-width: 75em) {
+  .c-finals h2 {
+    padding-bottom: 25px; } }
+
+.c-finals__game {
+  background: #666;
+  width: 23%;
+  margin-bottom: 35px;
+  margin-right: 1.5%;
+  display: inline-block; }
+  .c-finals__game:nth-child(5), .c-finals__game:nth-child(10) {
+    margin-right: 0; }
+  .c-finals__game--in-progress {
+    background: #efefef;
+    color: #333; }
+  .c-finals__game--completed {
+    background: #444; }
+  @media screen and (max-width: 64em) {
+    .c-finals__game {
+      width: 100%;
+      margin: 0 0 36px; } }
+
+.c-finals-2 .c-finals__game:nth-child(3) {
+  margin-right: 0; }
+
+.c-finals-1 {
+  margin-bottom: -25px; }
+  .c-finals-1 .c-finals__game {
+    margin-right: 0; }
+
+.c-finals__venue {
+  padding: 25px 0 25px;
+  font-size: 12px; }
+
+.c-finals__date {
+  padding: 25px 0 12.5px;
+  line-height: 1.5; }
+
+.c-finals__vs {
+  display: inline-block;
+  padding: 0 25px;
+  vertical-align: top;
+  margin-top: 50px; }
+
+.c-finals__team {
+  display: inline-block;
+  text-align: center;
+  width: 75px; }
+  .c-finals__team img,
+  .c-finals__team span {
+    display: block; }
+    .c-finals__team img.js-score-text,
+    .c-finals__team span.js-score-text {
+      padding-top: 6.25px; }
+  .c-finals__team img {
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    margin: 12.5px 0; }
+
 .c-date__day {
   display: inline-block;
   margin-right: 5px;
