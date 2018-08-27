@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="548px" height="223px" viewBox="0 0 548 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ux/gf-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="28" height="115.5"></rect>
+        <rect id="path-3" x="0" y="0" width="28" height="115.5"></rect>
+        <path d="M9.39113778,15 L9.39113778,0 L65.4347826,29 L9.39113778,58 L9.39113778,43 L0,43 L0,15 L9.39113778,15 Z" id="path-5"></path>
+        <rect id="path-7" x="0" y="0" width="60.9230769" height="28"></rect>
+    </defs>
+    <g id="ux/gf-left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UX/Line/Vertical" transform="translate(390.000000, 0.000000)">
+            <g id="UX/End/Vertical" transform="translate(0.000000, 79.714286)">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -12.250000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-2)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="116"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Vertical">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -12.250000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-4)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="116"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Horizontal" transform="translate(419.000000, 140.000000)">
+            <g id="➡️-Right" transform="translate(33.000000, 0.000000)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <g id="Mask" fill-rule="nonzero"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-6)" fill="#629030">
+                    <rect id="Rectangle-3" x="0" y="0" width="65" height="59"></rect>
+                </g>
+            </g>
+            <g id="UX/End/Horizontal">
+                <g id="Colour/UX/Grey" transform="translate(-6.461538, 15.000000)">
+                    <mask id="mask-8" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-8)" fill="#629030">
+                        <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                            <rect x="0" y="0" width="61" height="125"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

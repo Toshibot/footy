@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="399px" viewBox="0 0 316 399" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ux/semi-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="28" height="159.923077"></rect>
+        <rect id="path-3" x="0" y="0" width="28" height="159.923077"></rect>
+        <rect id="path-5" x="0" y="0" width="28" height="265.269231"></rect>
+        <rect id="path-7" x="0" y="0" width="28" height="265.269231"></rect>
+        <path d="M11.9563552,15 L11.9563552,0 L68,29 L11.9563552,58 L11.9563552,43 L0,43 L0,15 L11.9563552,15 Z" id="path-9"></path>
+        <rect id="path-11" x="0" y="0" width="86.3076923" height="28"></rect>
+    </defs>
+    <g id="ux/semi-left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UX/Line/Vertical" transform="translate(158.000000, 0.000000)">
+            <g id="UX/End/Vertical" transform="translate(0.000000, 110.015038)">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -16.961538)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Loss" mask="url(#mask-2)" fill="#9B3A46">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="160"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Vertical">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -16.961538)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Loss" mask="url(#mask-4)" fill="#9B3A46">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="160"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Vertical" transform="translate(100.000000, 0.000000)">
+            <g id="UX/End/Vertical" transform="translate(0.000000, 182.736842)">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -28.134615)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-6)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="265"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Vertical">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -28.134615)">
+                    <mask id="mask-8" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-8)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="265"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Horizontal" transform="translate(182.000000, 212.000000)">
+            <g id="UX/End/Right/Arrow" transform="translate(66.028986, 0.000000)">
+                <mask id="mask-10" fill="white">
+                    <use xlink:href="#path-9"></use>
+                </mask>
+                <g id="Mask" fill-rule="nonzero"></g>
+                <g id="Colour/Fill/Loss" mask="url(#mask-10)" fill="#9B3A46" fill-rule="evenodd">
+                    <rect id="Rectangle-3" x="0" y="0" width="68" height="59"></rect>
+                </g>
+            </g>
+            <g id="UX/End/Horizontal" fill-rule="evenodd" stroke-width="1">
+                <g id="Colour/UX/Grey" transform="translate(-9.153846, 15.000000)">
+                    <mask id="mask-12" fill="white">
+                        <use xlink:href="#path-11"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Loss" mask="url(#mask-12)" fill="#9B3A46">
+                        <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                            <rect x="0" y="0" width="86" height="125"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

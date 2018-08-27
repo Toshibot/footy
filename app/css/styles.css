@@ -1612,68 +1612,71 @@ body {
     text-align: center;
     margin: 12.5px 0; }
 
-.c-finals-alt {
-  background: #222; }
-
-@media screen and (min-width: 75em) {
-  .c-finals h2 {
-    padding-bottom: 25px; } }
-
-.c-finals__game {
-  background: #666;
-  width: 23%;
-  margin-bottom: 35px;
-  margin-right: 1.5%;
-  display: inline-block; }
-  .c-finals__game:nth-child(5), .c-finals__game:nth-child(10) {
+.c-finals {
+  position: relative;
+  overflow: hidden; }
+  .c-finals-alt {
+    background: #222; }
+  @media screen and (min-width: 75em) {
+    .c-finals h2 {
+      padding-bottom: 25px; } }
+  .c-finals__game {
+    background: #666;
+    width: 23%;
+    margin-bottom: 35px;
+    margin-right: 1.5%;
+    display: inline-block; }
+    .c-finals__game:nth-child(5), .c-finals__game:nth-child(10) {
+      margin-right: 0; }
+    .c-finals__game--in-progress {
+      background: #efefef;
+      color: #333; }
+    .c-finals__game--completed {
+      background: #444; }
+    @media screen and (max-width: 64em) {
+      .c-finals__game {
+        width: 100%;
+        margin: 0 0 36px; } }
+  .c-finals-1 {
+    margin-bottom: -25px; }
+    .c-finals-1 .c-finals__game {
+      margin-right: 0; }
+  .c-finals-semi .c-finals__game:nth-child(5) {
     margin-right: 0; }
-  .c-finals__game--in-progress {
-    background: #efefef;
-    color: #333; }
-  .c-finals__game--completed {
-    background: #444; }
-  @media screen and (max-width: 64em) {
-    .c-finals__game {
-      width: 100%;
-      margin: 0 0 36px; } }
-
-.c-finals-2 .c-finals__game:nth-child(3) {
-  margin-right: 0; }
-
-.c-finals-1 {
-  margin-bottom: -25px; }
-  .c-finals-1 .c-finals__game {
-    margin-right: 0; }
-
-.c-finals__venue {
-  padding: 25px 0 25px;
-  font-size: 12px; }
-
-.c-finals__date {
-  padding: 25px 0 12.5px;
-  line-height: 1.5; }
-
-.c-finals__vs {
-  display: inline-block;
-  padding: 0 25px;
-  vertical-align: top;
-  margin-top: 50px; }
-
-.c-finals__team {
-  display: inline-block;
-  text-align: center;
-  width: 75px; }
-  .c-finals__team img,
-  .c-finals__team span {
-    display: block; }
-    .c-finals__team img.js-score-text,
-    .c-finals__team span.js-score-text {
-      padding-top: 6.25px; }
-  .c-finals__team img {
-    width: 75px;
-    height: 75px;
+  @media screen and (min-width: 75em) {
+    .c-finals-semi {
+      padding-top: 50px; } }
+  .c-finals-pre .c-finals__game:nth-child(5) {
+    margin-right: 0 !important; }
+  @media screen and (min-width: 75em) {
+    .c-finals-pre {
+      padding-top: 125px; } }
+  .c-finals__venue {
+    padding: 25px 0 25px;
+    font-size: 12px; }
+  .c-finals__date {
+    padding: 25px 0 12.5px;
+    line-height: 1.5; }
+  .c-finals__vs {
+    display: inline-block;
+    padding: 0 25px;
+    vertical-align: top;
+    margin-top: 50px; }
+  .c-finals__team {
+    display: inline-block;
     text-align: center;
-    margin: 12.5px 0; }
+    width: 75px; }
+    .c-finals__team img,
+    .c-finals__team span {
+      display: block; }
+      .c-finals__team img.js-score-text,
+      .c-finals__team span.js-score-text {
+        padding-top: 6.25px; }
+    .c-finals__team img {
+      width: 75px;
+      height: 75px;
+      text-align: center;
+      margin: 12.5px 0; }
 
 .c-date__day {
   display: inline-block;
@@ -1689,3 +1692,27 @@ body {
   display: inline-block;
   margin-right: 5px;
   font-weight: 600; }
+
+.c-arrow {
+  position: absolute; }
+  @media screen and (max-width: 75em) {
+    .c-arrow {
+      display: none; } }
+  .c-arrow-semi-left, .c-arrow-prelim-left, .c-arrow-gf-left {
+    left: 50%;
+    top: 0;
+    margin-left: -50%; }
+    @media screen and (min-width: 118.75em) {
+      .c-arrow-semi-left, .c-arrow-prelim-left, .c-arrow-gf-left {
+        margin-left: -42%; } }
+  .c-arrow-semi-right, .c-arrow-prelim-right, .c-arrow-gf-right {
+    right: 50%;
+    top: 0;
+    margin-right: -50%; }
+    @media screen and (min-width: 118.75em) {
+      .c-arrow-semi-right, .c-arrow-prelim-right, .c-arrow-gf-right {
+        margin-right: -42%; } }
+  .c-arrow-semi-top, .c-arrow-prelim-top, .c-arrow-gf-top {
+    top: 0;
+    left: 50%;
+    margin-left: -188px; }

@@ -1,0 +1,37 @@
+.c-arrow {
+   position: absolute;
+
+   @media screen and (max-width: $break-m) {
+      display: none;
+   }
+
+   $bottom-width: 376px;
+
+   &-semi,
+   &-prelim,
+   &-gf {
+      &-left {
+         left: 50%;
+         top: 0;
+         margin-left: -50%;
+
+         @media screen and (min-width: $break-xl) {
+            margin-left: -42%;
+         }
+      }
+      &-right {
+         right: 50%;
+         top: 0;
+         margin-right: -50%;
+
+         @media screen and (min-width: $break-xl) {
+            margin-right: -42%;
+         }
+      }
+      &-top {
+         top: 0;
+         left: 50%;
+         margin-left: -$bottom-width/2;
+      }
+   }
+}

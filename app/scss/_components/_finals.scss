@@ -1,4 +1,6 @@
 .c-finals {
+   position: relative;
+   overflow: hidden;
 
    &-alt {
       background: $color-black-dark;
@@ -38,16 +40,35 @@
    }
 
    &-2 {
-      .c-finals__game:nth-child(3) {
-         margin-right: 0;
+      .c-finals__game:nth-child(4) {
+         // margin-right: 0;
       }
    }
 
    &-1 {
       margin-bottom: -$size-base;
-      
+
       .c-finals__game {
          margin-right: 0;
+      }
+   }
+
+   &-semi {
+      .c-finals__game:nth-child(5) {
+         margin-right: 0;
+      }
+
+      @media screen and (min-width: $break-m) {
+         padding-top: 50px;
+      }
+   }
+
+   &-pre {
+      .c-finals__game:nth-child(5) {
+         margin-right: 0 !important;
+      }
+      @media screen and (min-width: $break-m) {
+         padding-top: 125px; 
       }
    }
 

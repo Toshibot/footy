@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="374px" height="168px" viewBox="0 0 374 168" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ux/prelim-top</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="28" height="33"></rect>
+        <rect id="path-3" x="0" y="0" width="28" height="33"></rect>
+        <rect id="path-5" x="0" y="0" width="28" height="39.2984384"></rect>
+        <rect id="path-7" x="0" y="-0.831983806" width="28" height="35"></rect>
+        <rect id="path-9" x="0" y="0" width="104.076923" height="28"></rect>
+        <rect id="path-11" x="0" y="0" width="104.076923" height="28"></rect>
+        <path d="M15,7.48267096 L15,-5.4273576e-18 L43,-5.4273576e-18 L43,7.48267096 L58,7.48267096 L29,63.5263158 L1.70530257e-13,7.48267096 L15,7.48267096 Z" id="path-13"></path>
+        <rect id="path-15" x="0" y="0" width="28" height="60.9230769"></rect>
+        <rect id="path-17" x="0" y="0" width="80.4765886" height="28"></rect>
+        <rect id="path-19" x="-0.464604236" y="0" width="80.4765886" height="28"></rect>
+        <rect id="path-21" x="0" y="0" width="28" height="33"></rect>
+        <rect id="path-23" x="0" y="0" width="28" height="33"></rect>
+        <rect id="path-25" x="0" y="0" width="79.9615385" height="28"></rect>
+        <rect id="path-27" x="0" y="0" width="79.9615385" height="28"></rect>
+        <path d="M15,7.48267096 L15,-5.4273576e-18 L43,-5.4273576e-18 L43,7.48267096 L58,7.48267096 L29,63.5263158 L1.70530257e-13,7.48267096 L15,7.48267096 Z" id="path-29"></path>
+        <rect id="path-31" x="0" y="0" width="28" height="63.6295547"></rect>
+        <rect id="path-33" x="0" y="0" width="106" height="28"></rect>
+        <rect id="path-35" x="0" y="0" width="105.585284" height="28"></rect>
+    </defs>
+    <g id="ux/prelim-top" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="UX/Line/Vertical" transform="translate(0.000000, -10.000000)">
+            <g id="UX/End/Vertical" transform="translate(0.000000, 22.842105)">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -3.500000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-2)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="33"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Vertical">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -3.500000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-4)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="33"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Vertical" transform="translate(173.000000, 15.000000)">
+            <g id="Colour/UX/Grey" transform="translate(0.000000, 26.869578)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-6)" fill="#629030">
+                    <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                        <rect x="0" y="0" width="59" height="39"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Colour/UX/Grey" transform="translate(0.000000, 0.831984)">
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-8)" fill="#629030">
+                    <g transform="translate(-11.000000, -1.000000)" id="Rectangle-3">
+                        <rect x="0" y="0" width="59" height="39"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Horizontal" transform="translate(26.000000, 0.000000)">
+            <g id="UX/End/Horizontal" transform="translate(79.333333, 0.000000)">
+                <g id="Colour/UX/Grey" transform="translate(-11.038462, 15.000000)">
+                    <mask id="mask-10" fill="white">
+                        <use xlink:href="#path-9"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-10)" fill="#629030">
+                        <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                            <rect x="0" y="0" width="104" height="125"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Horizontal">
+                <g id="Colour/UX/Grey" transform="translate(-11.038462, 15.000000)">
+                    <mask id="mask-12" fill="white">
+                        <use xlink:href="#path-11"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-12)" fill="#629030">
+                        <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                            <rect x="0" y="0" width="104" height="125"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Vertical" transform="translate(0.000000, 76.000000)">
+            <g id="⬇️-Bottom" transform="translate(0.000000, 27.000000)">
+                <mask id="mask-14" fill="white">
+                    <use xlink:href="#path-13"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-14)" fill="#629030">
+                    <g transform="translate(-1.000000, 0.000000)" id="Rectangle-3">
+                        <rect x="0" y="0" width="59" height="64"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Vertical">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -6.461538)">
+                    <mask id="mask-16" fill="white">
+                        <use xlink:href="#path-15"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-16)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="61"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Horizontal" transform="translate(15.000000, 62.000000)">
+            <g id="Colour/UX/Grey" transform="translate(61.058807, 0.000000)">
+                <mask id="mask-18" fill="white">
+                    <use xlink:href="#path-17"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-18)" fill="#629030">
+                    <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                        <rect x="0" y="0" width="80" height="125"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Colour/UX/Grey">
+                <mask id="mask-20" fill="white">
+                    <use xlink:href="#path-19"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-20)" fill="#629030">
+                    <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                        <rect x="0" y="0" width="80" height="125"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Vertical" transform="translate(316.000000, -10.000000)">
+            <g id="UX/End/Vertical" transform="translate(0.000000, 22.842105)">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -3.500000)">
+                    <mask id="mask-22" fill="white">
+                        <use xlink:href="#path-21"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-22)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="33"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Vertical">
+                <g id="Colour/UX/Grey" transform="translate(15.000000, -3.500000)">
+                    <mask id="mask-24" fill="white">
+                        <use xlink:href="#path-23"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-24)" fill="#629030">
+                        <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                            <rect x="0" y="0" width="59" height="33"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Horizontal" transform="translate(226.000000, 0.000000)">
+            <g id="UX/End/Horizontal" transform="translate(61.594203, 0.000000)">
+                <g id="Colour/UX/Grey" transform="translate(-8.480769, 15.000000)">
+                    <mask id="mask-26" fill="white">
+                        <use xlink:href="#path-25"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-26)" fill="#629030">
+                        <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                            <rect x="0" y="0" width="80" height="125"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="UX/End/Horizontal">
+                <g id="Colour/UX/Grey" transform="translate(-8.480769, 15.000000)">
+                    <mask id="mask-28" fill="white">
+                        <use xlink:href="#path-27"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <g id="Colour/Fill/Win" mask="url(#mask-28)" fill="#629030">
+                        <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                            <rect x="0" y="0" width="80" height="125"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Vertical" transform="translate(316.000000, 67.000000)">
+            <g id="⬇️-Bottom" transform="translate(0.000000, 36.000000)">
+                <mask id="mask-30" fill="white">
+                    <use xlink:href="#path-29"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-30)" fill="#629030">
+                    <g transform="translate(-1.000000, 0.000000)" id="Rectangle-3">
+                        <rect x="0" y="0" width="59" height="64"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Colour/UX/Grey" transform="translate(15.000000, 0.448381)">
+                <mask id="mask-32" fill="white">
+                    <use xlink:href="#path-31"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-32)" fill="#629030">
+                    <g transform="translate(-11.000000, 0.000000)" id="Rectangle-3">
+                        <rect x="0" y="0" width="59" height="64"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="UX/Line/Horizontal" transform="translate(172.000000, 62.000000)">
+            <g id="Colour/UX/Grey" transform="translate(81.000000, 0.000000)">
+                <mask id="mask-34" fill="white">
+                    <use xlink:href="#path-33"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-34)" fill="#629030">
+                    <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                        <rect x="0" y="0" width="106" height="125"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Colour/UX/Grey" transform="translate(1.000000, 0.000000)">
+                <mask id="mask-36" fill="white">
+                    <use xlink:href="#path-35"></use>
+                </mask>
+                <g id="Mask"></g>
+                <g id="Colour/Fill/Win" mask="url(#mask-36)" fill="#629030">
+                    <g transform="translate(0.000000, -46.518519)" id="Rectangle-3">
+                        <rect x="0" y="0" width="106" height="125"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
