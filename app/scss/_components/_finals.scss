@@ -3,7 +3,9 @@
    overflow: hidden;
 
    &-alt {
-      background: $color-black-dark;
+        @media screen and (max-width: $break-m) {
+            background: $color-black-dark;
+        }
    }
 
    &-prem {

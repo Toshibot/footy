@@ -1615,8 +1615,9 @@ body {
 .c-finals {
   position: relative;
   overflow: hidden; }
-  .c-finals-alt {
-    background: #222; }
+  @media screen and (max-width: 75em) {
+    .c-finals-alt {
+      background: #222; } }
   .c-finals-prem {
     margin-bottom: -25px; }
   .c-finals__prem {
