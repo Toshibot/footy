@@ -21,6 +21,10 @@
        width: 40%;
        margin: 0 0 $size-base;
 
+       @media screen and (max-width: $break-m) {
+           width: 100%;
+       }
+
        &-overlay {
             // background-color: rgba(0, 0, 0, 0.33);
             padding: $size-base-lg 0 $size-base;
