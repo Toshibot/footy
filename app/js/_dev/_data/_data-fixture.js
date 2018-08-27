@@ -10,6 +10,7 @@ function dataFixture() {
 
         // console.log(json);
         console.log('fixture loaded');
+        console.log(json);
         
         var today = new Date;
         var testDate = new Date('2018-04-24');

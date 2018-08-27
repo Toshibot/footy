@@ -17,9 +17,9 @@ var cleanCSS = require('gulp-clean-css');
 // Clean
 // ==========================================================================
 
-// Clean Dist Folder
-gulp.task('clean:dist', function() {
-    return del.sync('dist');
+// Clean docs Folder
+gulp.task('clean:docs', function() {
+    return del.sync('docs');
 });
 
 //
@@ -35,7 +35,7 @@ gulp.task('php', function() {
 gulp.task('browserSync', function() {
     browserSync.init({
         server: {
-            baseDir: 'dist',
+            baseDir: 'docs',
         },
         port: '8081',
     });
@@ -59,13 +59,13 @@ gulp.task('sass', function(){
 gulp.task('minify-css', function() {
   return gulp.src('app/css/*.css')
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist/css'));
+    .pipe(gulp.dest('docs/css'));
 });
 
 // Migrate CSS Plugins
 gulp.task('css-plugins', function() {
     return gulp.src('app/css/plugins/*.css')
-        .pipe(gulp.dest('dist/css/plugins'))
+        .pipe(gulp.dest('docs/css/plugins'))
 });
 
 // CSS Build Sequence - Compile Sass, then Minify CSS
@@ -93,13 +93,13 @@ gulp.task('compress', function (callback) {
     return gulp.src('app/js/*.js')
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('dist/js'));
+        .pipe(gulp.dest('docs/js'));
 });
 
 // Migrate JS Plugins
 gulp.task('js-plugins', function() {
     return gulp.src('app/js/plugins/*.js')
-        .pipe(gulp.dest('dist/js/plugins'));
+        .pipe(gulp.dest('docs/js/plugins'));
 });
 
 // JS Build Sequence
@@ -111,34 +111,34 @@ gulp.task('build-js', function(callback) {
 // Migrate HTML, Fonts, Images and Icons
 // ==========================================================================
 
-// Copy Fonts to 'dist'
+// Copy Fonts to 'docs'
 gulp.task('fonts', function() {
     return gulp.src('app/fonts/**/*')
-        .pipe(gulp.dest('dist/fonts'));
+        .pipe(gulp.dest('docs/fonts'));
 });
 
-// Copy HTML to 'dist'
+// Copy HTML to 'docs'
 gulp.task('html', function() {
     return gulp.src(['app/*.{html,htm,php}'])
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('docs'));
 });
 
-// Copy Images to 'dist'
+// Copy Images to 'docs'
 gulp.task('images', function() {
     return gulp.src('app/img/**/*')
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('docs/img'));
 });
 
-// Copy icons to 'dist'
+// Copy icons to 'docs'
 gulp.task('icons', function() {
     return gulp.src('app/*.{png,ico}')
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('docs'));
 });
 
-// Copy data to 'dist'
+// Copy data to 'docs'
 gulp.task('data', function(){
     return gulp.src('app/data/*.{json,xml}')
-        .pipe(gulp.dest('dist/data'));
+        .pipe(gulp.dest('docs/data'));
 })
 
 // Migration Sequence
@@ -151,7 +151,7 @@ gulp.task('migrate-assets', function(callback) {
 // ==========================================================================
 
 gulp.task('global-build-sequence', function(callback) {
-    runSequence('clean:dist', 'migrate-assets', 'build-js', 'build-css', 'browserSync', callback);
+    runSequence('clean:docs', 'migrate-assets', 'build-js', 'build-css', 'browserSync', callback);
 });
 
 //
@@ -170,8 +170,8 @@ gulp.task('default', ['global-build-sequence'], function() {
     gulp.watch('app/*.{html,htm,php}', ['html']);
 
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('dist/css/*.css', browserSync.reload);
-    gulp.watch('dist/*.{html,htm,php}', browserSync.reload); 
-    gulp.watch('dist/js/**/*.js', browserSync.reload); 
+    gulp.watch('docs/css/*.css', browserSync.reload);
+    gulp.watch('docs/*.{html,htm,php}', browserSync.reload); 
+    gulp.watch('docs/js/**/*.js', browserSync.reload); 
 });
 
