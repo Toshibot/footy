@@ -1617,6 +1617,19 @@ body {
   overflow: hidden; }
   .c-finals-alt {
     background: #222; }
+  .c-finals-prem {
+    margin-bottom: -25px; }
+  .c-finals__prem {
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    display: inline-block;
+    width: 40%;
+    margin: 0 0 25px; }
+    .c-finals__prem-overlay {
+      background-color: rgba(0, 0, 0, 0.33);
+      padding: 50px 0 25px; }
   @media screen and (min-width: 75em) {
     .c-finals h2 {
       padding-bottom: 25px; } }
@@ -1637,10 +1650,8 @@ body {
       .c-finals__game {
         width: 100%;
         margin: 0 0 36px; } }
-  .c-finals-1 {
-    margin-bottom: -25px; }
-    .c-finals-1 .c-finals__game {
-      margin-right: 0; }
+  .c-finals-1 .c-finals__game {
+    margin-right: 0; }
   .c-finals-semi .c-finals__game:nth-child(5) {
     margin-right: 0; }
   @media screen and (min-width: 75em) {

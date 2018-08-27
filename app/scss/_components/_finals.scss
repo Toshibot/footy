@@ -6,6 +6,26 @@
       background: $color-black-dark;
    }
 
+   &-prem {
+       margin-bottom: -$size-base;
+   }
+
+   &__prem {
+    //    background: url('../img/teams/tigers.svg') repeat-y center center;
+       -webkit-background-size: 100%;
+       -moz-background-size: 100%;
+       -o-background-size: 100%;
+       background-size: 100%;
+       display: inline-block;
+       width: 40%;
+       margin: 0 0 $size-base;
+
+       &-overlay {
+            background-color: rgba(0, 0, 0, 0.33);
+            padding: $size-base-lg 0 $size-base;
+       }
+   }
+
    h2 {
        @media screen and (min-width: $break-m){
            padding-bottom: $size-base;
@@ -46,7 +66,7 @@
    }
 
    &-1 {
-      margin-bottom: -$size-base;
+    //   margin-bottom: -$size-base;
 
       .c-finals__game {
          margin-right: 0;
