@@ -12,6 +12,7 @@
 
    &__prem {
     //    background: url('../img/teams/tigers.svg') repeat-y center center;
+        background-color: #222;
        -webkit-background-size: 100%;
        -moz-background-size: 100%;
        -o-background-size: 100%;
@@ -21,8 +22,13 @@
        margin: 0 0 $size-base;
 
        &-overlay {
-            background-color: rgba(0, 0, 0, 0.33);
+            // background-color: rgba(0, 0, 0, 0.33);
             padding: $size-base-lg 0 $size-base;
+
+            h2 {
+                background: #333;
+                margin: $size-base 0;
+            }
        }
    }
 
