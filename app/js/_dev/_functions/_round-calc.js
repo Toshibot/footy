@@ -3,8 +3,16 @@ function roundCalc(d) {
     var month = currentDate.getMonth();
     var date = currentDate.getDate();
 
+    // Round 1
+    if (month == 1 && date <= 28 || month == 2 && date <= 25) {
+        return 1;
+
+    // Round 2
+    } else if (month == 2 && date <= 30) {
+        return 2;
+
     // Round 3
-    if (month == 3 && date <= 8) {
+    } else if(month == 3 && date <= 8) {
         return 3;
 
     // Round 4    

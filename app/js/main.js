@@ -10,7 +10,7 @@ dataFixture();
 
 function dataFixture() {
     
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
     // Dummy Dev File
     // $.getJSON('../data/data-fixture.json', function(json){
@@ -55,7 +55,7 @@ function dataFixture() {
 // ====
 function dataLadder() { 
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/122/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
 
     // $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
@@ -445,8 +445,16 @@ function roundCalc(d) {
     var month = currentDate.getMonth();
     var date = currentDate.getDate();
 
+    // Round 1
+    if (month == 1 && date <= 28 || month == 2 && date <= 25) {
+        return 1;
+
+    // Round 2
+    } else if (month == 2 && date <= 30) {
+        return 2;
+
     // Round 3
-    if (month == 3 && date <= 8) {
+    } else if(month == 3 && date <= 8) {
         return 3;
 
     // Round 4    
