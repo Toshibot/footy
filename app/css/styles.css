@@ -584,6 +584,10 @@ table {
   .u-padding-col\@lg {
     padding: 0 25px; } }
 
+@media only screen and (max-width: 41.6875em) {
+  .u-padding-col {
+    padding: 0 12.5px; } }
+
 .u-col * {
   box-sizing: border-box;
   -webkit-flex: 0 0 auto;

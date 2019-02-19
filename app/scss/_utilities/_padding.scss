@@ -52,4 +52,9 @@
             padding: 0 $size-base;
         }
     }
+
+
+    @media only screen and (max-width: $break-xs) {
+        padding: 0 $size-base-s;
+    }
 }

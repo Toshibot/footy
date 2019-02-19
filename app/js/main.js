@@ -5,15 +5,84 @@
 // Core Functions 
 dataLadder();
 dataFixture();
+// ==========================================================================
+// Fixture - Functions
+// ==========================================================================
+
+
+// 
+// Ladder
+// ======
+
+var ladder = function(){
+
+    // GWS
+    var giants = $('.c-ladder__team:contains("Greater Western Sydney")'); 
+    giants.children('span').text('GWS');
+    giants.children('img').attr('src', 'img/teams/gws.svg');
+
+    var hawks = $('.c-ladder__team:contains("Hawthorn")');
+    hawks.children('img').attr('src', 'img/teams/hawks.svg');
+
+    var suns = $('.c-ladder__team:contains("Gold Coast")');
+    suns.children('img').attr('src', 'img/teams/suns.svg');
+
+    var swans = $('.c-ladder__team:contains("Sydney")');
+    swans.children('img').attr('src', 'img/teams/swans.svg');
+
+    var saints = $('.c-ladder__team:contains("St Kilda")');
+    saints.children('img').attr('src', 'img/teams/saints.svg');
+
+    var tigers = $('.c-ladder__team:contains("Richmond")');
+    tigers.children('img').attr('src', 'img/teams/tigers.svg');
+
+    var bombers = $('.c-ladder__team:contains("Essendon")');
+    bombers.children('img').attr('src', 'img/teams/bombers.svg');
+
+    var cats = $('.c-ladder__team:contains("Geelong")');
+    cats.children('img').attr('src', 'img/teams/cats.svg');
+
+    var demons = $('.c-ladder__team:contains("Melbourne")');
+    demons.children('img').attr('src', 'img/teams/demons.svg');
+
+    var crows = $('.c-ladder__team:contains("Adelaide")');
+    crows.children('img').attr('src', 'img/teams/crows.svg');
+
+    var blues = $('.c-ladder__team:contains("Carlton")');
+    blues.children('img').attr('src', 'img/teams/blues.svg');
+    
+    // Port Adelaide
+    var port = $('.c-ladder__team:contains("Port Adelaide")');
+    port.children('img').attr('src', 'img/teams/port.svg');
+
+    var lions = $('.c-ladder__team:contains("Brisbane")');
+    lions.children('img').attr('src', 'img/teams/lions.svg');
+
+    var eagles = $('.c-ladder__team:contains("West Coast")');
+    eagles.children('img').attr('src', 'img/teams/eagles.svg');
+
+    var kangaroos = $('.c-ladder__team:contains("North Melbourne")');
+    kangaroos.children('img').attr('src', 'img/teams/kangaroos.svg');
+
+    var magpies = $('.c-ladder__team:contains("Collingwood")');
+    magpies.children('img').attr('src', 'img/teams/magpies.svg');
+
+    var dockers = $('.c-ladder__team:contains("Fremantle")');
+    dockers.children('img').attr('src', 'img/teams/dockers.svg');
+
+    var dogs = $('.c-ladder__team:contains("Bulldogs")');
+    dogs.children('img').attr('src', 'img/teams/dogs.svg');
+
+}
 
 // Data - Fixture/Results
 
 function dataFixture() {
     
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    // $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
     // Dummy Dev File
-    // $.getJSON('../data/data-fixture.json', function(json){
+    $.getJSON('../data/data-fixture.json', function(json){
 
         // console.log(json);
         console.log('fixture loaded');
@@ -55,9 +124,9 @@ function dataFixture() {
 // ====
 function dataLadder() { 
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+    // $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
 
-    // $.getJSON('../data/dummy_data.json', function (json) {
+    $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
 
         // console.log(json);
@@ -421,111 +490,42 @@ function roundCalc(d) {
 // Applies the correct team image to the referenced team code.
 function teamImg(team) {
     if (team == 'ADE') {
-        return 'img/teams/crows.svg';
+        return 'img/teams/crows.png';
     } else if (team == 'BRI') {
-        return 'img/teams/lions.svg';
+        return 'img/teams/lions.png';
     } else if (team == 'CAR') {
-        return 'img/teams/blues.svg';
+        return 'img/teams/blues.png';
     } else if (team == 'COL') {
-        return 'img/teams/magpies.svg';
+        return 'img/teams/magpies.png';
     } else if (team == 'ESS') {
-        return 'img/teams/bombers.svg';
+        return 'img/teams/bombers.png';
     } else if (team == 'FRE') {
-        return 'img/teams/dockers.svg';
+        return 'img/teams/dockers.png';
     } else if (team == 'GEE') {
-        return 'img/teams/cats.svg';
+        return 'img/teams/cats.png';
     } else if (team == 'GCS') {
-        return 'img/teams/suns.svg';
+        return 'img/teams/suns.png';
     } else if (team == 'GWS') {
-        return 'img/teams/gws.svg';
+        return 'img/teams/gws.png';
     } else if (team == 'HAW') {
-        return 'img/teams/hawks.svg';
+        return 'img/teams/hawks.png';
     } else if (team == 'MEL') {
-        return 'img/teams/demons.svg';
+        return 'img/teams/demons.png';
     } else if (team == 'NM') {
-        return 'img/teams/kangaroos.svg';
+        return 'img/teams/kangaroos.png';
     } else if (team == 'POR') {
-        return 'img/teams/port.svg';
+        return 'img/teams/port.png';
     } else if (team == 'RIC') {
-        return 'img/teams/tigers.svg';
+        return 'img/teams/tigers.png';
     } else if (team == 'STK') {
-        return 'img/teams/saints.svg';
+        return 'img/teams/saints.png';
     } else if (team == 'SYD') {
-        return 'img/teams/swans.svg';
+        return 'img/teams/swans.png';
     } else if (team == 'WCE') {
-        return 'img/teams/eagles.svg';
+        return 'img/teams/eagles.png';
     } else if (team == 'WBD') {
-        return 'img/teams/dogs.svg';
+        return 'img/teams/dogs.png';
     }
-}
-// ==========================================================================
-// Fixture - Functions
-// ==========================================================================
-
-
-// 
-// Ladder
-// ======
-
-var ladder = function(){
-
-    // GWS
-    var giants = $('.c-ladder__team:contains("Greater Western Sydney")'); 
-    giants.children('span').text('GWS');
-    giants.children('img').attr('src', 'img/teams/gws.svg');
-
-    var hawks = $('.c-ladder__team:contains("Hawthorn")');
-    hawks.children('img').attr('src', 'img/teams/hawks.svg');
-
-    var suns = $('.c-ladder__team:contains("Gold Coast")');
-    suns.children('img').attr('src', 'img/teams/suns.svg');
-
-    var swans = $('.c-ladder__team:contains("Sydney")');
-    swans.children('img').attr('src', 'img/teams/swans.svg');
-
-    var saints = $('.c-ladder__team:contains("St Kilda")');
-    saints.children('img').attr('src', 'img/teams/saints.svg');
-
-    var tigers = $('.c-ladder__team:contains("Richmond")');
-    tigers.children('img').attr('src', 'img/teams/tigers.svg');
-
-    var bombers = $('.c-ladder__team:contains("Essendon")');
-    bombers.children('img').attr('src', 'img/teams/bombers.svg');
-
-    var cats = $('.c-ladder__team:contains("Geelong")');
-    cats.children('img').attr('src', 'img/teams/cats.svg');
-
-    var demons = $('.c-ladder__team:contains("Melbourne")');
-    demons.children('img').attr('src', 'img/teams/demons.svg');
-
-    var crows = $('.c-ladder__team:contains("Adelaide")');
-    crows.children('img').attr('src', 'img/teams/crows.svg');
-
-    var blues = $('.c-ladder__team:contains("Carlton")');
-    blues.children('img').attr('src', 'img/teams/blues.svg');
-    
-    // Port Adelaide
-    var port = $('.c-ladder__team:contains("Port Adelaide")');
-    port.children('img').attr('src', 'img/teams/port.svg');
-
-    var lions = $('.c-ladder__team:contains("Brisbane")');
-    lions.children('img').attr('src', 'img/teams/lions.svg');
-
-    var eagles = $('.c-ladder__team:contains("West Coast")');
-    eagles.children('img').attr('src', 'img/teams/eagles.svg');
-
-    var kangaroos = $('.c-ladder__team:contains("North Melbourne")');
-    kangaroos.children('img').attr('src', 'img/teams/kangaroos.svg');
-
-    var magpies = $('.c-ladder__team:contains("Collingwood")');
-    magpies.children('img').attr('src', 'img/teams/magpies.svg');
-
-    var dockers = $('.c-ladder__team:contains("Fremantle")');
-    dockers.children('img').attr('src', 'img/teams/dockers.svg');
-
-    var dogs = $('.c-ladder__team:contains("Bulldogs")');
-    dogs.children('img').attr('src', 'img/teams/dogs.svg');
-
 }
 //
 // Layout - Vertically Centered
