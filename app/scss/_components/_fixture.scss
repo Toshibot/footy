@@ -35,13 +35,13 @@
     }
 
     &__venue {
-        padding: 15px 0 $size-base;
+        padding: $size-base 0;
         font-size: 12px;
     }
     
     
     &__date {
-        padding: $size-base-lg*0.75 0 $size-base-s;
+        padding: $size-base 0 3px;
         line-height: 1.5;
     }
 

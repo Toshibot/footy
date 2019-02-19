@@ -25,7 +25,7 @@ function fixtureItem(array) {
                 '<span class="js-team-text">' + array.team_B.code + '</span>' +
                 '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue"></div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
             '</div>'
         );
 
@@ -50,7 +50,7 @@ function fixtureItem(array) {
                     '<span class="js-team-text">' + array.team_B.code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.score + '</span>' +
                 '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue"></div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
             '</div>'
         );
 
@@ -75,7 +75,7 @@ function fixtureItem(array) {
                     '<span class="js-team-text">' + array.team_B.code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.score + '</span>' +
                 '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue"></div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
             '</div>'
         );
     }
