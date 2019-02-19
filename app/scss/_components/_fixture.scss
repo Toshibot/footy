@@ -9,7 +9,7 @@
     &__game {
         background: $color-grey-dark;
         width: 32%;
-        margin-bottom: 35px;
+        margin-bottom: 17px;
         margin-right: 1.5%;
         display: inline-block;
 
@@ -35,13 +35,13 @@
     }
 
     &__venue {
-        padding: $size-base 0 $size-base;
+        padding: 15px 0 $size-base;
         font-size: 12px;
     }
     
     
     &__date {
-        padding: $size-base 0 $size-base-s;
+        padding: $size-base-lg*0.75 0 $size-base-s;
         line-height: 1.5;
     }
 
@@ -56,6 +56,8 @@
         display: inline-block;
         text-align: center;
         width: 75px;
+        font-size: 12px;
+        line-height: 16px;
 
         img,
         span {
@@ -73,5 +75,9 @@
             margin: $size-base-s 0;
             // @include boxShadow(3, $color-black);
         }
+    }
+
+    &__score {
+        font-size: 16px;
     }
 }
