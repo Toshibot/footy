@@ -145,12 +145,14 @@
             }
         }
 
-        &__percentage {
+        &__wins,
+        &__losses,
+        &__draws {
             display: none !important;
         }
 
         &__team {
-            @include flex-size($width-6);
+            @include flex-size($width-7);
         }
     }
 }

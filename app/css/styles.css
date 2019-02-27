@@ -1556,13 +1556,13 @@ body {
     padding-right: 6.25px; }
   .c-ladder__item div:nth-child(even) {
     background: transparent; }
-  .c-ladder__percentage {
+  .c-ladder__wins, .c-ladder__losses, .c-ladder__draws {
     display: none !important; }
   .c-ladder__team {
-    -ms-flex-preferred-size: 50%;
-    -webkit-flex-basis: 50%;
-    flex-basis: 50%;
-    max-width: 50%; } }
+    -ms-flex-preferred-size: 58.333%;
+    -webkit-flex-basis: 58.333%;
+    flex-basis: 58.333%;
+    max-width: 58.333%; } }
 
 @media screen and (min-width: 75em) {
   .c-fixture h2 {

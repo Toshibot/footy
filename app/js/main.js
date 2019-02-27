@@ -79,10 +79,10 @@ var ladder = function(){
 
 function dataFixture() {
     
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    // $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
     // Dummy Dev File
-    // $.getJSON('../data/data-fixture.json', function(json){
+    $.getJSON('../data/data-fixture.json', function(json){
 
         // console.log(json);
         console.log('fixture loaded');
@@ -124,9 +124,9 @@ function dataFixture() {
 // ====
 function dataLadder() { 
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+    // $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
 
-    // $.getJSON('../data/dummy_data.json', function (json) {
+    $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
 
         // console.log(json);
@@ -382,7 +382,7 @@ function awayKit(array) {
 
 // Constructs the ladder Items
 function ladderItem(array, number) {
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.code);
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(teamAbrev(array.code));
     $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.code));
     $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.stats.played);
     $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.stats.won);
@@ -491,6 +491,67 @@ function roundCalc(d) {
         return 23;
     }
 
+}
+function teamAbrev(array) {
+   var team = array;
+
+   if (team == 'ADE') {
+      return 'Adelaide'
+
+   } else if (team == 'BRI') {
+      return 'Brisbane'
+
+   } else if (team == 'CAR') {
+      return 'Carlton'
+
+   } else if (team == 'COL') {
+      return 'Collingwood'
+
+   } else if (team == 'ESS') {
+      return 'Essendon'
+
+   } else if (team == 'WBD') {
+      return 'W. Bulldogs'
+
+   } else if (team == 'FRE') {
+      return 'Fremantle'
+
+   } else if (team == 'GEE') {
+      return 'Geelong'
+
+   } else if (team == 'GCS') {
+      return 'Gold Coast'
+
+   } else if (team == 'GWS') {
+      return 'W. Sydney'
+
+   } else if (team == 'HAW') {
+      return 'Hawthorn'
+
+   } else if (team == 'MEL') {
+      return 'Melbourne'
+
+   } else if (team == 'NM') {
+      return 'N. Melbourne'
+
+   } else if (team == 'POR') {
+      return 'Port Adelaide'
+
+   } else if (team == 'RIC') {
+      return 'Richmond'
+
+   } else if (team == 'STK') {
+      return 'St. Kilda'
+
+   } else if (team == 'SYD') {
+      return 'Sydney'
+
+   } else if (team == 'WCE') {
+      return 'West Coast'
+
+   } else {
+      return team
+   }
 }
 
 // Applies the correct team image to the referenced team code.
