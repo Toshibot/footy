@@ -37,7 +37,7 @@ function fixtureItem(array) {
                     '<span class="c-date__day">' + date.day + '</span>' +
                     '<span class="c-date__month">' + date.month + '</span>' +
                     '<span class="c-date__date">' + date.date + '</span>' +
-                    '<span class="c-date__time">' + date.time + '</span>' +
+                    '<span class="c-date__time">FT</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
@@ -62,7 +62,7 @@ function fixtureItem(array) {
                     '<span class="c-date__day">' + date.day + '</span>' +
                     '<span class="c-date__month">' + date.month + '</span>' +
                     '<span class="c-date__date">' + date.date + '</span>' +
-                    '<span class="c-date__time">' + date.time + '</span>' +
+                    '<span class="c-date__time">' + match_status + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
