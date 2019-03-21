@@ -1,21 +1,29 @@
 .c-date {
 
-	&__day {
+	&__day,
+	&__date,
+	&__month,
+	&__time,
+	&__live,
+	&__status {
 		display: inline-block;
+	}
+
+	&__day,
+	&__month,
+	&__live,
+	&__status  {
 		margin-right: 5px;
 		font-weight: 600;
 	}
 
 	&__date {
-		display: inline-block;
 		margin-right: 10px;
 		font-weight: 600;
 	}
 
-	&__month {
-		display: inline-block;
-		margin-right: 5px;
-		font-weight: 600;
+	&__live {
+		color: $color-red;
 	}
 
 	&__time {

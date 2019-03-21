@@ -1706,20 +1706,19 @@ body {
       text-align: center;
       margin: 12.5px 0; }
 
-.c-date__day {
-  display: inline-block;
+.c-date__day, .c-date__date, .c-date__month, .c-date__time, .c-date__live, .c-date__status {
+  display: inline-block; }
+
+.c-date__day, .c-date__month, .c-date__live, .c-date__status {
   margin-right: 5px;
   font-weight: 600; }
 
 .c-date__date {
-  display: inline-block;
   margin-right: 10px;
   font-weight: 600; }
 
-.c-date__month {
-  display: inline-block;
-  margin-right: 5px;
-  font-weight: 600; }
+.c-date__live {
+  color: #FF002B; }
 
 .c-arrow {
   position: absolute; }
