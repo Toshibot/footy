@@ -59,9 +59,9 @@ function fixtureItem(array) {
         $('.js-fixture').before(
             '<div class="c-fixture__game c-fixture__game--in-progress">' +
                 '<div class= "c-fixture__date c-date" >' +
-                    '<span class="c-date__day">' + date.day + '</span>' +
-                    '<span class="c-date__month">' + date.month + '</span>' +
-                    '<span class="c-date__date">' + date.date + '</span>' +
+                    '<span class="c-date__day"></span>' +
+                    '<span class="c-date__month">Live</span>' +
+                    '<span class="c-date__date">Now</span>' +
                     '<span class="c-date__time">' + match_status + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
