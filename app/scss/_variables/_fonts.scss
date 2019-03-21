@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'Font Awesome';
-  src: url("../fonts/fontawesome-webfont.eot");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), 
-  	   url("../fonts/fontawesome-webfont.woff") format("woff"), 
-  	   url("../fonts/fontawesome-webfont.ttf") format("truetype"), 
-  	   url("../fonts/fontawesome-webfont.svg#Body") format("svg");
+  src: url("../fonts/fa-regular-400.eot");
+  src: url("../fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), 
+  	   url("../fonts/fa-regular-400.woff") format("woff"), 
+  	   url("../fonts/fa-regular-400.ttf") format("truetype"), 
+  	   url("../fonts/fa-regular-400.svg#Body") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -15,3 +15,4 @@ $font-body: 'Lato', sans-serif;
 $font-heading: 'Montserrat', sans-serif;
 $font-heading-s: 'Montserrat', sans-serif;
 $font-script: 'Dancing Script', serif;
+$font-icon: 'Font Awesome';

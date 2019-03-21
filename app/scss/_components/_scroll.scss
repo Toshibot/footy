@@ -1,0 +1,33 @@
+.c-scroll {
+   display: none;
+
+   @media screen and (max-width: $break-s) {
+      display: block;
+      position: fixed;
+      z-index: 999;
+      background: rgba(0,0,0,0.5);
+      bottom: $size-base-s;
+      right: $size-base-s;
+      height: $size-base-lg;
+      width: $size-base-lg;
+      font-family: $font-icon;
+      
+      &.is-hidden {
+         display: none;
+      }
+
+      &:before {
+         position: relative;
+         z-index: 999;
+         content: '\f103';
+         color: $color-white;
+         font-size: $size-base;
+         line-height: $size-base-lg;
+         display: block;
+         @include borderBox;
+         height: $size-base-lg;
+         width: $size-base-lg;
+         font-family: $font-icon;
+      }
+   }
+}
