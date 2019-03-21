@@ -11,10 +11,11 @@ function scroll() {
       $('html, body').animate(
          {
             scrollTop: $('.c-fixture__round').offset().top,
-         }, 
-         500,
-         'linear'
-      );
+         }, {
+            duration: 400,
+            specialEasing: 'easeOutBounce'
+         }
+      )
    });
 
    $('.c-fixture__game').each(function(){
