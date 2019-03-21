@@ -16,5 +16,10 @@ function scroll() {
          'linear'
       );
    });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+      }
+   });
 }
-scroll();

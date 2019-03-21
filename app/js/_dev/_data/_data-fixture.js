@@ -37,7 +37,8 @@ function dataFixture() {
 
             fixtureItem(element);
         }
-    });
 
+        scroll();
+    });
 }
 
