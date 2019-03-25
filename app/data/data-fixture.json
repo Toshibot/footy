@@ -36,7 +36,7 @@
         "is_final": false,
         "is_grand_final": false,
         "capture_type": "Live",
-        "match_status": "4th Qtr",
+        "match_status": "Full Time",
         "match_centre_url": {
             "match_id": "AFL20180101",
             "web_url": null,
@@ -111,7 +111,7 @@
         "is_final": false,
         "is_grand_final": false,
         "capture_type": "Live",
-        "match_status": "Pre Game",
+        "match_status": "Full Time",
         "match_centre_url": {
             "match_id": "AFL20180102",
             "web_url": null,
@@ -486,13 +486,13 @@
         "is_final": false,
         "is_grand_final": false,
         "capture_type": "Live",
-        "match_status": "Full Time",
+        "match_status": "4th Qtr",
         "match_centre_url": {
             "match_id": "AFL20180107",
             "web_url": null,
             "mob_url": null
         },
-        "match_time": "",
+        "match_time": "14:33",
         "team_A": {
             "id": 20018,
             "name": "Greater Western Sydney Giants",
@@ -561,13 +561,13 @@
         "is_final": false,
         "is_grand_final": false,
         "capture_type": "Live",
-        "match_status": "Full Time",
+        "match_status": "4th Qtr",
         "match_centre_url": {
             "match_id": "AFL20180108",
             "web_url": null,
             "mob_url": null
         },
-        "match_time": "",
+        "match_time": "12:32",
         "team_A": {
             "id": 20010,
             "name": "Melbourne Demons",
@@ -636,7 +636,7 @@
         "is_final": false,
         "is_grand_final": false,
         "capture_type": "Live",
-        "match_status": "Full Time",
+        "match_status": "Pre Game",
         "match_centre_url": {
             "match_id": "AFL20180109",
             "web_url": null,

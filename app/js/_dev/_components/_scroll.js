@@ -21,6 +21,16 @@ function scroll() {
    $('.c-fixture__game').each(function(){
       if ($(this).hasClass('c-fixture__game--in-progress')){
          $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeOutBounce'
+               }
+            )
+         });
       }
    });
 }
