@@ -79,5 +79,10 @@
 
     &__score {
         font-size: 16px;
+
+        &-total {
+            display: inline !important;
+            font-weight: 600;
+        }
     }
 }
