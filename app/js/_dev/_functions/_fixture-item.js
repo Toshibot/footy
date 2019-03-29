@@ -16,13 +16,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
-                    '<span class="js-team-text">' + array.team_A.code + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                 '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
-                '<span class="js-team-text">' + array.team_B.code + '</span>' +
+                '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                 '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
@@ -41,13 +41,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
-                    '<span class="js-team-text">' + array.team_A.code + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_A.goals + '. ' + array.team_A.behinds + '. <span class="c-fixture__score-total">' + array.team_A.score + '</span></span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                     '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
-                    '<span class="js-team-text">' + array.team_B.code + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.goals + '. ' + array.team_B.behinds + '. <span class="c-fixture__score-total">' + array.team_B.score + '</span></span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
@@ -65,13 +65,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
-                    '<span class="js-team-text">' + array.team_A.code + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_A.goals + '. ' + array.team_A.behinds + '. <span class="c-fixture__score-total">' + array.team_A.score + '</span></span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                     '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
-                    '<span class="js-team-text">' + array.team_B.code + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.goals + '. ' + array.team_B.behinds + '. <span class="c-fixture__score-total">' + array.team_B.score + '</span></span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + array.venue.name + '</div>' +
