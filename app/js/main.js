@@ -86,7 +86,7 @@ function scroll() {
    $('.js-scrollto-fixture').on('click', function(){
       $('html, body').animate(
          {
-            scrollTop: $('.c-fixture__round').offset().top,
+            scrollTop: $('.js-game-pregame').offset().top - 36,
          }, {
             duration: 400,
             specialEasing: 'easeOutBounce'
@@ -260,7 +260,7 @@ function fixtureItem(array) {
     if (match_status == 'Pre Game') {
 
         $('.js-fixture').before(
-            '<div class="c-fixture__game">' +
+            '<div class="c-fixture__game js-game-pregame">' +
                 '<div class= "c-fixture__date c-date" >' + 
                     '<span class="c-date__day">' + date.day + '</span>' +
                     '<span class="c-date__month">' + date.month + '</span>' +

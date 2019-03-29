@@ -10,7 +10,7 @@ function scroll() {
    $('.js-scrollto-fixture').on('click', function(){
       $('html, body').animate(
          {
-            scrollTop: $('.c-fixture__round').offset().top,
+            scrollTop: $('.js-game-pregame').offset().top - 36,
          }, {
             duration: 400,
             specialEasing: 'easeOutBounce'

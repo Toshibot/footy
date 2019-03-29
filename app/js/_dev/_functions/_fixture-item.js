@@ -7,7 +7,7 @@ function fixtureItem(array) {
     if (match_status == 'Pre Game') {
 
         $('.js-fixture').before(
-            '<div class="c-fixture__game">' +
+            '<div class="c-fixture__game js-game-pregame">' +
                 '<div class= "c-fixture__date c-date" >' + 
                     '<span class="c-date__day">' + date.day + '</span>' +
                     '<span class="c-date__month">' + date.month + '</span>' +
