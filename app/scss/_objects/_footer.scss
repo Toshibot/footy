@@ -16,6 +16,7 @@
 		width: $width-m;
         margin: 0 auto;
         text-align: center;
+        font-size: 16px;
 
         @media only screen and (max-width: $break-s) {
             width: $width-s;

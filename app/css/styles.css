@@ -561,18 +561,6 @@ table {
   padding: 0 25px; }
 
 @media only screen and (max-width: 41.6875em) {
-  .u-padding\@sm {
-    padding: 25px; } }
-
-@media only screen and (min-width: 41.6875em) and (max-width: 75em) {
-  .u-padding\@md {
-    padding: 25px; } }
-
-@media only screen and (min-width: 75em) {
-  .u-padding\@lg {
-    padding: 25px; } }
-
-@media only screen and (max-width: 41.6875em) {
   .u-padding-col\@sm {
     padding: 0 25px; } }
 
@@ -587,6 +575,18 @@ table {
 @media only screen and (max-width: 41.6875em) {
   .u-padding-col {
     padding: 0 12.5px; } }
+
+@media only screen and (max-width: 41.6875em) {
+  .u-padding\@sm {
+    padding: 25px; } }
+
+@media only screen and (min-width: 41.6875em) and (max-width: 75em) {
+  .u-padding\@md {
+    padding: 25px; } }
+
+@media only screen and (min-width: 75em) {
+  .u-padding\@lg {
+    padding: 25px; } }
 
 .u-col * {
   box-sizing: border-box;
@@ -1319,7 +1319,8 @@ body {
   .o-footer__content {
     width: 61.25em;
     margin: 0 auto;
-    text-align: center; }
+    text-align: center;
+    font-size: 16px; }
     @media only screen and (max-width: 64em) {
       .o-footer__content {
         width: 100%; } }
