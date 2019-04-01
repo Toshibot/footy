@@ -89,7 +89,7 @@ function scroll() {
             scrollTop: $('.js-game-pregame').offset().top - 36,
          }, {
             duration: 400,
-            specialEasing: 'easeOutBounce'
+            specialEasing: 'easeInOut'
          }
       )
    });
@@ -103,7 +103,7 @@ function scroll() {
                   scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
                }, {
                   duration: 400,
-                  specialEasing: 'easeOutBounce'
+                  specialEasing: 'easeInOut'
                }
             )
          });
