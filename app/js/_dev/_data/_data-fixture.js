@@ -1,7 +1,7 @@
 
 // Data - Fixture/Results
 
-function dataFixture() {
+function dataFixture(round) {
     
     $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 

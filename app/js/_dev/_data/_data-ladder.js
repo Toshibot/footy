@@ -9,7 +9,7 @@ function dataLadder() {
     // $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
 
-        // console.log(json);
+        console.log(json);
         // Round Number
         // round.text('AFL Ladder ' + json.round.name);
 
