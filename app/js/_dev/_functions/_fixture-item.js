@@ -21,7 +21,7 @@ function fixtureItem(array) {
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
+                '<img class="js-team-img" src="' + awayKit(array.team_B.code, array.team_A.code) + '" />' +
                 '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                 '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
@@ -46,7 +46,7 @@ function fixtureItem(array) {
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
+                    '<img class="js-team-img" src="' + awayKit(array.team_B.code, array.team_A.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.goals + '. ' + array.team_B.behinds + '. <span class="c-fixture__score-total">' + array.team_B.score + '</span></span>' +
                 '</div>' +
@@ -70,7 +70,7 @@ function fixtureItem(array) {
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
+                    '<img class="js-team-img" src="' + awayKit(array.team_B.code, array.team_A.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.goals + '. ' + array.team_B.behinds + '. <span class="c-fixture__score-total">' + array.team_B.score + '</span></span>' +
                 '</div>' +

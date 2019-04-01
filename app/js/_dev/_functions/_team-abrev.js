@@ -29,7 +29,7 @@ function teamAbrev(array) {
       return 'Gold Coast'
 
    } else if (team == 'GWS') {
-      return 'W. Sydney'
+      return 'Gr. W. Sydney'
 
    } else if (team == 'HAW') {
       return 'Hawthorn'

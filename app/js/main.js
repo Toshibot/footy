@@ -5,6 +5,74 @@
 // Core Functions 
 dataLadder();
 dataFixture();
+
+// Data - Fixture/Results
+
+function dataFixture() {
+    
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+    // Dummy Dev File
+    // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        console.log('fixture loaded');
+        console.log(json);
+        
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var currentRoundNo = roundCalc(today);
+        // var currentRoundNo = 2;
+
+        $('.js-fixture-round').text(currentRoundNo);
+
+        for (i = 0; i < json.length; i++) {
+            const element = json[i];
+            
+            if (element.round.number == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        // console.log(currentRound);
+
+        var game1 = currentRound[8];
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+
+        scroll();
+    });
+}
+
+
+
+//
+// Data
+// ====
+function dataLadder() { 
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+
+    // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        // console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const element = json.teams[i];
+            ladderItem(element, i+1);
+        }
+    });
+
+}
 // ==========================================================================
 // Fixture - Functions
 // ==========================================================================
@@ -111,74 +179,6 @@ function scroll() {
    });
 }
 
-// Data - Fixture/Results
-
-function dataFixture() {
-    
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-    // Dummy Dev File
-    // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
-        
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 2;
-
-        $('.js-fixture-round').text(currentRoundNo);
-
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
-            
-            if (element.round.number == currentRoundNo) {
-                currentRound.push(element);
-            }
-        }
-
-        // console.log(currentRound);
-
-        var game1 = currentRound[8];
-
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
-
-            fixtureItem(element);
-        }
-
-        scroll();
-    });
-}
-
-
-
-//
-// Data
-// ====
-function dataLadder() { 
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
-
-    // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        // console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const element = json.teams[i];
-            ladderItem(element, i+1);
-        }
-    });
-
-}
-
 function dateTime(d) {
 
     var date = new Date(d);
@@ -274,7 +274,7 @@ function fixtureItem(array) {
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
+                '<img class="js-team-img" src="' + awayKit(array.team_B.code, array.team_A.code) + '" />' +
                 '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                 '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
@@ -299,7 +299,7 @@ function fixtureItem(array) {
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
+                    '<img class="js-team-img" src="' + awayKit(array.team_B.code, array.team_A.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.goals + '. ' + array.team_B.behinds + '. <span class="c-fixture__score-total">' + array.team_B.score + '</span></span>' +
                 '</div>' +
@@ -323,7 +323,7 @@ function fixtureItem(array) {
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + awayKit(array.team_B.code) + '" />' +
+                    '<img class="js-team-img" src="' + awayKit(array.team_B.code, array.team_A.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_B.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_B.goals + '. ' + array.team_B.behinds + '. <span class="c-fixture__score-total">' + array.team_B.score + '</span></span>' +
                 '</div>' +
@@ -374,8 +374,8 @@ function homeKit(array) {
     }
 }
 
-function awayKit(array) {
-    var team = array;
+function awayKit(awayTeam, HomeTeam) {
+    var team = awayTeam;
 
     if (team == 'ADE') {
         return 'img/teams/crows-away.png';
@@ -392,9 +392,17 @@ function awayKit(array) {
     } else if (team == 'GEE') {
         return 'img/teams/cats-home.png';
     } else if (team == 'GCS') {
-        return 'img/teams/suns-away.png';
+        if (HomeTeam == 'WBD' || HomeTeam == 'CAR' || HomeTeam == 'FRE' || HomeTeam == 'NM') {
+            return 'img/teams/suns-home.png'
+        } else {
+            return 'img/teams/suns-away.png';
+        }
     } else if (team == 'GWS') {
-        return 'img/teams/gws-away.png';
+        if (HomeTeam == 'SYD'){
+            return 'img/teams/gws-home.png';
+        } else {
+            return 'img/teams/gws-away.png';
+        }
     } else if (team == 'HAW') {
         return 'img/teams/hawks-away.png';
     } else if (team == 'MEL') {
@@ -439,7 +447,7 @@ function roundCalc(d) {
         return 1;
 
     // Round 2
-    } else if (month == 2 && date <= 30) {
+    } else if (month == 2 && date <= 31) {
         return 2;
 
     // Round 3
@@ -559,7 +567,7 @@ function teamAbrev(array) {
       return 'Gold Coast'
 
    } else if (team == 'GWS') {
-      return 'W. Sydney'
+      return 'Gr. W. Sydney'
 
    } else if (team == 'HAW') {
       return 'Hawthorn'

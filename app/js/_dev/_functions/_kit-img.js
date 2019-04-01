@@ -40,8 +40,8 @@ function homeKit(array) {
     }
 }
 
-function awayKit(array) {
-    var team = array;
+function awayKit(awayTeam, HomeTeam) {
+    var team = awayTeam;
 
     if (team == 'ADE') {
         return 'img/teams/crows-away.png';
@@ -58,9 +58,17 @@ function awayKit(array) {
     } else if (team == 'GEE') {
         return 'img/teams/cats-home.png';
     } else if (team == 'GCS') {
-        return 'img/teams/suns-away.png';
+        if (HomeTeam == 'WBD' || HomeTeam == 'CAR' || HomeTeam == 'FRE' || HomeTeam == 'NM') {
+            return 'img/teams/suns-home.png'
+        } else {
+            return 'img/teams/suns-away.png';
+        }
     } else if (team == 'GWS') {
-        return 'img/teams/gws-away.png';
+        if (HomeTeam == 'SYD'){
+            return 'img/teams/gws-home.png';
+        } else {
+            return 'img/teams/gws-away.png';
+        }
     } else if (team == 'HAW') {
         return 'img/teams/hawks-away.png';
     } else if (team == 'MEL') {
