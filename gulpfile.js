@@ -2,15 +2,12 @@
 // Requires
 
 var gulp = require('gulp');
-var php = require('gulp-connect-php');
 var del = require('del');
-var notify = require('gulp-notify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
-var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-butternut');
 var cleanCSS = require('gulp-clean-css');
 
 //
@@ -25,11 +22,6 @@ gulp.task('clean:docs', function() {
 //
 // Browser Preview
 // ==========================================================================
-
-// PHP Server
-gulp.task('php', function() {
-    php.server({base: 'build', port: 8005, keepalive: true});
-});
 
 // Browser Preview and Synchronisation
 gulp.task('browserSync', function() {
@@ -69,9 +61,7 @@ gulp.task('css-plugins', function() {
 });
 
 // CSS Build Sequence - Compile Sass, then Minify CSS
-gulp.task('build-css', function(callback) {
-    runSequence('sass', 'minify-css', 'css-plugins', callback)
-});
+gulp.task('build-css', gulp.series('sass', 'minify-css', 'css-plugins'));
 
 
 //
@@ -89,7 +79,7 @@ gulp.task('concat', function () {
 });
 
 // Compress and migrate main.js file
-gulp.task('compress', function (callback) {
+gulp.task('compress', function () {
     return gulp.src('app/js/*.js')
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
@@ -103,9 +93,7 @@ gulp.task('js-plugins', function() {
 });
 
 // JS Build Sequence
-gulp.task('build-js', function(callback) {
-    runSequence('concat', 'compress', 'js-plugins', callback);
-});
+gulp.task('build-js', gulp.series('concat', 'compress', 'js-plugins'));
 
 //
 // Migrate HTML, Fonts, Images and Icons
@@ -142,23 +130,19 @@ gulp.task('data', function(){
 })
 
 // Migration Sequence
-gulp.task('migrate-assets', function(callback) {
-    runSequence('fonts', 'html', 'images', 'icons', 'data', callback);
-});
+gulp.task('migrate-assets', gulp.series('fonts', 'html', 'images', 'icons', 'data'));
 
 //
 // Main Build Sequence
 // ==========================================================================
 
-gulp.task('global-build-sequence', function(callback) {
-    runSequence('clean:docs', 'migrate-assets', 'build-js', 'build-css', 'browserSync', callback);
-});
+gulp.task('global-build-sequence', gulp.series('migrate-assets', 'build-js', 'build-css', 'browserSync'));
 
 //
 // Global Gulp Build and Watch Task
 // ==========================================================================
 
-gulp.task('default', ['global-build-sequence'], function() {
+gulp.task('default', gulp.series('global-build-sequence', function() {
     
     // Watch SCSS Files for Changes
     gulp.watch('app/scss/**/*.scss', ['build-css']);
@@ -173,5 +157,4 @@ gulp.task('default', ['global-build-sequence'], function() {
     gulp.watch('docs/css/*.css', browserSync.reload);
     gulp.watch('docs/*.{html,htm,php}', browserSync.reload); 
     gulp.watch('docs/js/**/*.js', browserSync.reload); 
-});
-
+}));
