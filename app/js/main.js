@@ -418,7 +418,11 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-clash.png';
     } else if (team == 'POR') {
-        return 'img/teams/port-away.png';
+        if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
+            return 'img/teams/port-clash.png'
+        } else {
+            return 'img/teams/port-away.png';
+        }
     } else if (team == 'RIC') {
         return 'img/teams/tigers-away.png';
     } else if (team == 'STK') {
