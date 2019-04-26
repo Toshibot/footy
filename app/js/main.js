@@ -380,7 +380,11 @@ function awayKit(awayTeam, HomeTeam) {
     if (team == 'ADE') {
         return 'img/teams/crows-away.png';
     } else if (team == 'BRI') {
-        return 'img/teams/lions-away.png';
+        if (HomeTeam == 'SYD' || HomeTeam == 'GWS' || HomeTeam == 'GCS' || HomeTeam == 'WCE' || HomeTeam == 'ADE' || HomeTeam == 'FRE' || HomeTeam == 'POR') {
+            return 'img/teams/lions-clash.png'
+        } else {
+            return 'img/teams/lions-away.png';
+        }
     } else if (team == 'CAR') {
         return 'img/teams/blues-clash.png';
     } else if (team == 'COL') {

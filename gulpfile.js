@@ -160,7 +160,7 @@ function watch_files() {
     gulp.watch('./app/scss/**/*.scss', styles);
 
     // Watch JS Files for Changes
-    gulp.watch('./app/js/**/*.js', scripts);
+    gulp.watch('./app/js/_dev/**/*.js', gulp.series(js_concat, js_compress));
 
     // Watch HTML, HTM and PHP files for Changes
     gulp.watch('app/*.{html,htm,php}', html);
