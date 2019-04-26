@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700|Montserrat:300,700");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Montserrat:300,700");
 @font-face {
   font-family: 'Font Awesome';
   src: url("../fonts/fa-regular-400.eot");
@@ -1623,7 +1623,8 @@ body {
     margin: 12.5px 0; }
 
 .c-fixture__score {
-  font-size: 15px; }
+  font-size: 15px;
+  font-weight: 300; }
   .c-fixture__score-total {
     display: inline !important;
     font-weight: 600; }
