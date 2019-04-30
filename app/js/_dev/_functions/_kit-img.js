@@ -66,7 +66,7 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'GEE') {
         return 'img/teams/cats-home.png';
     } else if (team == 'GCS') {
-        if (HomeTeam == 'WBD' || HomeTeam == 'CAR' || HomeTeam == 'FRE' || HomeTeam == 'NM') {
+        if (HomeTeam == 'WBD' || HomeTeam == 'CAR' || HomeTeam == 'FRE' || HomeTeam == 'NM' || HomeTeam == 'WCE') {
             return 'img/teams/suns-home.png'
         } else {
             return 'img/teams/suns-away.png';
