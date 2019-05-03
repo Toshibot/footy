@@ -84,7 +84,7 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-clash.png';
     } else if (team == 'POR') {
-        if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
+        if (HomeTeam == 'GEE' || HomeTeam == 'SYD' || HomeTeam == 'COL') {
             return 'img/teams/port-clash.png'
         } else {
             return 'img/teams/port-away.png';
