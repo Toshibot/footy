@@ -394,7 +394,11 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'COL') {
         return 'img/teams/magpies-clash.png';
     } else if (team == 'ESS') {
-        return 'img/teams/bombers-clash.png';
+        if (HomeTeam == 'MEL' || HomeTeam == 'COL' || HomeTeam == 'CAR' || HomeTeam == 'POR' | HomeTeam == 'STK') {
+            return 'img/teams/bombers-clash.png'
+        } else {
+            return 'img/teams/bombers-home.png';
+        }
     } else if (team == 'FRE') {
         return 'img/teams/dockers-away.png';
     } else if (team == 'GEE') {
