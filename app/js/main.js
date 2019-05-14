@@ -436,7 +436,11 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'WCE') {
         return 'img/teams/eagles-away.png';
     } else if (team == 'WBD') {
-        return 'img/teams/dogs-away.png';
+        if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
+            return 'img/teams/dogs-home.png'
+        } else {
+            return 'img/teams/dogs-away.png';
+        }
     }
 }
 
