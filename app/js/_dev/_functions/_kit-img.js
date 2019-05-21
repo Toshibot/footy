@@ -60,7 +60,7 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'COL') {
         return 'img/teams/magpies-clash.png';
     } else if (team == 'ESS') {
-        if (HomeTeam == 'MEL' || HomeTeam == 'COL' || HomeTeam == 'CAR' || HomeTeam == 'POR' | HomeTeam == 'STK') {
+        if (HomeTeam == 'MEL' || HomeTeam == 'COL' || HomeTeam == 'CAR' || HomeTeam == 'POR' || HomeTeam == 'STK' || HomeTeam == 'RIC') {
             return 'img/teams/bombers-clash.png'
         } else {
             return 'img/teams/bombers-home.png';
