@@ -44,7 +44,11 @@ function awayKit(awayTeam, HomeTeam) {
     var team = awayTeam;
 
     if (team == 'ADE') {
-        return 'img/teams/crows-away.png';
+        if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
+            return 'img/teams/crows-home.png'
+        } else {
+            return 'img/teams/crows-away.png';
+        }
     } else if (team == 'BRI') {
         if (HomeTeam == 'SYD' || HomeTeam == 'GWS' || HomeTeam == 'GCS' || HomeTeam == 'WCE' || HomeTeam == 'ADE' || HomeTeam == 'FRE' || HomeTeam == 'POR') {
             return 'img/teams/lions-clash.png'
@@ -100,7 +104,11 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'SYD') {
         return 'img/teams/swans-home.png';
     } else if (team == 'WCE') {
-        return 'img/teams/eagles-away.png';
+        if (HomeTeam == 'HAW') {
+            return 'img/teams/eagles-home.png';
+        } else {
+            return 'img/teams/eagles-away.png';
+        }
     } else if (team == 'WBD') {
         if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
             return 'img/teams/dogs-home.png'
