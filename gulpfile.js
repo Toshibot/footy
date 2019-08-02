@@ -71,7 +71,7 @@ function css_plugins() {
 }
 
 // CSS Build Sequence - Compile Sass, then Minify CSS
-const styles = gulp.series(scss, css, css_plugins);
+const styles = gulp.series(scss, css);
 
 //
 // JS
@@ -106,7 +106,7 @@ function js_plugins(done) {
 }
 
 // JS Build Sequence
-const scripts = gulp.series(js_concat, js_compress, js_plugins);
+const scripts = gulp.series(js_concat, js_compress);
 
 
 //
@@ -124,6 +124,12 @@ function fonts() {
 function html() {
     return gulp
         .src(['./app/*.{html,htm,php}'])
+        .pipe(gulp.dest('./docs'));
+}
+
+function cname(){
+    return gulp
+        .src('./app/CNAME')
         .pipe(gulp.dest('./docs'));
 }
 
@@ -149,7 +155,7 @@ function data() {
 }
 
 // Migration Sequence
-const assets = gulp.series(fonts, html, images, icons, data);
+const assets = gulp.series(cname, fonts, html, images, icons, data, css_plugins, js_plugins);
 
 //
 // Watch

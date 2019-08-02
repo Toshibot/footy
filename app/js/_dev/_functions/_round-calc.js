@@ -12,7 +12,7 @@ function roundCalc(d) {
         return 2;
 
     // Round 3
-    } else if(month == 3 && date <= 8) {
+    } else if (month == 3 && date <= 8) {
         return 3;
 
     // Round 4    

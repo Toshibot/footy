@@ -41,4 +41,3 @@ function dataFixture(round) {
         scroll();
     });
 }
-
