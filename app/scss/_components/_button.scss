@@ -6,6 +6,7 @@
     font-size: 16px;
     color: $color-white;
     font-weight: 400;
+    cursor: pointer;
 
     &--github {
         background: $color-black;
@@ -35,5 +36,35 @@
     .t-dark & {
         color: $color-black;
         background-color: $color-white;
+    }
+
+    &--finals {
+        position: absolute;
+        top: 98px;
+        right: 12px;
+        z-index: 999;
+        background: $color-black-dark !important;
+        color: $color-white !important;
+        padding: 10px 15px;
+
+        i {
+            font-size: 16px;
+            margin: 0 0 0 5px;
+        }
+    }
+
+    &--ladder {
+        position: absolute;
+        top: 98px;
+        left: 12px;
+        z-index: 999;
+        background: $color-black-dark !important;
+        color: $color-white !important;
+        padding: 10px 15px;
+
+        i {
+            font-size: 16px;
+            margin: 0 5px 0 0;
+        }
     }
 }

@@ -143,4 +143,9 @@
            // @include boxShadow(3, $color-black);
        }
    }
+   @media screen and (max-width: $break-s) {
+       &:first-child {
+           padding-top: 50px;
+       }
+   }
 }

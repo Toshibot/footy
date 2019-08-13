@@ -1122,7 +1122,7 @@ body {
     display: inline-block;
     font-size: 2rem;
     width: 100%;
-    padding: 25px 0 12.5px !important;
+    padding: 25px 0 !important;
     background: #222; }
   .o-section h2 {
     font-family: "Montserrat", sans-serif;
@@ -1411,7 +1411,8 @@ body {
   border-radius: 5px;
   font-size: 16px;
   color: #fff;
-  font-weight: 400; }
+  font-weight: 400;
+  cursor: pointer; }
   .c-button--github {
     background: #333; }
   .c-button i {
@@ -1432,6 +1433,28 @@ body {
   .t-dark .c-button {
     color: #333;
     background-color: #fff; }
+  .c-button--finals {
+    position: absolute;
+    top: 98px;
+    right: 12px;
+    z-index: 999;
+    background: #222 !important;
+    color: #fff !important;
+    padding: 10px 15px; }
+    .c-button--finals i {
+      font-size: 16px;
+      margin: 0 0 0 5px; }
+  .c-button--ladder {
+    position: absolute;
+    top: 98px;
+    left: 12px;
+    z-index: 999;
+    background: #222 !important;
+    color: #fff !important;
+    padding: 10px 15px; }
+    .c-button--ladder i {
+      font-size: 16px;
+      margin: 0 5px 0 0; }
 
 .c-ladder__container {
   position: relative;
@@ -1712,6 +1735,9 @@ body {
       height: 75px;
       text-align: center;
       margin: 12.5px 0; }
+  @media screen and (max-width: 64em) {
+    .c-finals:first-child {
+      padding-top: 50px; } }
 
 .c-date__day, .c-date__date, .c-date__month, .c-date__time, .c-date__live, .c-date__status {
   display: inline-block; }
