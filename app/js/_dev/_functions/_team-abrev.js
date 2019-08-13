@@ -1,4 +1,4 @@
-function teamAbrev(array) {
+function teamAbrev(array, name) {
    var team = array;
 
    if (team == 'ADE') {
@@ -56,6 +56,6 @@ function teamAbrev(array) {
       return 'West Coast'
 
    } else {
-      return team
+      return name
    }
 }

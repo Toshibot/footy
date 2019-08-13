@@ -100,6 +100,7 @@
       }
       @media screen and (min-width: $break-m) {
          padding-top: 125px; 
+         margin-top: -3px;
       }
    }
 
@@ -110,7 +111,7 @@
    
    
    &__date {
-       padding: $size-base 0 $size-base-s;
+       padding: $size-base 0 3px;
        line-height: 1.5;
    }
 
@@ -124,7 +125,7 @@
    &__team {
        display: inline-block;
        text-align: center;
-       width: 75px;
+       width: 90px;
 
        img,
        span {
@@ -133,16 +134,33 @@
            &.js-score-text {
                padding-top: $size-base-xs;
            }
+
+           &.js-team-text {
+               white-space: nowrap;
+               display: inline-block;
+           }
        }
 
        img {
-           width: 75px;
-           height: 75px;
+           width: 70px;
+           height: 70px;
            text-align: center;
-           margin: $size-base-s 0;
+           margin: 9px 10px;
+           display: inline-block;
            // @include boxShadow(3, $color-black);
        }
    }
+
+   &__score {
+       font-size: 15px;
+       font-weight: 300;
+
+       &-total {
+           display: inline !important;
+           font-weight: 600;
+       }
+   }
+
    @media screen and (max-width: $break-s) {
        &:first-child {
            padding-top: 50px;

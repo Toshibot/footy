@@ -57,7 +57,7 @@ function dateTime(d) {
 
     function time(d) {
         var h = d.getHours();
-        var m = d.getMinutes();
+        var m = ('0'+d.getMinutes()).slice(-2);
 
         return h + ':' + m;
     }

@@ -94,6 +94,9 @@ function roundCalc(d) {
     // Round 23
     } else if (month == 7 && date <= 23) {
         return 23;
+
+    } else if (month == 8) {
+        return 23;
     }
 
 }

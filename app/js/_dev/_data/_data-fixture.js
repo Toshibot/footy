@@ -15,11 +15,12 @@ function dataFixture(round) {
         var today = new Date;
         var testDate = new Date('2018-04-24');
         var currentRound = [];
+        var finalsData = [];
         var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 2;
+        // var currentRoundNo = 23;
 
         $('.js-fixture-round').text(currentRoundNo);
-
+        
         for (i = 0; i < json.length; i++) {
             const element = json[i];
             
@@ -37,7 +38,20 @@ function dataFixture(round) {
 
             fixtureItem(element);
         }
-
+        
         scroll();
+
+
+    
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
+            
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
+
+        finals(finalsData);
+        
     });
 }

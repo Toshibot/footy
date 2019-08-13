@@ -1708,12 +1708,13 @@ body {
     margin-right: 0 !important; }
   @media screen and (min-width: 75em) {
     .c-finals-pre {
-      padding-top: 125px; } }
+      padding-top: 125px;
+      margin-top: -3px; } }
   .c-finals__venue {
     padding: 25px 0 25px;
     font-size: 12px; }
   .c-finals__date {
-    padding: 25px 0 12.5px;
+    padding: 25px 0 3px;
     line-height: 1.5; }
   .c-finals__vs {
     display: inline-block;
@@ -1723,18 +1724,29 @@ body {
   .c-finals__team {
     display: inline-block;
     text-align: center;
-    width: 75px; }
+    width: 90px; }
     .c-finals__team img,
     .c-finals__team span {
       display: block; }
       .c-finals__team img.js-score-text,
       .c-finals__team span.js-score-text {
         padding-top: 6.25px; }
+      .c-finals__team img.js-team-text,
+      .c-finals__team span.js-team-text {
+        white-space: nowrap;
+        display: inline-block; }
     .c-finals__team img {
-      width: 75px;
-      height: 75px;
+      width: 70px;
+      height: 70px;
       text-align: center;
-      margin: 12.5px 0; }
+      margin: 9px 10px;
+      display: inline-block; }
+  .c-finals__score {
+    font-size: 15px;
+    font-weight: 300; }
+    .c-finals__score-total {
+      display: inline !important;
+      font-weight: 600; }
   @media screen and (max-width: 64em) {
     .c-finals:first-child {
       padding-top: 50px; } }

@@ -37,6 +37,8 @@ function homeKit(array) {
         return 'img/teams/eagles-home.png';
     } else if (team == 'WBD') {
         return 'img/teams/dogs-home.png';
+    } else {
+        return 'img/teams/generic.png';
     }
 }
 
@@ -115,5 +117,7 @@ function awayKit(awayTeam, HomeTeam) {
         } else {
             return 'img/teams/dogs-away.png';
         }
+    } else {
+        return 'img/teams/generic.png';
     }
 }

@@ -111,6 +111,151 @@ function scroll() {
    });
 }
 
+// Data - Fixture/Results
+
+function dataFixture(round) {
+    
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+    // Dummy Dev File
+    // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        console.log('fixture loaded');
+        console.log(json);
+        
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var finalsData = [];
+        var currentRoundNo = roundCalc(today);
+        // var currentRoundNo = 23;
+
+        $('.js-fixture-round').text(currentRoundNo);
+        
+        for (i = 0; i < json.length; i++) {
+            const element = json[i];
+            
+            if (element.round.number == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        // console.log(currentRound);
+
+        var game1 = currentRound[8];
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+        
+        scroll();
+
+
+    
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
+            
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
+
+        finals(finalsData);
+        
+    });
+}
+
+//
+// Data
+// ====
+function dataLadder() { 
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
+
+    // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const element = json.teams[i];
+            ladderItem(element, i+1);
+        }
+    });
+
+}
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
+
+
+//
+// UI - Buttons
+// ==========================================================================
+
+// Variables
+// var gitButton = document.getElementById('js-button-github');
+
+// gitButton.addEventListener('click', function(){
+//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
+// });
+
+
 function dateTime(d) {
 
     var date = new Date(d);
@@ -169,7 +314,7 @@ function dateTime(d) {
 
     function time(d) {
         var h = d.getHours();
-        var m = d.getMinutes();
+        var m = ('0'+d.getMinutes()).slice(-2);
 
         return h + ':' + m;
     }
@@ -182,6 +327,85 @@ function dateTime(d) {
     }
 
     return dateObj;
+}
+function finals(data) {
+
+   $('.js-finals-series-year').text(data[0].season.year);
+   $('.js-premiership-year').text(data[0].season.year);
+
+   function finalBuilder(element, array) {
+      var final = array;
+      var date = dateTime(final.match_start_date);
+      var dateElement = element.children('.c-date');
+      var team_1 = element.children('.js-fixture-team-1');
+      var team_2 = element.children('.js-fixture-team-2');
+      var venue = element.children('.js-fixture-venue');
+
+      // Date ====
+      if (final.match_status == 'Pre Game') {
+         dateElement.children('.c-date__day').text(date.day);
+         dateElement.children('.c-date__month').text(date.month);
+         dateElement.children('.c-date__date').text(date.date);
+         dateElement.children('.c-date__time').text(date.time); 
+      } else if (final.match_status == 'Full Time') {
+         dateElement.children('.c-date__day').text(date.day);
+         dateElement.children('.c-date__month').text(date.month);
+         dateElement.children('.c-date__date').text(date.date);
+         dateElement.children('.c-date__time').text('FT');
+      } else {
+         dateElement.append(
+            '<span class="c-date__live">LIVE</span>' +
+            '<span class="c-date__status">' + final.match_status + '</span>' +
+            '<span class="c-date__time">' + final.match_time + '</span>'
+         );
+      }
+
+      // Teams ====
+      // Team 1
+      team_1.children('.js-team-img').attr('src', homeKit(final.team_A.code));
+      team_1.children('.js-team-text').text(teamAbrev(final.team_A.code, final.team_A.name));
+      if (final.match_status !== 'Pre Game') {
+         team_1.children('.js-score-text').append( final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>' );
+      }
+      // Team 2
+      team_2.children('.js-team-img').attr('src', awayKit(final.team_B.code, final.team_A.code));
+      team_2.children('.js-team-text').text(teamAbrev(final.team_B.code, final.team_B.name));
+      if (final.match_status !== 'Pre Game') {
+         team_2.children('.js-score-text').append( final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>' );
+      }
+
+      // Venue ====
+      venue.text(final.venue.name);
+
+   }
+
+   // Qualifying / Elimiation Finals =========
+   // First Qualifying Final
+   finalBuilder($('.js-finals-qf1'), data[0]);
+   // Second Qualifying Final
+   finalBuilder($('.js-finals-qf2'), data[1]);
+   // First Elimination Final
+   finalBuilder($('.js-finals-ef1'), data[2]);
+   // Second Elimination Final
+   finalBuilder($('.js-finals-ef2'), data[3]);
+
+
+   // Semi Finals ============
+   // First Semi Final
+   finalBuilder($('.js-finals-sf1'), data[4]);
+   // Second Semi Final
+   finalBuilder($('.js-finals-sf2'), data[5]);
+
+   // Preliminary Finals ============
+   // First Prelim Final
+   finalBuilder($('.js-finals-pf1'), data[6]);
+   // Second Prelim Final
+   finalBuilder($('.js-finals-pf2'), data[7]);
+
+   // Grand Final ==============
+   finalBuilder($('.js-finals-gf'), data[8]);
+
+
 }
 
 function fixtureItem(array) {
@@ -303,6 +527,8 @@ function homeKit(array) {
         return 'img/teams/eagles-home.png';
     } else if (team == 'WBD') {
         return 'img/teams/dogs-home.png';
+    } else {
+        return 'img/teams/generic.png';
     }
 }
 
@@ -381,6 +607,8 @@ function awayKit(awayTeam, HomeTeam) {
         } else {
             return 'img/teams/dogs-away.png';
         }
+    } else {
+        return 'img/teams/generic.png';
     }
 }
 
@@ -493,10 +721,13 @@ function roundCalc(d) {
     // Round 23
     } else if (month == 7 && date <= 23) {
         return 23;
+
+    } else if (month == 8) {
+        return 23;
     }
 
 }
-function teamAbrev(array) {
+function teamAbrev(array, name) {
    var team = array;
 
    if (team == 'ADE') {
@@ -554,7 +785,7 @@ function teamAbrev(array) {
       return 'West Coast'
 
    } else {
-      return team
+      return name
    }
 }
 
@@ -598,133 +829,3 @@ function teamImg(team) {
         return 'img/teams/dogs.png';
     }
 }
-
-// Data - Fixture/Results
-
-function dataFixture(round) {
-    
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-    // Dummy Dev File
-    // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
-        
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 2;
-
-        $('.js-fixture-round').text(currentRoundNo);
-
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
-            
-            if (element.round.number == currentRoundNo) {
-                currentRound.push(element);
-            }
-        }
-
-        // console.log(currentRound);
-
-        var game1 = currentRound[8];
-
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
-
-            fixtureItem(element);
-        }
-
-        scroll();
-    });
-}
-
-//
-// Data
-// ====
-function dataLadder() { 
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/123/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function(json){
-
-    // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const element = json.teams[i];
-            ladderItem(element, i+1);
-        }
-    });
-
-}
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
-
-//
-// UI - Buttons
-// ==========================================================================
-
-// Variables
-// var gitButton = document.getElementById('js-button-github');
-
-// gitButton.addEventListener('click', function(){
-//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
-// });
