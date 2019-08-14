@@ -1,5 +1,7 @@
 function finals(data) {
 
+   var grand_final = data[8];
+
    $('.js-finals-series-year').text(data[0].season.year);
    $('.js-premiership-year').text(data[0].season.year);
 
@@ -49,6 +51,25 @@ function finals(data) {
 
    }
 
+   function premiers(data) {
+      if (data.match_status_normalised == "post" && data.team_A.score > data.team_B.score) {
+         return {
+            name: teamAbrev(data.team_A.code), 
+            bg: team_bg(data.team_A.code)
+         };
+      } else if (data.match_status_normalised == "post" && data.team_B.score > data.team_A.score) {
+         return {
+            name: teamAbrev(data.team_B.code), 
+            bg: team_bg(data.team_B.code)
+         };
+      } else {
+         return {
+            name: '?',
+            bg: 'img/teams/'
+         };
+      }
+   }
+
    // Qualifying / Elimiation Finals =========
    // First Qualifying Final
    finalBuilder($('.js-finals-qf1'), data[0]);
@@ -73,7 +94,10 @@ function finals(data) {
    finalBuilder($('.js-finals-pf2'), data[7]);
 
    // Grand Final ==============
-   finalBuilder($('.js-finals-gf'), data[8]);
+   finalBuilder($('.js-finals-gf'), grand_final);
 
+   // Premiers ============
+   $('.js-premiers-name').text(premiers(grand_final).name);
+   $('.js-premiers-bg').css('background-image', 'url('+ premiers(grand_final).bg +')');
 
 }

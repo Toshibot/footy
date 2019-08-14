@@ -1435,7 +1435,7 @@ body {
     background-color: #fff; }
   .c-button--finals {
     position: absolute;
-    top: 98px;
+    top: 96px;
     right: 12px;
     z-index: 999;
     background: #222 !important;
@@ -1446,7 +1446,7 @@ body {
       margin: 0 0 0 5px; }
   .c-button--ladder {
     position: absolute;
-    top: 98px;
+    top: 96px;
     left: 12px;
     z-index: 999;
     background: #222 !important;

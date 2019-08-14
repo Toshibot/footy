@@ -39,7 +39,7 @@ function dataFixture(round) {
             fixtureItem(element);
         }
         
-        scroll();
+        // scroll();
 
 
     
