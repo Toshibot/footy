@@ -1,6 +1,6 @@
 
 // Applies the correct team background to the referenced team code.
-function teamImg(team) {
+function team_bg(team) {
    if (team == 'ADE') {
        return 'img/teams/crows.svg';
    } else if (team == 'BRI') {

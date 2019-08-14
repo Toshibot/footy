@@ -1,5 +1,7 @@
 function finals(data) {
 
+   console.log(data);
+   
    var grand_final = data[8];
 
    $('.js-finals-series-year').text(data[0].season.year);
@@ -37,13 +39,13 @@ function finals(data) {
       team_1.children('.js-team-img').attr('src', homeKit(final.team_A.code));
       team_1.children('.js-team-text').text(teamAbrev(final.team_A.code, final.team_A.name));
       if (final.match_status !== 'Pre Game') {
-         team_1.children('.js-score-text').append( final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>' );
+         team_1.children('.js-score-text').text('').append( final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>' );
       }
       // Team 2
       team_2.children('.js-team-img').attr('src', awayKit(final.team_B.code, final.team_A.code));
       team_2.children('.js-team-text').text(teamAbrev(final.team_B.code, final.team_B.name));
       if (final.match_status !== 'Pre Game') {
-         team_2.children('.js-score-text').append( final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>' );
+         team_2.children('.js-score-text').text('').append( final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>' );
       }
 
       // Venue ====
