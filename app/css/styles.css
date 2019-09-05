@@ -1688,9 +1688,14 @@ body {
     display: inline-block; }
     .c-finals__game:nth-child(5), .c-finals__game:nth-child(10) {
       margin-right: 0; }
-    .c-finals__game--in-progress {
+    .c-finals__game.live {
       background: #efefef;
       color: #333; }
+      .c-finals__game.live .c-date__day,
+      .c-finals__game.live .c-date__month,
+      .c-finals__game.live .c-date__date,
+      .c-finals__game.live .c-date__time {
+        display: none; }
     .c-finals__game--completed {
       background: #444; }
     @media screen and (max-width: 64em) {
