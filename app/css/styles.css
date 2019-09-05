@@ -1696,7 +1696,7 @@ body {
       .c-finals__game.live .c-date__date,
       .c-finals__game.live .c-date__time {
         display: none; }
-    .c-finals__game--completed {
+    .c-finals__game.full-time {
       background: #444; }
     @media screen and (max-width: 64em) {
       .c-finals__game {

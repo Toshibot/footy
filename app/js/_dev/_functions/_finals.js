@@ -22,13 +22,13 @@ function finals(data) {
          dateElement.children('.c-date__date').text(date.date);
          dateElement.children('.c-date__time').text(date.time); 
       } else if (final.match_status == 'Full Time') {
+         element.addClass('full-time');
          dateElement.children('.c-date__day').text(date.day);
          dateElement.children('.c-date__month').text(date.month);
          dateElement.children('.c-date__date').text(date.date);
          dateElement.children('.c-date__time').text('FT');
       } else {
          element.addClass('live');
-         dateElement.innerHTML = '';
          dateElement.append(
             '<span class="c-date__live">LIVE</span>' +
             '<span class="c-date__status">' + final.match_status + '</span>' +
