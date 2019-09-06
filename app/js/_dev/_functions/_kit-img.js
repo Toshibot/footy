@@ -122,6 +122,6 @@ function awayKit(awayTeam, HomeTeam) {
             return 'img/teams/dogs-away.png';
         }
     } else {
-        return 'img/teams/generic.png';
+        // return 'img/teams/generic.png';
     }
 }
