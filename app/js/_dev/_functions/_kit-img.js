@@ -38,7 +38,7 @@ function homeKit(array) {
     } else if (team == 'WBD') {
         return 'img/teams/dogs-home.png';
     } else {
-        return 'img/teams/generic.png';
+        // return 'img/teams/generic.png';
     }
 }
 
