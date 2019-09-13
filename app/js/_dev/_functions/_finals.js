@@ -93,9 +93,9 @@ function finals(data) {
 
    // Preliminary Finals ============
    // First Prelim Final
-   finalBuilder($('.js-finals-pf1'), data[6]);
+   finalBuilder($('.js-finals-pf1'), data[7]);
    // Second Prelim Final
-   finalBuilder($('.js-finals-pf2'), data[7]);
+   finalBuilder($('.js-finals-pf2'), data[6]);
 
    // Grand Final ==============
    finalBuilder($('.js-finals-gf'), grand_final);
