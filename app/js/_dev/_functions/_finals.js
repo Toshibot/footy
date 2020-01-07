@@ -102,6 +102,9 @@ function finals(data) {
 
    // Premiers ============
    $('.js-premiers-name').text(premiers(grand_final).name);
-   $('.js-premiers-bg').css('background-image', 'url('+ premiers(grand_final).bg +')');
+   $('.js-premiers-bg').css({
+      'background-image': 'url('+ premiers(grand_final).bg +')',
+      'background-size': 'cover'
+   });
 
 }
