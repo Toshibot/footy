@@ -554,10 +554,10 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-clash.png';
     } else if (team == 'POR') {
-        if (HomeTeam == 'GEE' || HomeTeam == 'SYD' || HomeTeam == 'COL' || HomeTeam == 'NM') {
+        if (HomeTeam == 'ADE' || HomeTeam == 'ESS' || HomeTeam == 'COL' || HomeTeam == 'RIC') {
             return 'img/teams/port-clash.png'
         } else {
-            return 'img/teams/port-away.png';
+            return 'img/teams/port-home.png';
         }
     } else if (team == 'RIC') {
         return 'img/teams/tigers-away.png';
