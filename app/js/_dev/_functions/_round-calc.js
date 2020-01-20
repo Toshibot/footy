@@ -4,7 +4,7 @@ function roundCalc(d) {
     var date = currentDate.getDate();
 
     // Round 1
-    if (month == 1 && date <= 28 || month == 2 && date <= 25) {
+    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 25) {
         return 1;
 
     // Round 2
