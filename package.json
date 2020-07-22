@@ -9,7 +9,7 @@
     "browser-sync": "^2.26.7",
     "chart.js": "^2.9.3",
     "gulp-cli": "^2.2.0",
-    "node-sass": "^4.13.0"
+    "node-sass": "^4.14.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
