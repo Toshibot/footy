@@ -701,7 +701,7 @@ function roundCalc(d) {
         // 2020 Compressed Season
 
         // Round 8
-    } else if (month == 6 && date <= 22) {
+    } else if (month == 6 && date <= 27) {
         return 8;
 
         // Round 9
