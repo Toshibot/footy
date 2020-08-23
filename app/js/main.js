@@ -719,7 +719,33 @@ function roundCalc(d) {
         // Round 12
     } else if (month == 7 && date <= 18) {
         return 12;
+
+        // Round 13
+    } else if (month == 7 && date <= 24) {
+        return 13;
+
+        // Round 14
+    } else if (month == 7 && date <= 30) {
+        return 14;
+
+        // Round 15
+    } else if (month == 7 && date == 31 || month == 8 && date <= 4) {
+        return 15;
+
+        // Round 16
+    } else if (month == 8 && date <= 9) {
+        return 16;
+
+        // Round 17
+    } else if (month == 8 && date <= 14) {
+        return 17;
+
+        // Round 18
+    } else if (month == 8 && date <= 21) {
+        return 18;
     }
+
+
 }
 function teamAbrev(array, name) {
    var team = array;
