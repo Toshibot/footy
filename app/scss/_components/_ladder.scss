@@ -17,10 +17,10 @@
     &__item {
         display: inline-block;
         width: 100%;
-        background: $color-offwhite;
+        background: #555;
         position: relative;
         text-align: left;
-        color: $color-black;
+        color: $color-white;
 
         // Flex
         @include flex-prep;
@@ -52,14 +52,16 @@
         &-2, 
         &-3, 
         &-4 {
-            background: $color-green;
+            background: $color-offwhite;
+            color: $color-black;
         }
 
         &-5,
         &-6,
         &-7,
         &-8 {
-            background: $color-blue-light;
+            background: $color-grey-light;
+            color: $color-black;
         }
     }
 

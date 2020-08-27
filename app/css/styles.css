@@ -1469,10 +1469,10 @@ body {
 .c-ladder__item {
   display: inline-block;
   width: 100%;
-  background: #efefef;
+  background: #555;
   position: relative;
   text-align: left;
-  color: #333;
+  color: #fff;
   margin: 0px auto;
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
@@ -1505,9 +1505,11 @@ body {
       .c-ladder__item-0 div.c-ladder__team {
         padding: 12.5px !important; }
   .c-ladder__item-1, .c-ladder__item-2, .c-ladder__item-3, .c-ladder__item-4 {
-    background: #ccebd1; }
+    background: #efefef;
+    color: #333; }
   .c-ladder__item-5, .c-ladder__item-6, .c-ladder__item-7, .c-ladder__item-8 {
-    background: #bddaf7; }
+    background: #ccc;
+    color: #333; }
 
 .c-ladder__position {
   -ms-flex-preferred-size: 8.333%;
