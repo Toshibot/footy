@@ -1581,8 +1581,8 @@ body {
 
 @media screen and (max-width: 41.6875em) {
   .c-ladder__item div {
-    padding-left: 6.25px;
-    padding-right: 6.25px; }
+    padding-left: 0;
+    padding-right: 0; }
   .c-ladder__item div:nth-child(even) {
     background: transparent; }
   .c-ladder__wins, .c-ladder__losses, .c-ladder__draws {

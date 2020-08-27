@@ -141,8 +141,8 @@
 
         &__item {
             div {
-                padding-left: $size-base-xs;
-                padding-right: $size-base-xs;
+                padding-left: 0;
+                padding-right: 0;
             }
 
             div:nth-child(even) {
