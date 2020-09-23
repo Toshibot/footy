@@ -266,7 +266,7 @@ function dateTime(d) {
 function finals(data) {
 
    console.log(data);
-   
+
    var grand_final = data[8];
 
    $('.js-finals-series-year').text(data[0].season.year);
@@ -285,7 +285,7 @@ function finals(data) {
          dateElement.children('.c-date__day').text(date.day);
          dateElement.children('.c-date__month').text(date.month);
          dateElement.children('.c-date__date').text(date.date);
-         dateElement.children('.c-date__time').text(date.time); 
+         dateElement.children('.c-date__time').text(date.time);
       } else if (final.match_status == 'Full Time') {
          element.addClass('full-time');
          dateElement.children('.c-date__day').text(date.day);
@@ -306,13 +306,13 @@ function finals(data) {
       team_1.children('.js-team-img').attr('src', homeKit(final.team_A.code));
       team_1.children('.js-team-text').text(teamAbrev(final.team_A.code, final.team_A.name));
       if (final.match_status !== 'Pre Game') {
-         team_1.children('.js-score-text').text('').append( final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>' );
+         team_1.children('.js-score-text').text('').append(final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>');
       }
       // Team 2
       team_2.children('.js-team-img').attr('src', awayKit(final.team_B.code, final.team_A.code));
       team_2.children('.js-team-text').text(teamAbrev(final.team_B.code, final.team_B.name));
       if (final.match_status !== 'Pre Game') {
-         team_2.children('.js-score-text').text('').append( final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>' );
+         team_2.children('.js-score-text').text('').append(final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>');
       }
 
       // Venue ====
@@ -323,12 +323,12 @@ function finals(data) {
    function premiers(data) {
       if (data.match_status_normalised == "post" && data.team_A.score > data.team_B.score) {
          return {
-            name: teamAbrev(data.team_A.code), 
+            name: teamAbrev(data.team_A.code),
             bg: team_bg(data.team_A.code)
          };
       } else if (data.match_status_normalised == "post" && data.team_B.score > data.team_A.score) {
          return {
-            name: teamAbrev(data.team_B.code), 
+            name: teamAbrev(data.team_B.code),
             bg: team_bg(data.team_B.code)
          };
       } else {
@@ -341,13 +341,13 @@ function finals(data) {
 
    // Qualifying / Elimiation Finals =========
    // First Qualifying Final
-   finalBuilder($('.js-finals-qf1'), data[1]);
+   finalBuilder($('.js-finals-qf1'), data[0]);
    // Second Qualifying Final
-   finalBuilder($('.js-finals-qf2'), data[3]);
+   finalBuilder($('.js-finals-qf2'), data[1]);
    // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[0]);
+   finalBuilder($('.js-finals-ef1'), data[2]);
    // Second Elimination Final
-   finalBuilder($('.js-finals-ef2'), data[2]);
+   finalBuilder($('.js-finals-ef2'), data[3]);
 
 
    // Semi Finals ============
@@ -368,7 +368,7 @@ function finals(data) {
    // Premiers ============
    $('.js-premiers-name').text(premiers(grand_final).name);
    $('.js-premiers-bg').css({
-      'background-image': 'url('+ premiers(grand_final).bg +')',
+      'background-image': 'url(' + premiers(grand_final).bg + ')',
       'background-size': 'cover'
    });
 
