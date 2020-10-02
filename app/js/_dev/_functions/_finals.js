@@ -80,9 +80,9 @@ function finals(data) {
    // Second Qualifying Final
    finalBuilder($('.js-finals-qf2'), data[1]);
    // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[2]);
+   finalBuilder($('.js-finals-ef1'), data[3]);
    // Second Elimination Final
-   finalBuilder($('.js-finals-ef2'), data[3]);
+   finalBuilder($('.js-finals-ef2'), data[2]);
 
 
    // Semi Finals ============
@@ -93,9 +93,9 @@ function finals(data) {
 
    // Preliminary Finals ============
    // First Prelim Final
-   finalBuilder($('.js-finals-pf1'), data[7]);
+   finalBuilder($('.js-finals-pf1'), data[6]);
    // Second Prelim Final
-   finalBuilder($('.js-finals-pf2'), data[6]);
+   finalBuilder($('.js-finals-pf2'), data[7]);
 
    // Grand Final ==============
    finalBuilder($('.js-finals-gf'), grand_final);
