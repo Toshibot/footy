@@ -87,9 +87,9 @@ function finals(data) {
 
    // Semi Finals ============
    // First Semi Final
-   finalBuilder($('.js-finals-sf1'), data[4]);
+   finalBuilder($('.js-finals-sf1'), data[5]);
    // Second Semi Final
-   finalBuilder($('.js-finals-sf2'), data[5]);
+   finalBuilder($('.js-finals-sf2'), data[4]);
 
    // Preliminary Finals ============
    // First Prelim Final
