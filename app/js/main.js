@@ -5,86 +5,6 @@
 // Core Functions 
 dataLadder();
 dataFixture();
-
-// Data - Fixture/Results
-
-function dataFixture(round) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // Dummy Dev File
-        // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
-
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var finalsData = [];
-        var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 23;
-
-        $('.js-fixture-round').text(currentRoundNo);
-
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
-
-            if (element.round.number == currentRoundNo) {
-                currentRound.push(element);
-            }
-        }
-
-        console.log(currentRound);
-
-        var game1 = currentRound[8];
-
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
-
-            fixtureItem(element);
-        }
-
-        // scroll();
-
-
-
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
-
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
-
-        finals(finalsData);
-
-    });
-}
-
-//
-// Data
-// ====
-function dataLadder() {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const element = json.teams[i];
-            ladderItem(element, i + 1);
-        }
-    });
-
-}
 // ==========================================================================
 // Fixture - Functions
 // ==========================================================================
@@ -189,6 +109,86 @@ function scroll() {
          });
       }
    });
+}
+
+// Data - Fixture/Results
+
+function dataFixture(round) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // Dummy Dev File
+        // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        console.log('fixture loaded');
+        console.log(json);
+
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var finalsData = [];
+        var currentRoundNo = roundCalc(today);
+        // var currentRoundNo = 23;
+
+        $('.js-fixture-round').text(currentRoundNo);
+
+        for (i = 0; i < json.length; i++) {
+            const element = json[i];
+
+            if (element.round.number == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        console.log(currentRound);
+
+        var game1 = currentRound[8];
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+
+        // scroll();
+
+
+
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
+
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
+
+        finals(finalsData);
+
+    });
+}
+
+//
+// Data
+// ====
+function dataLadder() {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const element = json.teams[i];
+            ladderItem(element, i + 1);
+        }
+    });
+
 }
 
 function dateTime(d) {
@@ -668,82 +668,82 @@ function roundCalc(d) {
     } else if (month == 6 && date <= 15) {
         return 17;
 
-        // // Round 18
-        // } else if (month == 6 && date <= 22) {
-        //     return 18;
-
-        // // Round 19
-        // } else if (month == 6 && date <= 29) {
-        //     return 19;
-
-        // // Round 20
-        // } else if (month == 6 && date <= 31 || month == 7 && date <= 5) {
-        //     return 20;
-
-        // // Round 21
-        // } else if (month == 7 && date <= 12) {
-        //     return 21;
-
-        // // Round 22
-        // } else if (month == 7 && date <= 19) {
-        //     return 22;
-
-        // // Round 23
-        // } else if (month == 7 && date <= 23) {
-        //     return 23;
-
-        // } else if (month == 8) {
-        //     return 23;
-        // }
-
-
-
-        // 2020 Compressed Season
-
-        // Round 8
-    } else if (month == 6 && date <= 27) {
-        return 8;
-
-        // Round 9
-    } else if (month == 6 && date <= 30 || month == 7 && date <= 3) {
-        return 9;
-
-        // Round 10
-    } else if (month == 7 && date <= 8) {
-        return 10;
-
-        // Round 11
-    } else if (month == 7 && date <= 13) {
-        return 11;
-
-        // Round 12
-    } else if (month == 7 && date <= 18) {
-        return 12;
-
-        // Round 13
-    } else if (month == 7 && date <= 24) {
-        return 13;
-
-        // Round 14
-    } else if (month == 7 && date <= 30) {
-        return 14;
-
-        // Round 15
-    } else if (month == 7 && date == 31 || month == 8 && date <= 4) {
-        return 15;
-
-        // Round 16
-    } else if (month == 8 && date <= 9) {
-        return 16;
-
-        // Round 17
-    } else if (month == 8 && date <= 14) {
-        return 17;
-
         // Round 18
-    } else if (month == 8 && date <= 21) {
+    } else if (month == 6 && date <= 22) {
         return 18;
+
+        // Round 19
+    } else if (month == 6 && date <= 29) {
+        return 19;
+
+        // Round 20
+    } else if (month == 6 && date <= 31 || month == 7 && date <= 5) {
+        return 20;
+
+        // Round 21
+    } else if (month == 7 && date <= 12) {
+        return 21;
+
+        // Round 22
+    } else if (month == 7 && date <= 19) {
+        return 22;
+
+        // Round 23
+    } else if (month == 7 && date <= 23) {
+        return 23;
+
+    } else if (month == 8) {
+        return 23;
     }
+
+
+
+    // 2020 Compressed Season
+
+    //     // Round 8
+    // } else if (month == 6 && date <= 27) {
+    //     return 8;
+
+    //     // Round 9
+    // } else if (month == 6 && date <= 30 || month == 7 && date <= 3) {
+    //     return 9;
+
+    //     // Round 10
+    // } else if (month == 7 && date <= 8) {
+    //     return 10;
+
+    //     // Round 11
+    // } else if (month == 7 && date <= 13) {
+    //     return 11;
+
+    //     // Round 12
+    // } else if (month == 7 && date <= 18) {
+    //     return 12;
+
+    //     // Round 13
+    // } else if (month == 7 && date <= 24) {
+    //     return 13;
+
+    //     // Round 14
+    // } else if (month == 7 && date <= 30) {
+    //     return 14;
+
+    //     // Round 15
+    // } else if (month == 7 && date == 31 || month == 8 && date <= 4) {
+    //     return 15;
+
+    //     // Round 16
+    // } else if (month == 8 && date <= 9) {
+    //     return 16;
+
+    //     // Round 17
+    // } else if (month == 8 && date <= 14) {
+    //     return 17;
+
+    //     // Round 18
+    // } else if (month == 8 && date <= 21) {
+    //     return 18;
+    // }
 
 
 }
