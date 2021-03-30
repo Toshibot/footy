@@ -163,7 +163,7 @@ function dataFixture(round) {
             }
         }
 
-        finals(finalsData);
+        // finals(finalsData);
 
     });
 }
@@ -171,6 +171,7 @@ function dataFixture(round) {
 //
 // Data
 // ====
+
 function dataLadder() {
 
     $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
@@ -187,8 +188,8 @@ function dataLadder() {
             const element = json.teams[i];
             ladderItem(element, i + 1);
         }
-    });
 
+    });
 }
 
 function dateTime(d) {
@@ -601,19 +602,19 @@ function roundCalc(d) {
     var date = currentDate.getDate();
 
     // Round 1
-    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 25) {
+    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {
         return 1;
 
         // Round 2
-    } else if (month == 2 && date <= 31) {
+    } else if (month == 2 && date <= 29) {
         return 2;
 
         // Round 3
-    } else if (month == 3 && date <= 8) {
+    } else if (month == 2 && date <= 31 || month == 3 && date <= 4) {
         return 3;
 
         // Round 4    
-    } else if (month == 3 && date <= 15) {
+    } else if (month == 3 && date <= 12) {
         return 4;
 
         // Round 5    

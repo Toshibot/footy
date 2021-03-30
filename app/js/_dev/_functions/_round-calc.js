@@ -4,19 +4,19 @@ function roundCalc(d) {
     var date = currentDate.getDate();
 
     // Round 1
-    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 25) {
+    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {
         return 1;
 
         // Round 2
-    } else if (month == 2 && date <= 31) {
+    } else if (month == 2 && date <= 29) {
         return 2;
 
         // Round 3
-    } else if (month == 3 && date <= 8) {
+    } else if (month == 2 && date <= 31 || month == 3 && date <= 4) {
         return 3;
 
         // Round 4    
-    } else if (month == 3 && date <= 15) {
+    } else if (month == 3 && date <= 12) {
         return 4;
 
         // Round 5    

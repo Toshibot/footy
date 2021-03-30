@@ -51,7 +51,7 @@ function dataFixture(round) {
             }
         }
 
-        finals(finalsData);
+        // finals(finalsData);
 
     });
 }
