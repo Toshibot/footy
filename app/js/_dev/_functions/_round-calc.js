@@ -16,15 +16,15 @@ function roundCalc(d) {
         return 3;
 
         // Round 4    
-    } else if (month == 3 && date <= 12) {
+    } else if (month == 3 && date <= 13) {
         return 4;
 
         // Round 5    
-    } else if (month == 3 && date <= 25) {
+    } else if (month == 3 && date <= 19) {
         return 5;
 
         // Round 6
-    } else if (month == 3 && date <= 29) {
+    } else if (month == 3 && date <= 26) {
         return 6;
 
         // Round 7
