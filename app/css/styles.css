@@ -1548,7 +1548,8 @@ body {
   box-shadow: 0px 2px 4px 1px rgba(51, 51, 51, 0.3);
   height: 41px;
   width: 41px;
-  margin-bottom: -2px; }
+  margin-bottom: -2px;
+  background: #666; }
 
 .c-ladder__points-for, .c-ladder__points-against {
   display: none !important; }
