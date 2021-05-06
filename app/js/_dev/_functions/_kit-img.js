@@ -1,6 +1,4 @@
-function homeKit(array) {
-    var team = array;
-
+function homeKit(team, awayTeam) {
     if (team == 'ADE') {
         return 'img/teams/crows-home.png';
     } else if (team == 'BRI') {
@@ -26,7 +24,11 @@ function homeKit(array) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-home.png';
     } else if (team == 'POR') {
-        return 'img/teams/port-home.png';
+        if (awayTeam == 'ADE') {
+            return 'img/teams/port-heritage.png';
+        } else {
+            return 'img/teams/port-home.png';
+        }
     } else if (team == 'RIC') {
         return 'img/teams/tigers-home.png';
     } else if (team == 'STK') {
@@ -98,8 +100,10 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-clash.png';
     } else if (team == 'POR') {
-        if (HomeTeam == 'ADE' || HomeTeam == 'ESS' || HomeTeam == 'COL' || HomeTeam == 'RIC') {
+        if (HomeTeam == 'ESS' || HomeTeam == 'COL' || HomeTeam == 'RIC') {
             return 'img/teams/port-clash.png'
+        } else if (HomeTeam == 'ADE'){
+            return 'img/teams/port-heritage.png'
         } else {
             return 'img/teams/port-home.png';
         }

@@ -310,7 +310,7 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + date.time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code, array.team_B.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
@@ -335,7 +335,7 @@ function fixtureItem(array) {
                     '<span class="c-date__time">FT</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code, array.team_B.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_A.goals + '. ' + array.team_A.behinds + '. <span class="c-fixture__score-total">' + array.team_A.score + '</span></span>' +
                 '</div>' +
@@ -359,7 +359,7 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + array.match_time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code, array.team_B.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_A.goals + '. ' + array.team_A.behinds + '. <span class="c-fixture__score-total">' + array.team_A.score + '</span></span>' +
                 '</div>' +
@@ -374,9 +374,7 @@ function fixtureItem(array) {
         );
     }
 }
-function homeKit(array) {
-    var team = array;
-
+function homeKit(team, awayTeam) {
     if (team == 'ADE') {
         return 'img/teams/crows-home.png';
     } else if (team == 'BRI') {
@@ -402,7 +400,11 @@ function homeKit(array) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-home.png';
     } else if (team == 'POR') {
-        return 'img/teams/port-home.png';
+        if (awayTeam == 'ADE') {
+            return 'img/teams/port-heritage.png';
+        } else {
+            return 'img/teams/port-home.png';
+        }
     } else if (team == 'RIC') {
         return 'img/teams/tigers-home.png';
     } else if (team == 'STK') {
@@ -474,8 +476,10 @@ function awayKit(awayTeam, HomeTeam) {
     } else if (team == 'NM') {
         return 'img/teams/kangaroos-clash.png';
     } else if (team == 'POR') {
-        if (HomeTeam == 'ADE' || HomeTeam == 'ESS' || HomeTeam == 'COL' || HomeTeam == 'RIC') {
+        if (HomeTeam == 'ESS' || HomeTeam == 'COL' || HomeTeam == 'RIC') {
             return 'img/teams/port-clash.png'
+        } else if (HomeTeam == 'ADE'){
+            return 'img/teams/port-heritage.png'
         } else {
             return 'img/teams/port-home.png';
         }
@@ -545,43 +549,43 @@ function roundCalc(d) {
         return 6;
 
         // Round 7
-    } else if (month == 3 && date <= 31 || month == 4 && date <= 6) {
+    } else if (month == 3 && date <= 31 || month == 4 && date <= 2) {
         return 7;
 
         // Round 8    
-    } else if (month == 4 && date <= 13) {
+    } else if (month == 4 && date <= 10) {
         return 8;
 
         // Round 9
-    } else if (month == 4 && date <= 20) {
+    } else if (month == 4 && date <= 17) {
         return 9;
 
         // Round 10
-    } else if (month == 4 && date <= 27) {
+    } else if (month == 4 && date <= 24) {
         return 10;
 
         // Round 11
-    } else if (month == 4 && date <= 31 || month == 5 && date <= 3) {
+    } else if (month == 4 && date <= 31) {
         return 11;
 
         // Round 12
-    } else if (month == 5 && date <= 11) {
+    } else if (month == 5 && date <= 8) {
         return 12;
 
         // Round 13
-    } else if (month == 5 && date <= 17) {
+    } else if (month == 5 && date <= 14) {
         return 13;
 
         // Round 14
-    } else if (month == 5 && date <= 24) {
+    } else if (month == 5 && date <= 21) {
         return 14;
 
         // Round 15
-    } else if (month == 5 && date <= 31 || month == 6 && date <= 1) {
+    } else if (month == 5 && date <= 29) {
         return 15;
 
         // Round 16
-    } else if (month == 6 && date <= 8) {
+    } else if (month == 5 && date <= 31 || month == 6 && date <= 8) {
         return 16;
 
         // Round 17
@@ -891,6 +895,18 @@ function dataLadder() {
 
     });
 }
+
+//
+// UI - Buttons
+// ==========================================================================
+
+// Variables
+// var gitButton = document.getElementById('js-button-github');
+
+// gitButton.addEventListener('click', function(){
+//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
+// });
+
 //
 // Layout - Vertically Centered
 // ==========================================================================
@@ -943,15 +959,3 @@ $(window).on('resize', function() {
     // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
     // vertCenter($('.o-vert-center'), '.o-vert-center__object');
 });
-
-
-//
-// UI - Buttons
-// ==========================================================================
-
-// Variables
-// var gitButton = document.getElementById('js-button-github');
-
-// gitButton.addEventListener('click', function(){
-//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
-// });

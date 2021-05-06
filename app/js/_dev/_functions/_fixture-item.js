@@ -15,7 +15,7 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + date.time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code, array.team_B.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
@@ -40,7 +40,7 @@ function fixtureItem(array) {
                     '<span class="c-date__time">FT</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code, array.team_B.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_A.goals + '. ' + array.team_A.behinds + '. <span class="c-fixture__score-total">' + array.team_A.score + '</span></span>' +
                 '</div>' +
@@ -64,7 +64,7 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + array.match_time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + homeKit(array.team_A.code) + '" />' +
+                    '<img class="js-team-img" src="' + homeKit(array.team_A.code, array.team_B.code) + '" />' +
                     '<span class="js-team-text">' + teamAbrev(array.team_A.code) + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.team_A.goals + '. ' + array.team_A.behinds + '. <span class="c-fixture__score-total">' + array.team_A.score + '</span></span>' +
                 '</div>' +

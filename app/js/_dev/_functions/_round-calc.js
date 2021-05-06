@@ -28,43 +28,43 @@ function roundCalc(d) {
         return 6;
 
         // Round 7
-    } else if (month == 3 && date <= 31 || month == 4 && date <= 6) {
+    } else if (month == 3 && date <= 31 || month == 4 && date <= 2) {
         return 7;
 
         // Round 8    
-    } else if (month == 4 && date <= 13) {
+    } else if (month == 4 && date <= 10) {
         return 8;
 
         // Round 9
-    } else if (month == 4 && date <= 20) {
+    } else if (month == 4 && date <= 17) {
         return 9;
 
         // Round 10
-    } else if (month == 4 && date <= 27) {
+    } else if (month == 4 && date <= 24) {
         return 10;
 
         // Round 11
-    } else if (month == 4 && date <= 31 || month == 5 && date <= 3) {
+    } else if (month == 4 && date <= 31) {
         return 11;
 
         // Round 12
-    } else if (month == 5 && date <= 11) {
+    } else if (month == 5 && date <= 8) {
         return 12;
 
         // Round 13
-    } else if (month == 5 && date <= 17) {
+    } else if (month == 5 && date <= 14) {
         return 13;
 
         // Round 14
-    } else if (month == 5 && date <= 24) {
+    } else if (month == 5 && date <= 21) {
         return 14;
 
         // Round 15
-    } else if (month == 5 && date <= 31 || month == 6 && date <= 1) {
+    } else if (month == 5 && date <= 29) {
         return 15;
 
         // Round 16
-    } else if (month == 6 && date <= 8) {
+    } else if (month == 5 && date <= 31 || month == 6 && date <= 8) {
         return 16;
 
         // Round 17
