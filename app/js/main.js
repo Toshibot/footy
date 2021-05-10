@@ -110,6 +110,310 @@ function scroll() {
       }
    });
 }
+var data_club = {
+    ADE: {
+        name: 'Adelaide',
+        logo: 'img/teams/crows.png',
+        kit: {
+            home: 'img/teams/crows-home.png',
+            away: 'img/teams/crows-away.png',
+            clash: {
+                kit: 'img/teams/crows-home.png',
+                teams: ['HAW']
+            }
+        }
+    },
+    BRI: {
+        name: 'Brisbane',
+        logo: 'img/teams/lions.png',
+        kit: {
+            home: 'img/teams/lions-home.png',
+            away: 'img/teams/lions-away.png',
+            clash: {
+                kit: 'img/teams/lions-clash.png',
+                teams: ['SYD','GWS','GCS','WCE','ADE','FRE','POR', 'MEL']
+            }
+        }
+    },
+    CAR: {
+        name: 'Carlton',
+        logo: 'img/teams/blues.png',
+        kit: {
+            home: 'img/teams/blues-home.png',
+            away: 'img/teams/blues-away.png',
+            clash: {
+                kit: 'img/teams/blues-home.png',
+                teams: ['GEE', 'SYD']
+            }
+        }
+    },
+    COL: {
+        name: 'Collingwood',
+        logo: 'img/teams/magpies.png',
+        kit: {
+            home: 'img/teams/magpies-home.png',
+            away: 'img/teams/magpies-away.png',
+            clash: {
+                kit: 'img/teams/magpies-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    ESS: {
+        name: 'Essendon',
+        logo: 'img/teams/bombers.png',
+        kit: {
+            home: 'img/teams/bombers-home.png',
+            away: 'img/teams/bombers-home.png',
+            clash: {
+                kit: 'img/teams/bombers-clash.png',
+                teams: ['MEL', 'COL', 'CAR', 'POR', 'STK', 'RIC']
+            }
+        }
+    },
+    FRE: {
+        name: 'Fremantle',
+        logo: 'img/teams/dockers.png',
+        kit: {
+            home: 'img/teams/dockers-home.png',
+            away: 'img/teams/dockers-away.png',
+            clash: {
+                kit: 'img/teams/dockers-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    GEE: {
+        name: 'Geelong',
+        logo: 'img/teams/lions.png',
+        kit: {
+            home: 'img/teams/cats-home.png',
+            away: 'img/teams/cats-home.png',
+            clash: {
+                kit: 'img/teams/cats-clash.png',
+                teams: []
+            }
+        }
+    },
+    GCS: {
+        name: 'Gold Coast',
+        logo: 'img/teams/suns.png',
+        kit: {
+            home: 'img/teams/suns-home.png',
+            away: 'img/teams/suns-away.png',
+            clash: {
+                kit: 'img/teams/suns-home.png',
+                teams: ['WBD', 'CAR', 'FRE', 'NM', 'WCE']
+            }
+        }
+    },
+    GWS: {
+        name: 'Gr. W. Sydney',
+        logo: 'img/teams/gws.png',
+        kit: {
+            home: 'img/teams/gws-home.png',
+            away: 'img/teams/gws-away.png',
+            clash: {
+                kit: 'img/teams/gws-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    HAW: {
+        name: 'Hawthorn',
+        logo: 'img/teams/hawks.png',
+        kit: {
+            home: 'img/teams/hawks-home.png',
+            away: 'img/teams/hawks-away.png',
+            clash: {
+                kit: 'img/teams/hawks-home.png',
+                teams: []
+            }
+        }
+    },
+    MEL: {
+        name: 'Melbourne',
+        logo: 'img/teams/demons.png',
+        kit: {
+            home: 'img/teams/demons-home.png',
+            away: 'img/teams/demons-away.png',
+            clash: {
+                kit: 'img/teams/demons-home.png',
+                teams: []
+            }
+        }
+    },
+    NM: {
+        name: 'N. Melbourne',
+        logo: 'img/teams/kangaroos.png',
+        kit: {
+            home: 'img/teams/kangaroos-home.png',
+            away: 'img/teams/kangaroos-clash.png',
+            clash: {
+                kit: 'img/teams/kangaroos-home.png',
+                teams: ['COL']
+            }
+        }
+    },
+    POR: {
+        name: 'Port Adelaide',
+        logo: 'img/teams/power.png',
+        kit: {
+            home: 'img/teams/power-home.png',
+            away: 'img/teams/power-away.png',
+            clash: {
+                kit: 'img/teams/power-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    RIC: {
+        name: 'Richmond',
+        logo: 'img/teams/tigers.png',
+        kit: {
+            home: 'img/teams/tigers-home.png',
+            away: 'img/teams/tigers-away.png',
+            clash: {
+                kit: 'img/teams/tigers-home.png',
+                teams: ['HAW']
+            }
+        }
+    },
+    STK: {
+        name: 'St. Kilda',
+        logo: 'img/teams/saints.png',
+        kit: {
+            home: 'img/teams/saints-home.png',
+            away: 'img/teams/saints-away.png',
+            clash: {
+                kit: 'img/teams/saints-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    SYD: {
+        name: 'Sydney',
+        logo: 'img/teams/swans.png',
+        kit: {
+            home: 'img/teams/swans-home.png',
+            away: 'img/teams/swans-home.png',
+            clash: {
+                kit: 'img/teams/swans-home.png',
+                teams: []
+            }
+        }
+    },
+    WBD: {
+        name: 'W. Bulldogs',
+        logo: 'img/teams/dogs.png',
+        kit: {
+            home: 'img/teams/dogs-home.png',
+            away: 'img/teams/dogs-away.png',
+            clash: {
+                kit: 'img/teams/dogs-home.png',
+                teams: ['SYD','GEE']
+            }
+        }
+    },
+    WCE: {
+        name: 'West Coast',
+        logo: 'img/teams/eagles.png',
+        kit: {
+            home: 'img/teams/eagles-home.png',
+            away: 'img/teams/eagles-away.png',
+            clash: {
+                kit: 'img/teams/eagles-home.png',
+                teams: ['HAW']
+            }
+        }
+    }
+}
+
+// Data - Fixture/Results
+
+function dataFixture(round) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // Dummy Dev File
+        // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        console.log('fixture loaded');
+        console.log(json);
+
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var finalsData = [];
+        var currentRoundNo = roundCalc(today);
+        // var currentRoundNo = 23;
+
+        $('.js-fixture-round').text(currentRoundNo);
+
+        for (i = 0; i < json.length; i++) {
+            const element = json[i];
+
+            if (element.round.number == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        console.log(currentRound);
+
+        var game1 = currentRound[8];
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+
+        // scroll();
+
+
+
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
+
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
+
+        // finals(finalsData);
+
+    });
+}
+
+//
+// Data
+// ====
+
+function dataLadder() {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const element = json.teams[i];
+            ladderItem(element, i + 1);
+        }
+
+    });
+}
+function data() {
+    $.getJSON('data/clubs.json', function (clubs) {
+
+    });
+}
 
 function dateTime(d) {
 
@@ -420,9 +724,7 @@ function homeKit(team, awayTeam) {
     }
 }
 
-function awayKit(awayTeam, HomeTeam) {
-    var team = awayTeam;
-
+function awayKit(team, HomeTeam) {
     if (team == 'ADE') {
         if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
             return 'img/teams/crows-home.png'
@@ -813,87 +1115,6 @@ function teamImg(team) {
     } else if (team == 'WBD') {
         return 'img/teams/dogs.png';
     }
-}
-
-// Data - Fixture/Results
-
-function dataFixture(round) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // Dummy Dev File
-        // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
-
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var finalsData = [];
-        var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 23;
-
-        $('.js-fixture-round').text(currentRoundNo);
-
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
-
-            if (element.round.number == currentRoundNo) {
-                currentRound.push(element);
-            }
-        }
-
-        console.log(currentRound);
-
-        var game1 = currentRound[8];
-
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
-
-            fixtureItem(element);
-        }
-
-        // scroll();
-
-
-
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
-
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
-
-        // finals(finalsData);
-
-    });
-}
-
-//
-// Data
-// ====
-
-function dataLadder() {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const element = json.teams[i];
-            ladderItem(element, i + 1);
-        }
-
-    });
 }
 
 //

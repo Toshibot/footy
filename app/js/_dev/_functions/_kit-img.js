@@ -44,9 +44,7 @@ function homeKit(team, awayTeam) {
     }
 }
 
-function awayKit(awayTeam, HomeTeam) {
-    var team = awayTeam;
-
+function awayKit(team, HomeTeam) {
     if (team == 'ADE') {
         if (HomeTeam == 'GEE' || HomeTeam == 'SYD') {
             return 'img/teams/crows-home.png'
