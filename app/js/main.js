@@ -4,6 +4,597 @@
 
 // Core Functions 
 data();
+// ==========================================================================
+// Fixture - Functions
+// ==========================================================================
+
+
+// 
+// Ladder
+// ======
+
+var ladder = function(){
+
+    // GWS
+    var giants = $('.c-ladder__team:contains("Greater Western Sydney")'); 
+    giants.children('span').text('GWS');
+    giants.children('img').attr('src', 'img/teams/gws.svg');
+
+    var hawks = $('.c-ladder__team:contains("Hawthorn")');
+    hawks.children('img').attr('src', 'img/teams/hawks.svg');
+
+    var suns = $('.c-ladder__team:contains("Gold Coast")');
+    suns.children('img').attr('src', 'img/teams/suns.svg');
+
+    var swans = $('.c-ladder__team:contains("Sydney")');
+    swans.children('img').attr('src', 'img/teams/swans.svg');
+
+    var saints = $('.c-ladder__team:contains("St Kilda")');
+    saints.children('img').attr('src', 'img/teams/saints.svg');
+
+    var tigers = $('.c-ladder__team:contains("Richmond")');
+    tigers.children('img').attr('src', 'img/teams/tigers.svg');
+
+    var bombers = $('.c-ladder__team:contains("Essendon")');
+    bombers.children('img').attr('src', 'img/teams/bombers.svg');
+
+    var cats = $('.c-ladder__team:contains("Geelong")');
+    cats.children('img').attr('src', 'img/teams/cats.svg');
+
+    var demons = $('.c-ladder__team:contains("Melbourne")');
+    demons.children('img').attr('src', 'img/teams/demons.svg');
+
+    var crows = $('.c-ladder__team:contains("Adelaide")');
+    crows.children('img').attr('src', 'img/teams/crows.svg');
+
+    var blues = $('.c-ladder__team:contains("Carlton")');
+    blues.children('img').attr('src', 'img/teams/blues.svg');
+    
+    // Port Adelaide
+    var port = $('.c-ladder__team:contains("Port Adelaide")');
+    port.children('img').attr('src', 'img/teams/port.svg');
+
+    var lions = $('.c-ladder__team:contains("Brisbane")');
+    lions.children('img').attr('src', 'img/teams/lions.svg');
+
+    var eagles = $('.c-ladder__team:contains("West Coast")');
+    eagles.children('img').attr('src', 'img/teams/eagles.svg');
+
+    var kangaroos = $('.c-ladder__team:contains("North Melbourne")');
+    kangaroos.children('img').attr('src', 'img/teams/kangaroos.svg');
+
+    var magpies = $('.c-ladder__team:contains("Collingwood")');
+    magpies.children('img').attr('src', 'img/teams/magpies.svg');
+
+    var dockers = $('.c-ladder__team:contains("Fremantle")');
+    dockers.children('img').attr('src', 'img/teams/dockers.svg');
+
+    var dogs = $('.c-ladder__team:contains("Bulldogs")');
+    dogs.children('img').attr('src', 'img/teams/dogs.svg');
+
+}
+function scroll() {
+   $(window).on('scroll', function(){
+      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
+         $('.js-scrollto-fixture').addClass('is-hidden');
+      } else {
+         $('.js-scrollto-fixture').removeClass('is-hidden');
+      }
+   });
+
+   $('.js-scrollto-fixture').on('click', function(){
+      $('html, body').animate(
+         {
+            scrollTop: $('.js-game-pregame').offset().top - 36,
+         }, {
+            duration: 400,
+            specialEasing: 'easeInOut'
+         }
+      )
+   });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeInOut'
+               }
+            )
+         });
+      }
+   });
+}
+
+function dateTime(d) {
+
+    var date = new Date(d);
+
+    function day(d) {
+        var day = d.getDay();
+
+        if (day == 0) {
+            return 'Sunday';
+        } else if (day == 1) {
+            return 'Monday';
+        } else if (day == 2) {
+            return 'Tuesday';
+        } else if (day == 3) {
+            return 'Wednesday';
+        } else if (day == 4) {
+            return 'Thursday';
+        } else if (day == 5) {
+            return 'Friday';
+        } else if (day == 6) {
+            return 'Saturday';
+        }
+    }
+
+    function month(d) {
+        var m = d.getMonth();
+
+        if (m == 0) {
+            return 'Jan';
+        } else if (m == 1) {
+            return 'Feb';
+        } else if (m == 2) {
+            return 'Mar';
+        } else if (m == 3) {
+            return 'Apr';
+        } else if (m == 4) {
+            return 'May';
+        } else if (m == 5) {
+            return 'Jun';
+        } else if (m == 6) {
+            return 'Jul';
+        } else if (m == 7) {
+            return 'Aug';
+        } else if (m == 8) {
+            return 'Sep';
+        } else if (m == 9) {
+            return 'Oct';
+        } else if (m == 10) {
+            return 'Nov';
+        } else if (m == 11) {
+            return 'Dec';
+        }
+    }
+
+    var dd = date.getDate();
+
+    function time(d) {
+        var h = d.getHours();
+        var m = ('0'+d.getMinutes()).slice(-2);
+
+        return h + ':' + m;
+    }
+
+    var dateObj = {
+        day: day(date),
+        month: month(date),
+        date: dd,
+        time: time(date)
+    }
+
+    return dateObj;
+}
+function finals(data, clubs) {
+
+   console.log(data);
+
+   var grand_final = data[8];
+   var home_team = data.team_A;
+   var away_team = data.team_B;
+   var home_club_data = clubs[home_team.code];
+   var away_club_data = clubs[away_team.code];
+
+   $('.js-finals-series-year').text(data[0].season.year);
+   $('.js-premiership-year').text(data[0].season.year);
+
+   function finalBuilder(element, final) {
+      var date = dateTime(final.match_start_date);
+      var dateElement = element.children('.c-date');
+      var team_1 = element.children('.js-fixture-team-1');
+      var team_2 = element.children('.js-fixture-team-2');
+      var venue = element.children('.js-fixture-venue');
+
+      // Date ====
+      if (final.match_status == 'Pre Game') {
+         dateElement.children('.c-date__day').text(date.day);
+         dateElement.children('.c-date__month').text(date.month);
+         dateElement.children('.c-date__date').text(date.date);
+         dateElement.children('.c-date__time').text(date.time);
+      } else if (final.match_status == 'Full Time') {
+         element.addClass('full-time');
+         dateElement.children('.c-date__day').text(date.day);
+         dateElement.children('.c-date__month').text(date.month);
+         dateElement.children('.c-date__date').text(date.date);
+         dateElement.children('.c-date__time').text('FT');
+      } else {
+         element.addClass('live');
+         dateElement.append(
+            '<span class="c-date__live">LIVE</span>' +
+            '<span class="c-date__status">' + final.match_status + '</span>' +
+            '<span class="c-date__played-time">' + final.match_time + '</span>'
+         );
+      }
+
+      // Teams ====
+      // Team 1
+      team_1.children('.js-team-img').attr('src', home_club_data.kit.home);
+      team_1.children('.js-team-text').text(home_club_data.name);
+      if (final.match_status !== 'Pre Game') {
+         team_1.children('.js-score-text').text('').append(home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span>');
+      }
+      // Team 2
+      team_2.children('.js-team-img').attr('src', awayKit(away_club_data.kit, home_team.code));
+      team_2.children('.js-team-text').text(away_club_data.name);
+      if (final.match_status !== 'Pre Game') {
+         team_2.children('.js-score-text').text('').append(away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span>');
+      }
+
+      // Venue ====
+      venue.text(final.venue.name);
+
+   }
+
+   function premiers(data) {
+      if (data.match_status_normalised == "post" && home_team.score > away_team.score) {
+         return {
+            name: home_club_data.name,
+            bg: home_club_data.pattern
+         };
+      } else if (data.match_status_normalised == "post" && away_team.score > home_team.score) {
+         return {
+            name: away_club_data.name,
+            bg: away_club_data.pattern
+         };
+      } else {
+         return {
+            name: '?',
+            bg: 'img/teams/'
+         };
+      }
+   }
+
+   // Qualifying / Elimiation Finals =========
+   // First Qualifying Final
+   finalBuilder($('.js-finals-qf1'), data[0]);
+   // Second Qualifying Final
+   finalBuilder($('.js-finals-qf2'), data[1]);
+   // First Elimination Final
+   finalBuilder($('.js-finals-ef1'), data[3]);
+   // Second Elimination Final
+   finalBuilder($('.js-finals-ef2'), data[2]);
+
+
+   // Semi Finals ============
+   // First Semi Final
+   finalBuilder($('.js-finals-sf1'), data[5]);
+   // Second Semi Final
+   finalBuilder($('.js-finals-sf2'), data[4]);
+
+   // Preliminary Finals ============
+   // First Prelim Final
+   finalBuilder($('.js-finals-pf1'), data[6]);
+   // Second Prelim Final
+   finalBuilder($('.js-finals-pf2'), data[7]);
+
+   // Grand Final ==============
+   finalBuilder($('.js-finals-gf'), grand_final);
+
+   // Premiers ============
+   $('.js-premiers-name').text(premiers(grand_final).name);
+   $('.js-premiers-bg').css({
+      'background-image': 'url(' + premiers(grand_final).bg + ')',
+      'background-size': 'cover'
+   });
+
+}
+function fixtureItem(fixture_data, clubs) {
+
+    var date = dateTime(fixture_data.match_start_date);
+    var match_status = fixture_data.match_status;
+    var home_team = fixture_data.team_A;
+    var away_team = fixture_data.team_B;
+    var home_club_data = clubs[home_team.code];
+    var away_club_data = clubs[away_team.code];
+
+    if (match_status == 'Pre Game') {
+
+        $('.js-fixture').before(
+            '<div class="c-fixture__game js-game-pregame">' +
+                '<div class= "c-fixture__date c-date" >' + 
+                    '<span class="c-date__day">' + date.day + '</span>' +
+                    '<span class="c-date__month">' + date.month + '</span>' +
+                    '<span class="c-date__date">' + date.date + '</span>' +
+                    '<span class="c-date__time">' + date.time + '</span>' +
+                '</div >' +
+                '<div class="c-fixture__team js-fixture-team-1">' +
+                    '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
+                    '<span class="js-team-text">' + home_club_data.name + '</span>' +
+                    '<span class="c-fixture__score js-score-text">-</span>' +
+                '</div>' +
+                '<div class="c-fixture__vs">vs</div>' +
+                '<div class="c-fixture__team js-fixture-team-2">' +
+                '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
+                '<span class="js-team-text">' + away_club_data.name + '</span>' +
+                '<span class="c-fixture__score js-score-text">-</span>' +
+                '</div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + fixture_data.venue.name + '</div>' +
+            '</div>'
+        );
+
+    } else if (match_status == "Full Time") {
+
+        $('.js-fixture').before(
+            '<div class="c-fixture__game c-fixture__game--completed">' +
+                '<div class= "c-fixture__date c-date" >' +
+                    '<span class="c-date__day">' + date.day + '</span>' +
+                    '<span class="c-date__month">' + date.month + '</span>' +
+                    '<span class="c-date__date">' + date.date + '</span>' +
+                    '<span class="c-date__time">FT</span>' +
+                '</div >' +
+                '<div class="c-fixture__team js-fixture-team-1">' +
+                    '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
+                    '<span class="js-team-text">' + home_club_data.name + '</span>' +
+                    '<span class="c-fixture__score js-score-text">' + home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span></span>' +
+                '</div>' +
+                '<div class="c-fixture__vs">vs</div>' +
+                '<div class="c-fixture__team js-fixture-team-2">' +
+                    '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
+                    '<span class="js-team-text">' + away_club_data.name + '</span>' +
+                    '<span class="c-fixture__score js-score-text">' + away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span></span>' +
+                '</div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + fixture_data.venue.name + '</div>' +
+            '</div>'
+        );
+
+    } else {
+
+        $('.js-fixture').before(
+            '<div class="c-fixture__game c-fixture__game--in-progress">' +
+                '<div class= "c-fixture__date c-date" >' +
+                    '<span class="c-date__live">LIVE</span>' +
+                    '<span class="c-date__status">' + match_status + '</span>' +
+                    '<span class="c-date__time">' + fixture_data.match_time + '</span>' +
+                '</div >' +
+                '<div class="c-fixture__team js-fixture-team-1">' +
+                    '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
+                    '<span class="js-team-text">' + home_club_data.name + '</span>' +
+                    '<span class="c-fixture__score js-score-text">' + home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span></span>' +
+                '</div>' +
+                '<div class="c-fixture__vs">vs</div>' +
+                '<div class="c-fixture__team js-fixture-team-2">' +
+                    '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
+                    '<span class="js-team-text">' + away_club_data.name + '</span>' +
+                    '<span class="c-fixture__score js-score-text">' + away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span></span>' +
+                '</div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + fixture_data.venue.name + '</div>' +
+            '</div>'
+        );
+    }
+}
+function awayKit(kit, home_team) {
+    var clash_data = kit.clash.teams;
+
+    if (clash_data.includes(home_team)) {
+        return kit.clash.kit
+    } else {
+        return kit.away;
+    }
+}
+
+// Constructs the ladder Items
+function ladderItem(ladder_data, number, club_data) {
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(club_data.name);
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', club_data.logo);
+    $('.c-ladder__item-' + number + ' div.c-ladder__played').text(ladder_data.stats.played);
+    $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(ladder_data.stats.won);
+    $('.c-ladder__item-' + number + ' div.c-ladder__draws').text(ladder_data.stats.drawn);
+    $('.c-ladder__item-' + number + ' div.c-ladder__losses').text(ladder_data.stats.lost);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points-for').text(ladder_data.stats.for);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points-against').text(ladder_data.stats.against);
+    $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(ladder_data.stats.percentage);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points').text(ladder_data.stats.points);
+}
+function roundCalc(d) {
+    var currentDate = new Date(d);
+    var month = currentDate.getMonth();
+    var date = currentDate.getDate();
+
+    // Round 1
+    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {
+        return 1;
+
+        // Round 2
+    } else if (month == 2 && date <= 29) {
+        return 2;
+
+        // Round 3
+    } else if (month == 2 && date <= 31 || month == 3 && date <= 4) {
+        return 3;
+
+        // Round 4    
+    } else if (month == 3 && date <= 13) {
+        return 4;
+
+        // Round 5    
+    } else if (month == 3 && date <= 19) {
+        return 5;
+
+        // Round 6
+    } else if (month == 3 && date <= 26) {
+        return 6;
+
+        // Round 7
+    } else if (month == 3 && date <= 31 || month == 4 && date <= 2) {
+        return 7;
+
+        // Round 8    
+    } else if (month == 4 && date <= 10) {
+        return 8;
+
+        // Round 9
+    } else if (month == 4 && date <= 17) {
+        return 9;
+
+        // Round 10
+    } else if (month == 4 && date <= 24) {
+        return 10;
+
+        // Round 11
+    } else if (month == 4 && date <= 31) {
+        return 11;
+
+        // Round 12
+    } else if (month == 5 && date <= 8) {
+        return 12;
+
+        // Round 13
+    } else if (month == 5 && date <= 14) {
+        return 13;
+
+        // Round 14
+    } else if (month == 5 && date <= 21) {
+        return 14;
+
+        // Round 15
+    } else if (month == 5 && date <= 29) {
+        return 15;
+
+        // Round 16
+    } else if (month == 5 && date <= 31 || month == 6 && date <= 8) {
+        return 16;
+
+        // Round 17
+    } else if (month == 6 && date <= 15) {
+        return 17;
+
+        // Round 18
+    } else if (month == 6 && date <= 22) {
+        return 18;
+
+        // Round 19
+    } else if (month == 6 && date <= 29) {
+        return 19;
+
+        // Round 20
+    } else if (month == 6 && date <= 31 || month == 7 && date <= 5) {
+        return 20;
+
+        // Round 21
+    } else if (month == 7 && date <= 12) {
+        return 21;
+
+        // Round 22
+    } else if (month == 7 && date <= 19) {
+        return 22;
+
+        // Round 23
+    } else if (month == 7 && date <= 23) {
+        return 23;
+
+    } else if (month == 8) {
+        return 23;
+    }
+
+
+
+    // 2020 Compressed Season
+
+    //     // Round 8
+    // } else if (month == 6 && date <= 27) {
+    //     return 8;
+
+    //     // Round 9
+    // } else if (month == 6 && date <= 30 || month == 7 && date <= 3) {
+    //     return 9;
+
+    //     // Round 10
+    // } else if (month == 7 && date <= 8) {
+    //     return 10;
+
+    //     // Round 11
+    // } else if (month == 7 && date <= 13) {
+    //     return 11;
+
+    //     // Round 12
+    // } else if (month == 7 && date <= 18) {
+    //     return 12;
+
+    //     // Round 13
+    // } else if (month == 7 && date <= 24) {
+    //     return 13;
+
+    //     // Round 14
+    // } else if (month == 7 && date <= 30) {
+    //     return 14;
+
+    //     // Round 15
+    // } else if (month == 7 && date == 31 || month == 8 && date <= 4) {
+    //     return 15;
+
+    //     // Round 16
+    // } else if (month == 8 && date <= 9) {
+    //     return 16;
+
+    //     // Round 17
+    // } else if (month == 8 && date <= 14) {
+    //     return 17;
+
+    //     // Round 18
+    // } else if (month == 8 && date <= 21) {
+    //     return 18;
+    // }
+
+
+}
+
+// Applies the correct team background to the referenced team code.
+function team_bg(team) {
+   if (team == 'ADE') {
+       return 'img/teams/crows.svg';
+   } else if (team == 'BRI') {
+       return 'img/teams/lions.svg';
+   } else if (team == 'CAR') {
+       return 'img/teams/blues.svg';
+   } else if (team == 'COL') {
+       return 'img/teams/magpies.svg';
+   } else if (team == 'ESS') {
+       return 'img/teams/bombers.svg';
+   } else if (team == 'FRE') {
+       return 'img/teams/dockers.svg';
+   } else if (team == 'GEE') {
+       return 'img/teams/cats.svg';
+   } else if (team == 'GCS') {
+       return 'img/teams/suns.svg';
+   } else if (team == 'GWS') {
+       return 'img/teams/gws.svg';
+   } else if (team == 'HAW') {
+       return 'img/teams/hawks.svg';
+   } else if (team == 'MEL') {
+       return 'img/teams/demons.svg';
+   } else if (team == 'NM') {
+       return 'img/teams/kangaroos.svg';
+   } else if (team == 'POR') {
+       return 'img/teams/port.svg';
+   } else if (team == 'RIC') {
+       return 'img/teams/tigers.svg';
+   } else if (team == 'STK') {
+       return 'img/teams/saints.svg';
+   } else if (team == 'SYD') {
+       return 'img/teams/swans.svg';
+   } else if (team == 'WCE') {
+       return 'img/teams/eagles.svg';
+   } else if (team == 'WBD') {
+       return 'img/teams/dogs.svg';
+   }
+}
 var data_club = {
     ADE: {
         name: 'Adelaide',
@@ -275,7 +866,7 @@ function dataFixture(clubs) {
             }
         }
 
-        // finals(finalsData);
+        // finals(finalsData, clubs);
 
     });
 }
@@ -309,595 +900,6 @@ function data() {
         dataLadder(clubs);
         dataFixture(clubs);
     });
-}
-// ==========================================================================
-// Fixture - Functions
-// ==========================================================================
-
-
-// 
-// Ladder
-// ======
-
-var ladder = function(){
-
-    // GWS
-    var giants = $('.c-ladder__team:contains("Greater Western Sydney")'); 
-    giants.children('span').text('GWS');
-    giants.children('img').attr('src', 'img/teams/gws.svg');
-
-    var hawks = $('.c-ladder__team:contains("Hawthorn")');
-    hawks.children('img').attr('src', 'img/teams/hawks.svg');
-
-    var suns = $('.c-ladder__team:contains("Gold Coast")');
-    suns.children('img').attr('src', 'img/teams/suns.svg');
-
-    var swans = $('.c-ladder__team:contains("Sydney")');
-    swans.children('img').attr('src', 'img/teams/swans.svg');
-
-    var saints = $('.c-ladder__team:contains("St Kilda")');
-    saints.children('img').attr('src', 'img/teams/saints.svg');
-
-    var tigers = $('.c-ladder__team:contains("Richmond")');
-    tigers.children('img').attr('src', 'img/teams/tigers.svg');
-
-    var bombers = $('.c-ladder__team:contains("Essendon")');
-    bombers.children('img').attr('src', 'img/teams/bombers.svg');
-
-    var cats = $('.c-ladder__team:contains("Geelong")');
-    cats.children('img').attr('src', 'img/teams/cats.svg');
-
-    var demons = $('.c-ladder__team:contains("Melbourne")');
-    demons.children('img').attr('src', 'img/teams/demons.svg');
-
-    var crows = $('.c-ladder__team:contains("Adelaide")');
-    crows.children('img').attr('src', 'img/teams/crows.svg');
-
-    var blues = $('.c-ladder__team:contains("Carlton")');
-    blues.children('img').attr('src', 'img/teams/blues.svg');
-    
-    // Port Adelaide
-    var port = $('.c-ladder__team:contains("Port Adelaide")');
-    port.children('img').attr('src', 'img/teams/port.svg');
-
-    var lions = $('.c-ladder__team:contains("Brisbane")');
-    lions.children('img').attr('src', 'img/teams/lions.svg');
-
-    var eagles = $('.c-ladder__team:contains("West Coast")');
-    eagles.children('img').attr('src', 'img/teams/eagles.svg');
-
-    var kangaroos = $('.c-ladder__team:contains("North Melbourne")');
-    kangaroos.children('img').attr('src', 'img/teams/kangaroos.svg');
-
-    var magpies = $('.c-ladder__team:contains("Collingwood")');
-    magpies.children('img').attr('src', 'img/teams/magpies.svg');
-
-    var dockers = $('.c-ladder__team:contains("Fremantle")');
-    dockers.children('img').attr('src', 'img/teams/dockers.svg');
-
-    var dogs = $('.c-ladder__team:contains("Bulldogs")');
-    dogs.children('img').attr('src', 'img/teams/dogs.svg');
-
-}
-function scroll() {
-   $(window).on('scroll', function(){
-      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
-         $('.js-scrollto-fixture').addClass('is-hidden');
-      } else {
-         $('.js-scrollto-fixture').removeClass('is-hidden');
-      }
-   });
-
-   $('.js-scrollto-fixture').on('click', function(){
-      $('html, body').animate(
-         {
-            scrollTop: $('.js-game-pregame').offset().top - 36,
-         }, {
-            duration: 400,
-            specialEasing: 'easeInOut'
-         }
-      )
-   });
-
-   $('.c-fixture__game').each(function(){
-      if ($(this).hasClass('c-fixture__game--in-progress')){
-         $('.js-scrollto-fixture').addClass('has-live');
-         $('.js-scrollto-fixture').on('click', function(){
-            $('html, body').animate(
-               {
-                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
-               }, {
-                  duration: 400,
-                  specialEasing: 'easeInOut'
-               }
-            )
-         });
-      }
-   });
-}
-
-function dateTime(d) {
-
-    var date = new Date(d);
-
-    function day(d) {
-        var day = d.getDay();
-
-        if (day == 0) {
-            return 'Sunday';
-        } else if (day == 1) {
-            return 'Monday';
-        } else if (day == 2) {
-            return 'Tuesday';
-        } else if (day == 3) {
-            return 'Wednesday';
-        } else if (day == 4) {
-            return 'Thursday';
-        } else if (day == 5) {
-            return 'Friday';
-        } else if (day == 6) {
-            return 'Saturday';
-        }
-    }
-
-    function month(d) {
-        var m = d.getMonth();
-
-        if (m == 0) {
-            return 'Jan';
-        } else if (m == 1) {
-            return 'Feb';
-        } else if (m == 2) {
-            return 'Mar';
-        } else if (m == 3) {
-            return 'Apr';
-        } else if (m == 4) {
-            return 'May';
-        } else if (m == 5) {
-            return 'Jun';
-        } else if (m == 6) {
-            return 'Jul';
-        } else if (m == 7) {
-            return 'Aug';
-        } else if (m == 8) {
-            return 'Sep';
-        } else if (m == 9) {
-            return 'Oct';
-        } else if (m == 10) {
-            return 'Nov';
-        } else if (m == 11) {
-            return 'Dec';
-        }
-    }
-
-    var dd = date.getDate();
-
-    function time(d) {
-        var h = d.getHours();
-        var m = ('0'+d.getMinutes()).slice(-2);
-
-        return h + ':' + m;
-    }
-
-    var dateObj = {
-        day: day(date),
-        month: month(date),
-        date: dd,
-        time: time(date)
-    }
-
-    return dateObj;
-}
-function finals(data) {
-
-   console.log(data);
-
-   var grand_final = data[8];
-
-   $('.js-finals-series-year').text(data[0].season.year);
-   $('.js-premiership-year').text(data[0].season.year);
-
-   function finalBuilder(element, array) {
-      var final = array;
-      var date = dateTime(final.match_start_date);
-      var dateElement = element.children('.c-date');
-      var team_1 = element.children('.js-fixture-team-1');
-      var team_2 = element.children('.js-fixture-team-2');
-      var venue = element.children('.js-fixture-venue');
-
-      // Date ====
-      if (final.match_status == 'Pre Game') {
-         dateElement.children('.c-date__day').text(date.day);
-         dateElement.children('.c-date__month').text(date.month);
-         dateElement.children('.c-date__date').text(date.date);
-         dateElement.children('.c-date__time').text(date.time);
-      } else if (final.match_status == 'Full Time') {
-         element.addClass('full-time');
-         dateElement.children('.c-date__day').text(date.day);
-         dateElement.children('.c-date__month').text(date.month);
-         dateElement.children('.c-date__date').text(date.date);
-         dateElement.children('.c-date__time').text('FT');
-      } else {
-         element.addClass('live');
-         dateElement.append(
-            '<span class="c-date__live">LIVE</span>' +
-            '<span class="c-date__status">' + final.match_status + '</span>' +
-            '<span class="c-date__played-time">' + final.match_time + '</span>'
-         );
-      }
-
-      // Teams ====
-      // Team 1
-      team_1.children('.js-team-img').attr('src', homeKit(final.team_A.code));
-      team_1.children('.js-team-text').text(teamAbrev(final.team_A.code, final.team_A.name));
-      if (final.match_status !== 'Pre Game') {
-         team_1.children('.js-score-text').text('').append(final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>');
-      }
-      // Team 2
-      team_2.children('.js-team-img').attr('src', awayKit(final.team_B.code, final.team_A.code));
-      team_2.children('.js-team-text').text(teamAbrev(final.team_B.code, final.team_B.name));
-      if (final.match_status !== 'Pre Game') {
-         team_2.children('.js-score-text').text('').append(final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>');
-      }
-
-      // Venue ====
-      venue.text(final.venue.name);
-
-   }
-
-   function premiers(data) {
-      if (data.match_status_normalised == "post" && data.team_A.score > data.team_B.score) {
-         return {
-            name: teamAbrev(data.team_A.code),
-            bg: team_bg(data.team_A.code)
-         };
-      } else if (data.match_status_normalised == "post" && data.team_B.score > data.team_A.score) {
-         return {
-            name: teamAbrev(data.team_B.code),
-            bg: team_bg(data.team_B.code)
-         };
-      } else {
-         return {
-            name: '?',
-            bg: 'img/teams/'
-         };
-      }
-   }
-
-   // Qualifying / Elimiation Finals =========
-   // First Qualifying Final
-   finalBuilder($('.js-finals-qf1'), data[0]);
-   // Second Qualifying Final
-   finalBuilder($('.js-finals-qf2'), data[1]);
-   // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[3]);
-   // Second Elimination Final
-   finalBuilder($('.js-finals-ef2'), data[2]);
-
-
-   // Semi Finals ============
-   // First Semi Final
-   finalBuilder($('.js-finals-sf1'), data[5]);
-   // Second Semi Final
-   finalBuilder($('.js-finals-sf2'), data[4]);
-
-   // Preliminary Finals ============
-   // First Prelim Final
-   finalBuilder($('.js-finals-pf1'), data[6]);
-   // Second Prelim Final
-   finalBuilder($('.js-finals-pf2'), data[7]);
-
-   // Grand Final ==============
-   finalBuilder($('.js-finals-gf'), grand_final);
-
-   // Premiers ============
-   $('.js-premiers-name').text(premiers(grand_final).name);
-   $('.js-premiers-bg').css({
-      'background-image': 'url(' + premiers(grand_final).bg + ')',
-      'background-size': 'cover'
-   });
-
-}
-
-function fixtureItem(fixture_data, clubs) {
-
-    var date = dateTime(fixture_data.match_start_date);
-    var match_status = fixture_data.match_status;
-    var home_team = fixture_data.team_A;
-    var away_team = fixture_data.team_B;
-    var home_club_data = clubs[home_team.code];
-    var away_club_data = clubs[away_team.code];
-
-    if (match_status == 'Pre Game') {
-
-        $('.js-fixture').before(
-            '<div class="c-fixture__game js-game-pregame">' +
-                '<div class= "c-fixture__date c-date" >' + 
-                    '<span class="c-date__day">' + date.day + '</span>' +
-                    '<span class="c-date__month">' + date.month + '</span>' +
-                    '<span class="c-date__date">' + date.date + '</span>' +
-                    '<span class="c-date__time">' + date.time + '</span>' +
-                '</div >' +
-                '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
-                    '<span class="js-team-text">' + home_club_data.name + '</span>' +
-                    '<span class="c-fixture__score js-score-text">-</span>' +
-                '</div>' +
-                '<div class="c-fixture__vs">vs</div>' +
-                '<div class="c-fixture__team js-fixture-team-2">' +
-                '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
-                '<span class="js-team-text">' + away_club_data.name + '</span>' +
-                '<span class="c-fixture__score js-score-text">-</span>' +
-                '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue">' + fixture_data.venue.name + '</div>' +
-            '</div>'
-        );
-
-    } else if (match_status == "Full Time") {
-
-        $('.js-fixture').before(
-            '<div class="c-fixture__game c-fixture__game--completed">' +
-                '<div class= "c-fixture__date c-date" >' +
-                    '<span class="c-date__day">' + date.day + '</span>' +
-                    '<span class="c-date__month">' + date.month + '</span>' +
-                    '<span class="c-date__date">' + date.date + '</span>' +
-                    '<span class="c-date__time">FT</span>' +
-                '</div >' +
-                '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
-                    '<span class="js-team-text">' + home_club_data.name + '</span>' +
-                    '<span class="c-fixture__score js-score-text">' + fixture_data.team_A.goals + '. ' + fixture_data.team_A.behinds + '. <span class="c-fixture__score-total">' + fixture_data.team_A.score + '</span></span>' +
-                '</div>' +
-                '<div class="c-fixture__vs">vs</div>' +
-                '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
-                    '<span class="js-team-text">' + away_club_data.name + '</span>' +
-                    '<span class="c-fixture__score js-score-text">' + fixture_data.team_B.goals + '. ' + fixture_data.team_B.behinds + '. <span class="c-fixture__score-total">' + fixture_data.team_B.score + '</span></span>' +
-                '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue">' + fixture_data.venue.name + '</div>' +
-            '</div>'
-        );
-
-    } else {
-
-        $('.js-fixture').before(
-            '<div class="c-fixture__game c-fixture__game--in-progress">' +
-                '<div class= "c-fixture__date c-date" >' +
-                    '<span class="c-date__live">LIVE</span>' +
-                    '<span class="c-date__status">' + match_status + '</span>' +
-                    '<span class="c-date__time">' + fixture_data.match_time + '</span>' +
-                '</div >' +
-                '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
-                    '<span class="js-team-text">' + home_club_data.name + '</span>' +
-                    '<span class="c-fixture__score js-score-text">' + fixture_data.team_A.goals + '. ' + fixture_data.team_A.behinds + '. <span class="c-fixture__score-total">' + fixture_data.team_A.score + '</span></span>' +
-                '</div>' +
-                '<div class="c-fixture__vs">vs</div>' +
-                '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
-                    '<span class="js-team-text">' + away_club_data.name + '</span>' +
-                    '<span class="c-fixture__score js-score-text">' + fixture_data.team_B.goals + '. ' + fixture_data.team_B.behinds + '. <span class="c-fixture__score-total">' + fixture_data.team_B.score + '</span></span>' +
-                '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue">' + fixture_data.venue.name + '</div>' +
-            '</div>'
-        );
-    }
-}
-function awayKit(kit, home_team) {
-    var clash_data = kit.clash.teams;
-
-    if (clash_data.includes(home_team)) {
-        return kit.clash.kit
-    } else {
-        return kit.away;
-    }
-}
-
-// Constructs the ladder Items
-function ladderItem(ladder_data, number, club_data) {
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(club_data.name);
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', club_data.logo);
-    $('.c-ladder__item-' + number + ' div.c-ladder__played').text(ladder_data.stats.played);
-    $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(ladder_data.stats.won);
-    $('.c-ladder__item-' + number + ' div.c-ladder__draws').text(ladder_data.stats.drawn);
-    $('.c-ladder__item-' + number + ' div.c-ladder__losses').text(ladder_data.stats.lost);
-    $('.c-ladder__item-' + number + ' div.c-ladder__points-for').text(ladder_data.stats.for);
-    $('.c-ladder__item-' + number + ' div.c-ladder__points-against').text(ladder_data.stats.against);
-    $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(ladder_data.stats.percentage);
-    $('.c-ladder__item-' + number + ' div.c-ladder__points').text(ladder_data.stats.points);
-}
-function roundCalc(d) {
-    var currentDate = new Date(d);
-    var month = currentDate.getMonth();
-    var date = currentDate.getDate();
-
-    // Round 1
-    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {
-        return 1;
-
-        // Round 2
-    } else if (month == 2 && date <= 29) {
-        return 2;
-
-        // Round 3
-    } else if (month == 2 && date <= 31 || month == 3 && date <= 4) {
-        return 3;
-
-        // Round 4    
-    } else if (month == 3 && date <= 13) {
-        return 4;
-
-        // Round 5    
-    } else if (month == 3 && date <= 19) {
-        return 5;
-
-        // Round 6
-    } else if (month == 3 && date <= 26) {
-        return 6;
-
-        // Round 7
-    } else if (month == 3 && date <= 31 || month == 4 && date <= 2) {
-        return 7;
-
-        // Round 8    
-    } else if (month == 4 && date <= 10) {
-        return 8;
-
-        // Round 9
-    } else if (month == 4 && date <= 17) {
-        return 9;
-
-        // Round 10
-    } else if (month == 4 && date <= 24) {
-        return 10;
-
-        // Round 11
-    } else if (month == 4 && date <= 31) {
-        return 11;
-
-        // Round 12
-    } else if (month == 5 && date <= 8) {
-        return 12;
-
-        // Round 13
-    } else if (month == 5 && date <= 14) {
-        return 13;
-
-        // Round 14
-    } else if (month == 5 && date <= 21) {
-        return 14;
-
-        // Round 15
-    } else if (month == 5 && date <= 29) {
-        return 15;
-
-        // Round 16
-    } else if (month == 5 && date <= 31 || month == 6 && date <= 8) {
-        return 16;
-
-        // Round 17
-    } else if (month == 6 && date <= 15) {
-        return 17;
-
-        // Round 18
-    } else if (month == 6 && date <= 22) {
-        return 18;
-
-        // Round 19
-    } else if (month == 6 && date <= 29) {
-        return 19;
-
-        // Round 20
-    } else if (month == 6 && date <= 31 || month == 7 && date <= 5) {
-        return 20;
-
-        // Round 21
-    } else if (month == 7 && date <= 12) {
-        return 21;
-
-        // Round 22
-    } else if (month == 7 && date <= 19) {
-        return 22;
-
-        // Round 23
-    } else if (month == 7 && date <= 23) {
-        return 23;
-
-    } else if (month == 8) {
-        return 23;
-    }
-
-
-
-    // 2020 Compressed Season
-
-    //     // Round 8
-    // } else if (month == 6 && date <= 27) {
-    //     return 8;
-
-    //     // Round 9
-    // } else if (month == 6 && date <= 30 || month == 7 && date <= 3) {
-    //     return 9;
-
-    //     // Round 10
-    // } else if (month == 7 && date <= 8) {
-    //     return 10;
-
-    //     // Round 11
-    // } else if (month == 7 && date <= 13) {
-    //     return 11;
-
-    //     // Round 12
-    // } else if (month == 7 && date <= 18) {
-    //     return 12;
-
-    //     // Round 13
-    // } else if (month == 7 && date <= 24) {
-    //     return 13;
-
-    //     // Round 14
-    // } else if (month == 7 && date <= 30) {
-    //     return 14;
-
-    //     // Round 15
-    // } else if (month == 7 && date == 31 || month == 8 && date <= 4) {
-    //     return 15;
-
-    //     // Round 16
-    // } else if (month == 8 && date <= 9) {
-    //     return 16;
-
-    //     // Round 17
-    // } else if (month == 8 && date <= 14) {
-    //     return 17;
-
-    //     // Round 18
-    // } else if (month == 8 && date <= 21) {
-    //     return 18;
-    // }
-
-
-}
-
-// Applies the correct team background to the referenced team code.
-function team_bg(team) {
-   if (team == 'ADE') {
-       return 'img/teams/crows.svg';
-   } else if (team == 'BRI') {
-       return 'img/teams/lions.svg';
-   } else if (team == 'CAR') {
-       return 'img/teams/blues.svg';
-   } else if (team == 'COL') {
-       return 'img/teams/magpies.svg';
-   } else if (team == 'ESS') {
-       return 'img/teams/bombers.svg';
-   } else if (team == 'FRE') {
-       return 'img/teams/dockers.svg';
-   } else if (team == 'GEE') {
-       return 'img/teams/cats.svg';
-   } else if (team == 'GCS') {
-       return 'img/teams/suns.svg';
-   } else if (team == 'GWS') {
-       return 'img/teams/gws.svg';
-   } else if (team == 'HAW') {
-       return 'img/teams/hawks.svg';
-   } else if (team == 'MEL') {
-       return 'img/teams/demons.svg';
-   } else if (team == 'NM') {
-       return 'img/teams/kangaroos.svg';
-   } else if (team == 'POR') {
-       return 'img/teams/port.svg';
-   } else if (team == 'RIC') {
-       return 'img/teams/tigers.svg';
-   } else if (team == 'STK') {
-       return 'img/teams/saints.svg';
-   } else if (team == 'SYD') {
-       return 'img/teams/swans.svg';
-   } else if (team == 'WCE') {
-       return 'img/teams/eagles.svg';
-   } else if (team == 'WBD') {
-       return 'img/teams/dogs.svg';
-   }
 }
 //
 // Layout - Vertically Centered
