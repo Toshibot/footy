@@ -1,14 +1,17 @@
-function finals(data) {
+function finals(data, clubs) {
 
    console.log(data);
 
    var grand_final = data[8];
+   var home_team = data.team_A;
+   var away_team = data.team_B;
+   var home_club_data = clubs[home_team.code];
+   var away_club_data = clubs[away_team.code];
 
    $('.js-finals-series-year').text(data[0].season.year);
    $('.js-premiership-year').text(data[0].season.year);
 
-   function finalBuilder(element, array) {
-      var final = array;
+   function finalBuilder(element, final) {
       var date = dateTime(final.match_start_date);
       var dateElement = element.children('.c-date');
       var team_1 = element.children('.js-fixture-team-1');
@@ -38,16 +41,16 @@ function finals(data) {
 
       // Teams ====
       // Team 1
-      team_1.children('.js-team-img').attr('src', homeKit(final.team_A.code));
-      team_1.children('.js-team-text').text(teamAbrev(final.team_A.code, final.team_A.name));
+      team_1.children('.js-team-img').attr('src', home_club_data.kit.home);
+      team_1.children('.js-team-text').text(home_club_data.name);
       if (final.match_status !== 'Pre Game') {
-         team_1.children('.js-score-text').text('').append(final.team_A.goals + '. ' + final.team_A.behinds + '. <span class="c-fixture__score-total">' + final.team_A.score + '</span>');
+         team_1.children('.js-score-text').text('').append(home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span>');
       }
       // Team 2
-      team_2.children('.js-team-img').attr('src', awayKit(final.team_B.code, final.team_A.code));
-      team_2.children('.js-team-text').text(teamAbrev(final.team_B.code, final.team_B.name));
+      team_2.children('.js-team-img').attr('src', awayKit(away_club_data.kit, home_team.code));
+      team_2.children('.js-team-text').text(away_club_data.name);
       if (final.match_status !== 'Pre Game') {
-         team_2.children('.js-score-text').text('').append(final.team_B.goals + '. ' + final.team_B.behinds + '. <span class="c-fixture__score-total">' + final.team_B.score + '</span>');
+         team_2.children('.js-score-text').text('').append(away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span>');
       }
 
       // Venue ====
@@ -56,15 +59,15 @@ function finals(data) {
    }
 
    function premiers(data) {
-      if (data.match_status_normalised == "post" && data.team_A.score > data.team_B.score) {
+      if (data.match_status_normalised == "post" && home_team.score > away_team.score) {
          return {
-            name: teamAbrev(data.team_A.code),
-            bg: team_bg(data.team_A.code)
+            name: home_club_data.name,
+            bg: home_club_data.pattern
          };
-      } else if (data.match_status_normalised == "post" && data.team_B.score > data.team_A.score) {
+      } else if (data.match_status_normalised == "post" && away_team.score > home_team.score) {
          return {
-            name: teamAbrev(data.team_B.code),
-            bg: team_bg(data.team_B.code)
+            name: away_club_data.name,
+            bg: away_club_data.pattern
          };
       } else {
          return {

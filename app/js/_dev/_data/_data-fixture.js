@@ -1,7 +1,7 @@
 
 // Data - Fixture/Results
 
-function dataFixture(round) {
+function dataFixture(clubs) {
 
     $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
@@ -36,7 +36,7 @@ function dataFixture(round) {
         for (i = 0; i < currentRound.length; i++) {
             const element = currentRound[i];
 
-            fixtureItem(element);
+            fixtureItem(element, clubs);
         }
 
         // scroll();
@@ -51,7 +51,7 @@ function dataFixture(round) {
             }
         }
 
-        // finals(finalsData);
+        // finals(finalsData, clubs);
 
     });
 }

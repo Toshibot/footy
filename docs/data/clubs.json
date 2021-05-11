@@ -28,7 +28,7 @@
         "logo": "img/teams/blues.png",
         "kit": {
             "home": "img/teams/blues-home.png",
-            "away": "img/teams/blues-away.png",
+            "away": "img/teams/blues-clash.png",
             "clash": {
                 "kit": "img/teams/blues-home.png",
                 "teams": ["GEE", "SYD"]
@@ -40,7 +40,7 @@
         "logo": "img/teams/magpies.png",
         "kit": {
             "home": "img/teams/magpies-home.png",
-            "away": "img/teams/magpies-away.png",
+            "away": "img/teams/magpies-clash.png",
             "clash": {
                 "kit": "img/teams/magpies-home.png",
                 "teams": ["SYD", "GEE"]
@@ -73,7 +73,7 @@
     },
     "GEE": {
         "name": "Geelong",
-        "logo": "img/teams/lions.png",
+        "logo": "img/teams/cats.png",
         "kit": {
             "home": "img/teams/cats-home.png",
             "away": "img/teams/cats-home.png",
@@ -145,12 +145,12 @@
     },
     "POR": {
         "name": "Port Adelaide",
-        "logo": "img/teams/power.png",
+        "logo": "img/teams/port.png",
         "kit": {
-            "home": "img/teams/power-home.png",
-            "away": "img/teams/power-away.png",
+            "home": "img/teams/port-home.png",
+            "away": "img/teams/port-away.png",
             "clash": {
-                "kit": "img/teams/power-home.png",
+                "kit": "img/teams/port-home.png",
                 "teams": ["SYD", "GEE"]
             }
         }
