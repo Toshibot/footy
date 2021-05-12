@@ -15,11 +15,9 @@ function dataFixture(clubs) {
         $.getJSON('data/fixture.json', function (round_data) {
 
             var today = new Date;
-            var testDate = new Date('2018-04-24');
             var currentRound = [];
             var finalsData = [];
             var currentRoundNo = roundCalc(today, round_data);
-            // var currentRoundNo = 23;
 
             $('.js-fixture-round').text(currentRoundNo);
 

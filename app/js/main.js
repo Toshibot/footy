@@ -4,6 +4,59 @@
 
 // Core Functions 
 data();
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
+
 // ==========================================================================
 // Fixture - Functions
 // ==========================================================================
@@ -108,314 +161,6 @@ function scroll() {
          });
       }
    });
-}
-var data_club = {
-    ADE: {
-        name: 'Adelaide',
-        logo: 'img/teams/crows.png',
-        kit: {
-            home: 'img/teams/crows-home.png',
-            away: 'img/teams/crows-away.png',
-            clash: {
-                kit: 'img/teams/crows-home.png',
-                teams: ['HAW']
-            }
-        }
-    },
-    BRI: {
-        name: 'Brisbane',
-        logo: 'img/teams/lions.png',
-        kit: {
-            home: 'img/teams/lions-home.png',
-            away: 'img/teams/lions-away.png',
-            clash: {
-                kit: 'img/teams/lions-clash.png',
-                teams: ['SYD','GWS','GCS','WCE','ADE','FRE','POR', 'MEL']
-            }
-        }
-    },
-    CAR: {
-        name: 'Carlton',
-        logo: 'img/teams/blues.png',
-        kit: {
-            home: 'img/teams/blues-home.png',
-            away: 'img/teams/blues-away.png',
-            clash: {
-                kit: 'img/teams/blues-home.png',
-                teams: ['GEE', 'SYD']
-            }
-        }
-    },
-    COL: {
-        name: 'Collingwood',
-        logo: 'img/teams/magpies.png',
-        kit: {
-            home: 'img/teams/magpies-home.png',
-            away: 'img/teams/magpies-away.png',
-            clash: {
-                kit: 'img/teams/magpies-home.png',
-                teams: ['SYD', 'GEE']
-            }
-        }
-    },
-    ESS: {
-        name: 'Essendon',
-        logo: 'img/teams/bombers.png',
-        kit: {
-            home: 'img/teams/bombers-home.png',
-            away: 'img/teams/bombers-home.png',
-            clash: {
-                kit: 'img/teams/bombers-clash.png',
-                teams: ['MEL', 'COL', 'CAR', 'POR', 'STK', 'RIC']
-            }
-        }
-    },
-    FRE: {
-        name: 'Fremantle',
-        logo: 'img/teams/dockers.png',
-        kit: {
-            home: 'img/teams/dockers-home.png',
-            away: 'img/teams/dockers-away.png',
-            clash: {
-                kit: 'img/teams/dockers-home.png',
-                teams: ['SYD', 'GEE']
-            }
-        }
-    },
-    GEE: {
-        name: 'Geelong',
-        logo: 'img/teams/lions.png',
-        kit: {
-            home: 'img/teams/cats-home.png',
-            away: 'img/teams/cats-home.png',
-            clash: {
-                kit: 'img/teams/cats-clash.png',
-                teams: []
-            }
-        }
-    },
-    GCS: {
-        name: 'Gold Coast',
-        logo: 'img/teams/suns.png',
-        kit: {
-            home: 'img/teams/suns-home.png',
-            away: 'img/teams/suns-away.png',
-            clash: {
-                kit: 'img/teams/suns-home.png',
-                teams: ['WBD', 'CAR', 'FRE', 'NM', 'WCE']
-            }
-        }
-    },
-    GWS: {
-        name: 'Gr. W. Sydney',
-        logo: 'img/teams/gws.png',
-        kit: {
-            home: 'img/teams/gws-home.png',
-            away: 'img/teams/gws-away.png',
-            clash: {
-                kit: 'img/teams/gws-home.png',
-                teams: ['SYD', 'GEE']
-            }
-        }
-    },
-    HAW: {
-        name: 'Hawthorn',
-        logo: 'img/teams/hawks.png',
-        kit: {
-            home: 'img/teams/hawks-home.png',
-            away: 'img/teams/hawks-away.png',
-            clash: {
-                kit: 'img/teams/hawks-home.png',
-                teams: []
-            }
-        }
-    },
-    MEL: {
-        name: 'Melbourne',
-        logo: 'img/teams/demons.png',
-        kit: {
-            home: 'img/teams/demons-home.png',
-            away: 'img/teams/demons-away.png',
-            clash: {
-                kit: 'img/teams/demons-home.png',
-                teams: []
-            }
-        }
-    },
-    NM: {
-        name: 'N. Melbourne',
-        logo: 'img/teams/kangaroos.png',
-        kit: {
-            home: 'img/teams/kangaroos-home.png',
-            away: 'img/teams/kangaroos-clash.png',
-            clash: {
-                kit: 'img/teams/kangaroos-home.png',
-                teams: ['COL']
-            }
-        }
-    },
-    POR: {
-        name: 'Port Adelaide',
-        logo: 'img/teams/power.png',
-        kit: {
-            home: 'img/teams/power-home.png',
-            away: 'img/teams/power-away.png',
-            clash: {
-                kit: 'img/teams/power-home.png',
-                teams: ['SYD', 'GEE']
-            }
-        }
-    },
-    RIC: {
-        name: 'Richmond',
-        logo: 'img/teams/tigers.png',
-        kit: {
-            home: 'img/teams/tigers-home.png',
-            away: 'img/teams/tigers-away.png',
-            clash: {
-                kit: 'img/teams/tigers-home.png',
-                teams: ['HAW']
-            }
-        }
-    },
-    STK: {
-        name: 'St. Kilda',
-        logo: 'img/teams/saints.png',
-        kit: {
-            home: 'img/teams/saints-home.png',
-            away: 'img/teams/saints-away.png',
-            clash: {
-                kit: 'img/teams/saints-home.png',
-                teams: ['SYD', 'GEE']
-            }
-        }
-    },
-    SYD: {
-        name: 'Sydney',
-        logo: 'img/teams/swans.png',
-        kit: {
-            home: 'img/teams/swans-home.png',
-            away: 'img/teams/swans-home.png',
-            clash: {
-                kit: 'img/teams/swans-home.png',
-                teams: []
-            }
-        }
-    },
-    WBD: {
-        name: 'W. Bulldogs',
-        logo: 'img/teams/dogs.png',
-        kit: {
-            home: 'img/teams/dogs-home.png',
-            away: 'img/teams/dogs-away.png',
-            clash: {
-                kit: 'img/teams/dogs-home.png',
-                teams: ['SYD','GEE']
-            }
-        }
-    },
-    WCE: {
-        name: 'West Coast',
-        logo: 'img/teams/eagles.png',
-        kit: {
-            home: 'img/teams/eagles-home.png',
-            away: 'img/teams/eagles-away.png',
-            clash: {
-                kit: 'img/teams/eagles-home.png',
-                teams: ['HAW']
-            }
-        }
-    }
-}
-
-// Data - Fixture/Results
-
-function dataFixture(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // Dummy Dev File
-        // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
-
-        $.getJSON('data/fixture.json', function (round_data) {
-
-            var today = new Date;
-            var testDate = new Date('2018-04-24');
-            var currentRound = [];
-            var finalsData = [];
-            var currentRoundNo = roundCalc(today, round_data);
-            // var currentRoundNo = 23;
-
-            $('.js-fixture-round').text(currentRoundNo);
-
-            for (i = 0; i < json.length; i++) {
-                const element = json[i];
-
-                if (element.round.number == currentRoundNo) {
-                    currentRound.push(element);
-                }
-            }
-
-            console.log(currentRound);
-
-            var game1 = currentRound[8];
-
-            for (i = 0; i < currentRound.length; i++) {
-                const element = currentRound[i];
-
-                fixtureItem(element, clubs);
-            }
-
-        // scroll();
-
-        });
-
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
-
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
-
-        // finals(finalsData, clubs);
-
-    });
-}
-
-//
-// Data
-// ====
-
-function dataLadder(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        // console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const ladder_data = json.teams[i];
-            const club_data = clubs[ladder_data.code];
-            ladderItem(ladder_data, i + 1, club_data);
-        }
-
-    });
-}
-function data() {
-    $.getJSON('data/clubs.json', function (clubs) {
-        dataLadder(clubs);
-        dataFixture(clubs);
-    });
 }
 
 function dateTime(d) {
@@ -710,226 +455,324 @@ function ladderItem(ladder_data, number, club_data) {
     $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(ladder_data.stats.percentage);
     $('.c-ladder__item-' + number + ' div.c-ladder__points').text(ladder_data.stats.points);
 }
-function roundCalc(today, round_data) {
-    var currentDate = new Date(today);
-    var month = currentDate.getMonth();
-    var date = currentDate.getDate();
-    var date_string = '"' + month + date + '"';
-
-    var current_date = Number(date_string);
-    console.log(date_string);
-    current_round = '';
+function roundCalc(target_date, round_data) {
 
     for (i = 0; i < round_data.length; i++) {
         const round = round_data[i];
-        const round_start = Number(round.start);
-        const round_end = Number(round.end);
+        const round_start = new Date(round.start);
+        const round_end = new Date(round.end);
 
-        if (current_date > round.start && current_date < round.end ) {
-            console.log(round)
+        if (round_start < target_date && target_date < round_end ) {
+            return round.round;
+        } 
+    }
+}
+var data_club = {
+    ADE: {
+        name: 'Adelaide',
+        logo: 'img/teams/crows.png',
+        kit: {
+            home: 'img/teams/crows-home.png',
+            away: 'img/teams/crows-away.png',
+            clash: {
+                kit: 'img/teams/crows-home.png',
+                teams: ['HAW']
+            }
+        }
+    },
+    BRI: {
+        name: 'Brisbane',
+        logo: 'img/teams/lions.png',
+        kit: {
+            home: 'img/teams/lions-home.png',
+            away: 'img/teams/lions-away.png',
+            clash: {
+                kit: 'img/teams/lions-clash.png',
+                teams: ['SYD','GWS','GCS','WCE','ADE','FRE','POR', 'MEL']
+            }
+        }
+    },
+    CAR: {
+        name: 'Carlton',
+        logo: 'img/teams/blues.png',
+        kit: {
+            home: 'img/teams/blues-home.png',
+            away: 'img/teams/blues-away.png',
+            clash: {
+                kit: 'img/teams/blues-home.png',
+                teams: ['GEE', 'SYD']
+            }
+        }
+    },
+    COL: {
+        name: 'Collingwood',
+        logo: 'img/teams/magpies.png',
+        kit: {
+            home: 'img/teams/magpies-home.png',
+            away: 'img/teams/magpies-away.png',
+            clash: {
+                kit: 'img/teams/magpies-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    ESS: {
+        name: 'Essendon',
+        logo: 'img/teams/bombers.png',
+        kit: {
+            home: 'img/teams/bombers-home.png',
+            away: 'img/teams/bombers-home.png',
+            clash: {
+                kit: 'img/teams/bombers-clash.png',
+                teams: ['MEL', 'COL', 'CAR', 'POR', 'STK', 'RIC']
+            }
+        }
+    },
+    FRE: {
+        name: 'Fremantle',
+        logo: 'img/teams/dockers.png',
+        kit: {
+            home: 'img/teams/dockers-home.png',
+            away: 'img/teams/dockers-away.png',
+            clash: {
+                kit: 'img/teams/dockers-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    GEE: {
+        name: 'Geelong',
+        logo: 'img/teams/lions.png',
+        kit: {
+            home: 'img/teams/cats-home.png',
+            away: 'img/teams/cats-home.png',
+            clash: {
+                kit: 'img/teams/cats-clash.png',
+                teams: []
+            }
+        }
+    },
+    GCS: {
+        name: 'Gold Coast',
+        logo: 'img/teams/suns.png',
+        kit: {
+            home: 'img/teams/suns-home.png',
+            away: 'img/teams/suns-away.png',
+            clash: {
+                kit: 'img/teams/suns-home.png',
+                teams: ['WBD', 'CAR', 'FRE', 'NM', 'WCE']
+            }
+        }
+    },
+    GWS: {
+        name: 'Gr. W. Sydney',
+        logo: 'img/teams/gws.png',
+        kit: {
+            home: 'img/teams/gws-home.png',
+            away: 'img/teams/gws-away.png',
+            clash: {
+                kit: 'img/teams/gws-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    HAW: {
+        name: 'Hawthorn',
+        logo: 'img/teams/hawks.png',
+        kit: {
+            home: 'img/teams/hawks-home.png',
+            away: 'img/teams/hawks-away.png',
+            clash: {
+                kit: 'img/teams/hawks-home.png',
+                teams: []
+            }
+        }
+    },
+    MEL: {
+        name: 'Melbourne',
+        logo: 'img/teams/demons.png',
+        kit: {
+            home: 'img/teams/demons-home.png',
+            away: 'img/teams/demons-away.png',
+            clash: {
+                kit: 'img/teams/demons-home.png',
+                teams: []
+            }
+        }
+    },
+    NM: {
+        name: 'N. Melbourne',
+        logo: 'img/teams/kangaroos.png',
+        kit: {
+            home: 'img/teams/kangaroos-home.png',
+            away: 'img/teams/kangaroos-clash.png',
+            clash: {
+                kit: 'img/teams/kangaroos-home.png',
+                teams: ['COL']
+            }
+        }
+    },
+    POR: {
+        name: 'Port Adelaide',
+        logo: 'img/teams/power.png',
+        kit: {
+            home: 'img/teams/power-home.png',
+            away: 'img/teams/power-away.png',
+            clash: {
+                kit: 'img/teams/power-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    RIC: {
+        name: 'Richmond',
+        logo: 'img/teams/tigers.png',
+        kit: {
+            home: 'img/teams/tigers-home.png',
+            away: 'img/teams/tigers-away.png',
+            clash: {
+                kit: 'img/teams/tigers-home.png',
+                teams: ['HAW']
+            }
+        }
+    },
+    STK: {
+        name: 'St. Kilda',
+        logo: 'img/teams/saints.png',
+        kit: {
+            home: 'img/teams/saints-home.png',
+            away: 'img/teams/saints-away.png',
+            clash: {
+                kit: 'img/teams/saints-home.png',
+                teams: ['SYD', 'GEE']
+            }
+        }
+    },
+    SYD: {
+        name: 'Sydney',
+        logo: 'img/teams/swans.png',
+        kit: {
+            home: 'img/teams/swans-home.png',
+            away: 'img/teams/swans-home.png',
+            clash: {
+                kit: 'img/teams/swans-home.png',
+                teams: []
+            }
+        }
+    },
+    WBD: {
+        name: 'W. Bulldogs',
+        logo: 'img/teams/dogs.png',
+        kit: {
+            home: 'img/teams/dogs-home.png',
+            away: 'img/teams/dogs-away.png',
+            clash: {
+                kit: 'img/teams/dogs-home.png',
+                teams: ['SYD','GEE']
+            }
+        }
+    },
+    WCE: {
+        name: 'West Coast',
+        logo: 'img/teams/eagles.png',
+        kit: {
+            home: 'img/teams/eagles-home.png',
+            away: 'img/teams/eagles-away.png',
+            clash: {
+                kit: 'img/teams/eagles-home.png',
+                teams: ['HAW']
+            }
         }
     }
-
-    // Round 1
-    if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {
-        return 1;
-
-        // Round 2
-    } else if (month == 2 && date <= 29) {
-        return 2;
-
-        // Round 3
-    } else if (month == 2 && date <= 31 || month == 3 && date <= 4) {
-        return 3;
-
-        // Round 4    
-    } else if (month == 3 && date <= 13) {
-        return 4;
-
-        // Round 5    
-    } else if (month == 3 && date <= 19) {
-        return 5;
-
-        // Round 6
-    } else if (month == 3 && date <= 26) {
-        return 6;
-
-        // Round 7
-    } else if (month == 3 && date <= 31 || month == 4 && date <= 2) {
-        return 7;
-
-        // Round 8    
-    } else if (month == 4 && date <= 10) {
-        return 8;
-
-        // Round 9
-    } else if (month == 4 && date <= 17) {
-        return 9;
-
-        // Round 10
-    } else if (month == 4 && date <= 24) {
-        return 10;
-
-        // Round 11
-    } else if (month == 4 && date <= 31) {
-        return 11;
-
-        // Round 12
-    } else if (month == 5 && date <= 8) {
-        return 12;
-
-        // Round 13
-    } else if (month == 5 && date <= 14) {
-        return 13;
-
-        // Round 14
-    } else if (month == 5 && date <= 21) {
-        return 14;
-
-        // Round 15
-    } else if (month == 5 && date <= 29) {
-        return 15;
-
-        // Round 16
-    } else if (month == 5 && date <= 31 || month == 6 && date <= 8) {
-        return 16;
-
-        // Round 17
-    } else if (month == 6 && date <= 15) {
-        return 17;
-
-        // Round 18
-    } else if (month == 6 && date <= 22) {
-        return 18;
-
-        // Round 19
-    } else if (month == 6 && date <= 29) {
-        return 19;
-
-        // Round 20
-    } else if (month == 6 && date <= 31 || month == 7 && date <= 5) {
-        return 20;
-
-        // Round 21
-    } else if (month == 7 && date <= 12) {
-        return 21;
-
-        // Round 22
-    } else if (month == 7 && date <= 19) {
-        return 22;
-
-        // Round 23
-    } else if (month == 7 && date <= 23) {
-        return 23;
-
-    } else if (month == 8) {
-        return 23;
-    }
-
-
-
-    // 2020 Compressed Season
-
-    //     // Round 8
-    // } else if (month == 6 && date <= 27) {
-    //     return 8;
-
-    //     // Round 9
-    // } else if (month == 6 && date <= 30 || month == 7 && date <= 3) {
-    //     return 9;
-
-    //     // Round 10
-    // } else if (month == 7 && date <= 8) {
-    //     return 10;
-
-    //     // Round 11
-    // } else if (month == 7 && date <= 13) {
-    //     return 11;
-
-    //     // Round 12
-    // } else if (month == 7 && date <= 18) {
-    //     return 12;
-
-    //     // Round 13
-    // } else if (month == 7 && date <= 24) {
-    //     return 13;
-
-    //     // Round 14
-    // } else if (month == 7 && date <= 30) {
-    //     return 14;
-
-    //     // Round 15
-    // } else if (month == 7 && date == 31 || month == 8 && date <= 4) {
-    //     return 15;
-
-    //     // Round 16
-    // } else if (month == 8 && date <= 9) {
-    //     return 16;
-
-    //     // Round 17
-    // } else if (month == 8 && date <= 14) {
-    //     return 17;
-
-    //     // Round 18
-    // } else if (month == 8 && date <= 21) {
-    //     return 18;
-    // }
-
-
 }
-//
-// Layout - Vertically Centered
-// ==========================================================================
 
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
+// Data - Fixture/Results
 
-function vertCenter(element, child) {
+function dataFixture(clubs) {
 
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // Dummy Dev File
+        // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        console.log('fixture loaded');
+        console.log(json);
+
+        $.getJSON('data/fixture.json', function (round_data) {
+
+            var today = new Date;
+            var currentRound = [];
+            var finalsData = [];
+            var currentRoundNo = roundCalc(today, round_data);
+
+            $('.js-fixture-round').text(currentRoundNo);
+
+            for (i = 0; i < json.length; i++) {
+                const element = json[i];
+
+                if (element.round.number == currentRoundNo) {
+                    currentRound.push(element);
+                }
+            }
+
+            console.log(currentRound);
+
+            var game1 = currentRound[8];
+
+            for (i = 0; i < currentRound.length; i++) {
+                const element = currentRound[i];
+
+                fixtureItem(element, clubs);
+            }
+
+        // scroll();
+
+        });
+
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
+
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
+
+        // finals(finalsData, clubs);
+
     });
 }
 
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
+//
+// Data
+// ====
+
+function dataLadder(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        // console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const ladder_data = json.teams[i];
+            const club_data = clubs[ladder_data.code];
+            ladderItem(ladder_data, i + 1, club_data);
+        }
+
+    });
 }
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
+function data() {
+    $.getJSON('data/clubs.json', function (clubs) {
+        dataLadder(clubs);
+        dataFixture(clubs);
+    });
+}
 
 //
 // UI - Buttons
