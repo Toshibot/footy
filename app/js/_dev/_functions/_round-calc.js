@@ -1,7 +1,22 @@
-function roundCalc(d) {
-    var currentDate = new Date(d);
+function roundCalc(today, round_data) {
+    var currentDate = new Date(today);
     var month = currentDate.getMonth();
     var date = currentDate.getDate();
+    var date_string = '"' + month + date + '"';
+
+    var current_date = Number(date_string);
+    console.log(date_string);
+    current_round = '';
+
+    for (i = 0; i < round_data.length; i++) {
+        const round = round_data[i];
+        const round_start = Number(round.start);
+        const round_end = Number(round.end);
+
+        if (current_date > round.start && current_date < round.end ) {
+            console.log(round)
+        }
+    }
 
     // Round 1
     if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {

@@ -12,36 +12,38 @@ function dataFixture(clubs) {
         console.log('fixture loaded');
         console.log(json);
 
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var finalsData = [];
-        var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 23;
+        $.getJSON('data/fixture.json', function (round_data) {
 
-        $('.js-fixture-round').text(currentRoundNo);
+            var today = new Date;
+            var testDate = new Date('2018-04-24');
+            var currentRound = [];
+            var finalsData = [];
+            var currentRoundNo = roundCalc(today, round_data);
+            // var currentRoundNo = 23;
 
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
+            $('.js-fixture-round').text(currentRoundNo);
 
-            if (element.round.number == currentRoundNo) {
-                currentRound.push(element);
+            for (i = 0; i < json.length; i++) {
+                const element = json[i];
+
+                if (element.round.number == currentRoundNo) {
+                    currentRound.push(element);
+                }
             }
-        }
 
-        console.log(currentRound);
+            console.log(currentRound);
 
-        var game1 = currentRound[8];
+            var game1 = currentRound[8];
 
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
+            for (i = 0; i < currentRound.length; i++) {
+                const element = currentRound[i];
 
-            fixtureItem(element, clubs);
-        }
+                fixtureItem(element, clubs);
+            }
 
         // scroll();
 
-
+        });
 
         for (i = 0; i < json.length; i++) {
             const e = json[i];

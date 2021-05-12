@@ -341,36 +341,38 @@ function dataFixture(clubs) {
         console.log('fixture loaded');
         console.log(json);
 
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var finalsData = [];
-        var currentRoundNo = roundCalc(today);
-        // var currentRoundNo = 23;
+        $.getJSON('data/fixture.json', function (round_data) {
 
-        $('.js-fixture-round').text(currentRoundNo);
+            var today = new Date;
+            var testDate = new Date('2018-04-24');
+            var currentRound = [];
+            var finalsData = [];
+            var currentRoundNo = roundCalc(today, round_data);
+            // var currentRoundNo = 23;
 
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
+            $('.js-fixture-round').text(currentRoundNo);
 
-            if (element.round.number == currentRoundNo) {
-                currentRound.push(element);
+            for (i = 0; i < json.length; i++) {
+                const element = json[i];
+
+                if (element.round.number == currentRoundNo) {
+                    currentRound.push(element);
+                }
             }
-        }
 
-        console.log(currentRound);
+            console.log(currentRound);
 
-        var game1 = currentRound[8];
+            var game1 = currentRound[8];
 
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
+            for (i = 0; i < currentRound.length; i++) {
+                const element = currentRound[i];
 
-            fixtureItem(element, clubs);
-        }
+                fixtureItem(element, clubs);
+            }
 
         // scroll();
 
-
+        });
 
         for (i = 0; i < json.length; i++) {
             const e = json[i];
@@ -708,10 +710,25 @@ function ladderItem(ladder_data, number, club_data) {
     $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(ladder_data.stats.percentage);
     $('.c-ladder__item-' + number + ' div.c-ladder__points').text(ladder_data.stats.points);
 }
-function roundCalc(d) {
-    var currentDate = new Date(d);
+function roundCalc(today, round_data) {
+    var currentDate = new Date(today);
     var month = currentDate.getMonth();
     var date = currentDate.getDate();
+    var date_string = '"' + month + date + '"';
+
+    var current_date = Number(date_string);
+    console.log(date_string);
+    current_round = '';
+
+    for (i = 0; i < round_data.length; i++) {
+        const round = round_data[i];
+        const round_start = Number(round.start);
+        const round_end = Number(round.end);
+
+        if (current_date > round.start && current_date < round.end ) {
+            console.log(round)
+        }
+    }
 
     // Round 1
     if (month == 0 || month == 1 && date <= 28 || month == 2 && date <= 22) {
@@ -859,47 +876,6 @@ function roundCalc(d) {
     // }
 
 
-}
-
-// Applies the correct team background to the referenced team code.
-function team_bg(team) {
-   if (team == 'ADE') {
-       return 'img/teams/crows.svg';
-   } else if (team == 'BRI') {
-       return 'img/teams/lions.svg';
-   } else if (team == 'CAR') {
-       return 'img/teams/blues.svg';
-   } else if (team == 'COL') {
-       return 'img/teams/magpies.svg';
-   } else if (team == 'ESS') {
-       return 'img/teams/bombers.svg';
-   } else if (team == 'FRE') {
-       return 'img/teams/dockers.svg';
-   } else if (team == 'GEE') {
-       return 'img/teams/cats.svg';
-   } else if (team == 'GCS') {
-       return 'img/teams/suns.svg';
-   } else if (team == 'GWS') {
-       return 'img/teams/gws.svg';
-   } else if (team == 'HAW') {
-       return 'img/teams/hawks.svg';
-   } else if (team == 'MEL') {
-       return 'img/teams/demons.svg';
-   } else if (team == 'NM') {
-       return 'img/teams/kangaroos.svg';
-   } else if (team == 'POR') {
-       return 'img/teams/port.svg';
-   } else if (team == 'RIC') {
-       return 'img/teams/tigers.svg';
-   } else if (team == 'STK') {
-       return 'img/teams/saints.svg';
-   } else if (team == 'SYD') {
-       return 'img/teams/swans.svg';
-   } else if (team == 'WCE') {
-       return 'img/teams/eagles.svg';
-   } else if (team == 'WBD') {
-       return 'img/teams/dogs.svg';
-   }
 }
 //
 // Layout - Vertically Centered
