@@ -135,7 +135,7 @@
         "pattern": "img/teams/demons.svg",
         "kit": {
             "home": "img/teams/demons-home.png",
-            "away": "img/teams/demons-away.png",
+            "away": "img/teams/demons-clash.png",
             "clash": {
                 "kit": "img/teams/demons-home.png",
                 "teams": []
@@ -161,7 +161,7 @@
         "pattern": "img/teams/port.svg",
         "kit": {
             "home": "img/teams/port-home.png",
-            "away": "img/teams/port-away.png",
+            "away": "img/teams/port-clash.png",
             "clash": {
                 "kit": "img/teams/port-home.png",
                 "teams": ["SYD", "GEE"]
