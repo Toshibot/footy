@@ -1,17 +1,15 @@
 function finals(data, clubs) {
 
-   console.log(data);
-
    var grand_final = data[8];
-   var home_team = data.team_A;
-   var away_team = data.team_B;
-   var home_club_data = clubs[home_team.code];
-   var away_club_data = clubs[away_team.code];
 
    $('.js-finals-series-year').text(data[0].season.year);
    $('.js-premiership-year').text(data[0].season.year);
 
    function finalBuilder(element, final) {
+      var home_team = final.team_A;
+      var away_team = final.team_B;
+      var home_club_data = clubs[home_team.code];
+      var away_club_data = clubs[away_team.code];
       var date = dateTime(final.match_start_date);
       var dateElement = element.children('.c-date');
       var team_1 = element.children('.js-fixture-team-1');
@@ -72,7 +70,7 @@ function finals(data, clubs) {
       } else {
          return {
             name: '?',
-            bg: 'img/teams/'
+            // bg: 'img/teams/'
          };
       }
    }
@@ -81,11 +79,11 @@ function finals(data, clubs) {
    // First Qualifying Final
    finalBuilder($('.js-finals-qf1'), data[0]);
    // Second Qualifying Final
-   finalBuilder($('.js-finals-qf2'), data[1]);
+   finalBuilder($('.js-finals-qf2'), data[2]);
    // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[3]);
+   finalBuilder($('.js-finals-ef1'), data[1]);
    // Second Elimination Final
-   finalBuilder($('.js-finals-ef2'), data[2]);
+   finalBuilder($('.js-finals-ef2'), data[3]);
 
 
    // Semi Finals ============

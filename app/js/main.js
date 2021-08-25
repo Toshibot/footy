@@ -4,183 +4,6 @@
 
 // Core Functions 
 data();
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
-function scroll() {
-   $(window).on('scroll', function(){
-      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
-         $('.js-scrollto-fixture').addClass('is-hidden');
-      } else {
-         $('.js-scrollto-fixture').removeClass('is-hidden');
-      }
-   });
-
-   $('.js-scrollto-fixture').on('click', function(){
-      $('html, body').animate(
-         {
-            scrollTop: $('.js-game-pregame').offset().top - 36,
-         }, {
-            duration: 400,
-            specialEasing: 'easeInOut'
-         }
-      )
-   });
-
-   $('.c-fixture__game').each(function(){
-      if ($(this).hasClass('c-fixture__game--in-progress')){
-         $('.js-scrollto-fixture').addClass('has-live');
-         $('.js-scrollto-fixture').on('click', function(){
-            $('html, body').animate(
-               {
-                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
-               }, {
-                  duration: 400,
-                  specialEasing: 'easeInOut'
-               }
-            )
-         });
-      }
-   });
-}
-
-// Data - Fixture/Results
-
-function dataFixture(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // Dummy Dev File
-        // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
-
-        $.getJSON('data/fixture.json', function (round_data) {
-
-            var today = new Date;
-            var currentRound = [];
-            var finalsData = [];
-            var currentRoundNo = roundCalc(today, round_data);
-
-            $('.js-fixture-round').text(currentRoundNo);
-
-            for (i = 0; i < json.length; i++) {
-                const element = json[i];
-
-                if (element.round.number == currentRoundNo) {
-                    currentRound.push(element);
-                }
-            }
-
-            console.log(currentRound);
-
-            var game1 = currentRound[8];
-
-            for (i = 0; i < currentRound.length; i++) {
-                const element = currentRound[i];
-
-                fixtureItem(element, clubs);
-            }
-
-        // scroll();
-
-        });
-
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
-
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
-
-        // finals(finalsData, clubs);
-
-    });
-}
-
-//
-// Data
-// ====
-
-function dataLadder(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        // console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const ladder_data = json.teams[i];
-            const club_data = clubs[ladder_data.code];
-            ladderItem(ladder_data, i + 1, club_data);
-        }
-
-    });
-}
-function data() {
-    $.getJSON('data/clubs.json', function (clubs) {
-        dataLadder(clubs);
-        dataFixture(clubs);
-    });
-}
 
 function dateTime(d) {
 
@@ -256,18 +79,16 @@ function dateTime(d) {
 }
 function finals(data, clubs) {
 
-   console.log(data);
-
    var grand_final = data[8];
-   var home_team = data.team_A;
-   var away_team = data.team_B;
-   var home_club_data = clubs[home_team.code];
-   var away_club_data = clubs[away_team.code];
 
    $('.js-finals-series-year').text(data[0].season.year);
    $('.js-premiership-year').text(data[0].season.year);
 
    function finalBuilder(element, final) {
+      var home_team = final.team_A;
+      var away_team = final.team_B;
+      var home_club_data = clubs[home_team.code];
+      var away_club_data = clubs[away_team.code];
       var date = dateTime(final.match_start_date);
       var dateElement = element.children('.c-date');
       var team_1 = element.children('.js-fixture-team-1');
@@ -328,7 +149,7 @@ function finals(data, clubs) {
       } else {
          return {
             name: '?',
-            bg: 'img/teams/'
+            // bg: 'img/teams/'
          };
       }
    }
@@ -337,11 +158,11 @@ function finals(data, clubs) {
    // First Qualifying Final
    finalBuilder($('.js-finals-qf1'), data[0]);
    // Second Qualifying Final
-   finalBuilder($('.js-finals-qf2'), data[1]);
+   finalBuilder($('.js-finals-qf2'), data[2]);
    // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[3]);
+   finalBuilder($('.js-finals-ef1'), data[1]);
    // Second Elimination Final
-   finalBuilder($('.js-finals-ef2'), data[2]);
+   finalBuilder($('.js-finals-ef2'), data[3]);
 
 
    // Semi Finals ============
@@ -486,3 +307,183 @@ function roundCalc(target_date, round_data) {
         } 
     }
 }
+
+// Data - Fixture/Results
+
+function dataFixture(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // Dummy Dev File
+        // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        // console.log('fixture loaded');
+        // console.log(json);
+
+        $.getJSON('data/fixture.json', function (round_data) {
+
+            var today = new Date;
+            var currentRound = [];
+            var finalsData = [];
+            var currentRoundNo = roundCalc(today, round_data);
+
+            $('.js-fixture-round').text(currentRoundNo);
+
+            for (i = 0; i < json.length; i++) {
+                const element = json[i];
+
+                if (element.round.number == currentRoundNo) {
+                    currentRound.push(element);
+                }
+            }
+
+            // console.log(currentRound);
+
+            var game1 = currentRound[8];
+
+            for (i = 0; i < currentRound.length; i++) {
+                const element = currentRound[i];
+
+                fixtureItem(element, clubs);
+            }
+
+        // scroll();
+
+        });
+
+        var finalsData = [];
+
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
+
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
+
+        console.log(finalsData);
+
+        finals(finalsData, clubs);
+
+    });
+}
+
+//
+// Data
+// ====
+
+function dataLadder(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        // console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const ladder_data = json.teams[i];
+            const club_data = clubs[ladder_data.code];
+            ladderItem(ladder_data, i + 1, club_data);
+        }
+
+    });
+}
+function data() {
+    $.getJSON('data/clubs.json', function (clubs) {
+        dataLadder(clubs);
+        dataFixture(clubs);
+    });
+}
+function scroll() {
+   $(window).on('scroll', function(){
+      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
+         $('.js-scrollto-fixture').addClass('is-hidden');
+      } else {
+         $('.js-scrollto-fixture').removeClass('is-hidden');
+      }
+   });
+
+   $('.js-scrollto-fixture').on('click', function(){
+      $('html, body').animate(
+         {
+            scrollTop: $('.js-game-pregame').offset().top - 36,
+         }, {
+            duration: 400,
+            specialEasing: 'easeInOut'
+         }
+      )
+   });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeInOut'
+               }
+            )
+         });
+      }
+   });
+}
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});

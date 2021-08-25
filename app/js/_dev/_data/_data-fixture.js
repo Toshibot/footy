@@ -9,8 +9,8 @@ function dataFixture(clubs) {
         // $.getJSON('../data/data-fixture.json', function(json){
 
         // console.log(json);
-        console.log('fixture loaded');
-        console.log(json);
+        // console.log('fixture loaded');
+        // console.log(json);
 
         $.getJSON('data/fixture.json', function (round_data) {
 
@@ -29,7 +29,7 @@ function dataFixture(clubs) {
                 }
             }
 
-            console.log(currentRound);
+            // console.log(currentRound);
 
             var game1 = currentRound[8];
 
@@ -43,6 +43,8 @@ function dataFixture(clubs) {
 
         });
 
+        var finalsData = [];
+
         for (i = 0; i < json.length; i++) {
             const e = json[i];
 
@@ -51,7 +53,9 @@ function dataFixture(clubs) {
             }
         }
 
-        // finals(finalsData, clubs);
+        console.log(finalsData);
+
+        finals(finalsData, clubs);
 
     });
 }
