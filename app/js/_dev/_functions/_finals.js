@@ -45,8 +45,12 @@ function finals(data, clubs) {
          team_1.children('.js-score-text').text('').append(home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span>');
       }
       // Team 2
-      team_2.children('.js-team-img').attr('src', awayKit(away_club_data.kit, home_team.code));
-      team_2.children('.js-team-text').text(away_club_data.name);
+      if (away_team.id !== null) {
+         team_2.children('.js-team-img').attr('src', awayKit(away_club_data.kit, home_team.code));
+         team_2.children('.js-team-text').text(away_club_data.name);
+      } else {
+         
+      }
       if (final.match_status !== 'Pre Game') {
          team_2.children('.js-score-text').text('').append(away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span>');
       }
@@ -88,15 +92,15 @@ function finals(data, clubs) {
 
    // Semi Finals ============
    // First Semi Final
-   finalBuilder($('.js-finals-sf1'), data[5]);
+   finalBuilder($('.js-finals-sf1'), data[4]);
    // Second Semi Final
-   finalBuilder($('.js-finals-sf2'), data[4]);
+   finalBuilder($('.js-finals-sf2'), data[5]);
 
    // Preliminary Finals ============
    // First Prelim Final
-   finalBuilder($('.js-finals-pf1'), data[6]);
+   finalBuilder($('.js-finals-pf1'), data[7]);
    // Second Prelim Final
-   finalBuilder($('.js-finals-pf2'), data[7]);
+   finalBuilder($('.js-finals-pf2'), data[6]);
 
    // Grand Final ==============
    finalBuilder($('.js-finals-gf'), grand_final);
