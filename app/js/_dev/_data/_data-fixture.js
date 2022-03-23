@@ -3,7 +3,7 @@
 
 function dataFixture(clubs) {
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/126/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
         // Dummy Dev File
         // $.getJSON('../data/data-fixture.json', function(json){
@@ -39,23 +39,23 @@ function dataFixture(clubs) {
                 fixtureItem(element, clubs);
             }
 
-        // scroll();
+            // scroll();
 
         });
 
-        var finalsData = [];
+        // var finalsData = [];
 
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
+        // for (i = 0; i < json.length; i++) {
+        //     const e = json[i];
 
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
+        //     if (e.is_final == true) {
+        //         finalsData.push(e);
+        //     }
+        // }
 
-        console.log(finalsData);
+        // console.log(finalsData);
 
-        finals(finalsData, clubs);
+        // finals(finalsData, clubs);
 
     });
 }

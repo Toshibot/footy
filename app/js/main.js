@@ -4,12 +4,48 @@
 
 // Core Functions 
 data();
+function scroll() {
+   $(window).on('scroll', function(){
+      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
+         $('.js-scrollto-fixture').addClass('is-hidden');
+      } else {
+         $('.js-scrollto-fixture').removeClass('is-hidden');
+      }
+   });
+
+   $('.js-scrollto-fixture').on('click', function(){
+      $('html, body').animate(
+         {
+            scrollTop: $('.js-game-pregame').offset().top - 36,
+         }, {
+            duration: 400,
+            specialEasing: 'easeInOut'
+         }
+      )
+   });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeInOut'
+               }
+            )
+         });
+      }
+   });
+}
 
 // Data - Fixture/Results
 
 function dataFixture(clubs) {
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/126/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
         // Dummy Dev File
         // $.getJSON('../data/data-fixture.json', function(json){
@@ -45,23 +81,23 @@ function dataFixture(clubs) {
                 fixtureItem(element, clubs);
             }
 
-        // scroll();
+            // scroll();
 
         });
 
-        var finalsData = [];
+        // var finalsData = [];
 
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
+        // for (i = 0; i < json.length; i++) {
+        //     const e = json[i];
 
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
+        //     if (e.is_final == true) {
+        //         finalsData.push(e);
+        //     }
+        // }
 
-        console.log(finalsData);
+        // console.log(finalsData);
 
-        finals(finalsData, clubs);
+        // finals(finalsData, clubs);
 
     });
 }
@@ -72,7 +108,7 @@ function dataFixture(clubs) {
 
 function dataLadder(clubs) {
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/125/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/126/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
         // $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
@@ -455,40 +491,3 @@ $(window).on('resize', function() {
     // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
     // vertCenter($('.o-vert-center'), '.o-vert-center__object');
 });
-
-function scroll() {
-   $(window).on('scroll', function(){
-      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
-         $('.js-scrollto-fixture').addClass('is-hidden');
-      } else {
-         $('.js-scrollto-fixture').removeClass('is-hidden');
-      }
-   });
-
-   $('.js-scrollto-fixture').on('click', function(){
-      $('html, body').animate(
-         {
-            scrollTop: $('.js-game-pregame').offset().top - 36,
-         }, {
-            duration: 400,
-            specialEasing: 'easeInOut'
-         }
-      )
-   });
-
-   $('.c-fixture__game').each(function(){
-      if ($(this).hasClass('c-fixture__game--in-progress')){
-         $('.js-scrollto-fixture').addClass('has-live');
-         $('.js-scrollto-fixture').on('click', function(){
-            $('html, body').animate(
-               {
-                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
-               }, {
-                  duration: 400,
-                  specialEasing: 'easeInOut'
-               }
-            )
-         });
-      }
-   });
-}
