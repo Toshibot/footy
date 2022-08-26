@@ -81,11 +81,11 @@ function finals(data, clubs) {
 
    // Qualifying / Elimiation Finals =========
    // First Qualifying Final
-   finalBuilder($('.js-finals-qf1'), data[0]);
+   finalBuilder($('.js-finals-qf1'), data[1]);
    // Second Qualifying Final
    finalBuilder($('.js-finals-qf2'), data[2]);
    // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[1]);
+   finalBuilder($('.js-finals-ef1'), data[0]);
    // Second Elimination Final
    finalBuilder($('.js-finals-ef2'), data[3]);
 

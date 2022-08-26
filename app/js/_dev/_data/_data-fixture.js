@@ -43,19 +43,19 @@ function dataFixture(clubs) {
 
         });
 
-        // var finalsData = [];
+        var finalsData = [];
 
-        // for (i = 0; i < json.length; i++) {
-        //     const e = json[i];
+        for (i = 0; i < json.length; i++) {
+            const e = json[i];
 
-        //     if (e.is_final == true) {
-        //         finalsData.push(e);
-        //     }
-        // }
+            if (e.is_final == true) {
+                finalsData.push(e);
+            }
+        }
 
-        // console.log(finalsData);
+        console.log(finalsData);
 
-        // finals(finalsData, clubs);
+        finals(finalsData, clubs);
 
     });
 }

@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var del = require('del');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
-var sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 var browserSync = require('browser-sync').create();
 var uglify = require('gulp-uglify');
 var cleanCSS = require('gulp-clean-css');
@@ -59,7 +59,6 @@ function scss() {
 function css() {
     return gulp
         .src('./app/css/*.css')
-        .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./docs/css'));
 }
 
