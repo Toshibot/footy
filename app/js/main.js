@@ -4,6 +4,42 @@
 
 // Core Functions 
 data();
+function scroll() {
+   $(window).on('scroll', function(){
+      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
+         $('.js-scrollto-fixture').addClass('is-hidden');
+      } else {
+         $('.js-scrollto-fixture').removeClass('is-hidden');
+      }
+   });
+
+   $('.js-scrollto-fixture').on('click', function(){
+      $('html, body').animate(
+         {
+            scrollTop: $('.js-game-pregame').offset().top - 36,
+         }, {
+            duration: 400,
+            specialEasing: 'easeInOut'
+         }
+      )
+   });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeInOut'
+               }
+            )
+         });
+      }
+   });
+}
 
 // Data - Fixture/Results
 
@@ -96,6 +132,59 @@ function data() {
         dataFixture(clubs);
     });
 }
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
+
 
 function dateTime(d) {
 
@@ -402,93 +491,4 @@ function roundCalc(target_date, round_data) {
             return round.round;
         } 
     }
-}
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
-function scroll() {
-   $(window).on('scroll', function(){
-      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
-         $('.js-scrollto-fixture').addClass('is-hidden');
-      } else {
-         $('.js-scrollto-fixture').removeClass('is-hidden');
-      }
-   });
-
-   $('.js-scrollto-fixture').on('click', function(){
-      $('html, body').animate(
-         {
-            scrollTop: $('.js-game-pregame').offset().top - 36,
-         }, {
-            duration: 400,
-            specialEasing: 'easeInOut'
-         }
-      )
-   });
-
-   $('.c-fixture__game').each(function(){
-      if ($(this).hasClass('c-fixture__game--in-progress')){
-         $('.js-scrollto-fixture').addClass('has-live');
-         $('.js-scrollto-fixture').on('click', function(){
-            $('html, body').animate(
-               {
-                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
-               }, {
-                  duration: 400,
-                  specialEasing: 'easeInOut'
-               }
-            )
-         });
-      }
-   });
 }
