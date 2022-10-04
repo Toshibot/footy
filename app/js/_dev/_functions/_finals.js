@@ -60,7 +60,11 @@ function finals(data, clubs) {
 
    }
 
-   function premiers(data) {
+   function premiers(data, clubs) {
+      var home_team = data.team_A;
+      var away_team = data.team_B;
+      var home_club_data = clubs[home_team.code];
+      var away_club_data = clubs[away_team.code];
       if (data.match_status_normalised == "post" && home_team.score > away_team.score) {
          return {
             name: home_club_data.name,
@@ -106,10 +110,12 @@ function finals(data, clubs) {
    finalBuilder($('.js-finals-gf'), grand_final);
 
    // Premiers ============
-   $('.js-premiers-name').text(premiers(grand_final).name);
+   $('.js-premiers-name').text(premiers(grand_final, clubs).name);
    $('.js-premiers-bg').css({
-      'background-image': 'url(' + premiers(grand_final).bg + ')',
-      'background-size': 'cover'
+      'background-image': 'url(' + premiers(grand_final, clubs).bg + ')',
+      // 'background-size': 'cover'
+      'background-size': '50%',
+      'background-repeat': 'repeat'
    });
 
 }
