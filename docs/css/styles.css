@@ -1593,7 +1593,6 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 .o-main {
   min-height: 100%;
   height: auto !important;
-  margin-bottom: -100px;
 }
 .o-main:after {
   content: "";
