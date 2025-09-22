@@ -21,7 +21,7 @@
             "away": "img/teams/lions-away.png",
             "clash": {
                 "kit": "img/teams/lions-home.png",
-                "teams": ["SYD","GWS","GCS","WCE","ADE","FRE","POR", "MEL", "COL", "GEE"]
+                "teams": ["SYD","GWS","GCS","WCE","ADE","FRE","POR", "MEL", "COL"]
             }
         }
     },
