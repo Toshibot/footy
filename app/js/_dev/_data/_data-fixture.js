@@ -19,13 +19,13 @@ function dataFixture(clubs) {
             var finalsData = [];
             var currentRoundNo = roundCalc(today, round_data);
 
-            $('.js-fixture-round').text(currentRoundNo);
-
             for (i = 0; i < json.length; i++) {
                 const element = json[i];
 
                 if (element.round.number == currentRoundNo) {
                     currentRound.push(element);
+
+                    $('.js-fixture-round').text(element.round.name);
                 }
             }
 
