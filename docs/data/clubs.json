@@ -125,7 +125,7 @@
             "away": "img/teams/hawks-away.png",
             "clash": {
                 "kit": "img/teams/hawks-home.png",
-                "teams": []
+                "teams": ["GWS"]
             }
         }
     },
