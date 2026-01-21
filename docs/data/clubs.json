@@ -20,8 +20,8 @@
             "home": "img/teams/lions-home.png",
             "away": "img/teams/lions-away.png",
             "clash": {
-                "kit": "img/teams/lions-home.png",
-                "teams": ["SYD","GWS","GCS","WCE","ADE","FRE","POR", "MEL", "COL"]
+                "kit": "img/teams/lions-clash.png",
+                "teams": ["SYD","GWS","GCS","WCE","ADE","FRE","POR", "MEL"]
             }
         }
     },
@@ -125,7 +125,7 @@
             "away": "img/teams/hawks-away.png",
             "clash": {
                 "kit": "img/teams/hawks-home.png",
-                "teams": ["GWS", "MEL", "COL", "CAR", "POR", "STK", "RIC", "ADE", "GEE"]
+                "teams": []
             }
         }
     },

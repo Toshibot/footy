@@ -45,7 +45,7 @@ function scroll() {
 
 function dataFixture(clubs) {
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/126/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
         // Dummy Dev File
         // $.getJSON('../data/data-fixture.json', function(json){
@@ -108,7 +108,7 @@ function dataFixture(clubs) {
 
 function dataLadder(clubs) {
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/126/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/130/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
         // $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
