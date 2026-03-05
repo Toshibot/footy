@@ -4,6 +4,42 @@
 
 // Core Functions 
 data();
+function scroll() {
+   $(window).on('scroll', function(){
+      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
+         $('.js-scrollto-fixture').addClass('is-hidden');
+      } else {
+         $('.js-scrollto-fixture').removeClass('is-hidden');
+      }
+   });
+
+   $('.js-scrollto-fixture').on('click', function(){
+      $('html, body').animate(
+         {
+            scrollTop: $('.js-game-pregame').offset().top - 36,
+         }, {
+            duration: 400,
+            specialEasing: 'easeInOut'
+         }
+      )
+   });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeInOut'
+               }
+            )
+         });
+      }
+   });
+}
 
 // Data - Fixture/Results
 
@@ -72,7 +108,7 @@ function dataFixture(clubs) {
 
 function dataLadder(clubs) {
 
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/130/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
 
         // $.getJSON('../data/dummy_data.json', function (json) {
         var round = $('.c-ladder__round');
@@ -95,42 +131,6 @@ function data() {
         dataLadder(clubs);
         dataFixture(clubs);
     });
-}
-function scroll() {
-   $(window).on('scroll', function(){
-      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
-         $('.js-scrollto-fixture').addClass('is-hidden');
-      } else {
-         $('.js-scrollto-fixture').removeClass('is-hidden');
-      }
-   });
-
-   $('.js-scrollto-fixture').on('click', function(){
-      $('html, body').animate(
-         {
-            scrollTop: $('.js-game-pregame').offset().top - 36,
-         }, {
-            duration: 400,
-            specialEasing: 'easeInOut'
-         }
-      )
-   });
-
-   $('.c-fixture__game').each(function(){
-      if ($(this).hasClass('c-fixture__game--in-progress')){
-         $('.js-scrollto-fixture').addClass('has-live');
-         $('.js-scrollto-fixture').on('click', function(){
-            $('html, body').animate(
-               {
-                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
-               }, {
-                  duration: 400,
-                  specialEasing: 'easeInOut'
-               }
-            )
-         });
-      }
-   });
 }
 
 function dateTime(d) {
