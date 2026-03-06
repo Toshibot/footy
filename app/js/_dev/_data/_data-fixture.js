@@ -36,7 +36,7 @@ function dataFixture(clubs) {
             for (i = 0; i < currentRound.length; i++) {
                 const element = currentRound[i];
 
-                fixtureItem(element, clubs);
+                fixtureItem(element, clubs, currentRoundNo);
             }
 
             // scroll();

@@ -1,4 +1,4 @@
-function fixtureItem(fixture_data, clubs) {
+function fixtureItem(fixture_data, clubs, current_round) {
 
     var date = dateTime(fixture_data.match_start_date);
     var match_status = fixture_data.match_status;
@@ -18,13 +18,13 @@ function fixtureItem(fixture_data, clubs) {
             '<span class="c-date__time">' + date.time + '</span>' +
             '</div >' +
             '<div class="c-fixture__team js-fixture-team-1">' +
-            '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
+            '<img class="js-team-img" src="' + kitSwitcher(home_club_data.kit, home_team.code, away_team.code, home_team.code, current_round) + '" />' +
             '<span class="js-team-text">' + home_club_data.name + '</span>' +
             '<span class="c-fixture__score js-score-text">-</span>' +
             '</div>' +
             '<div class="c-fixture__vs">vs</div>' +
             '<div class="c-fixture__team js-fixture-team-2">' +
-            '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
+            '<img class="js-team-img" src="' + kitSwitcher(away_club_data.kit, away_team.code, away_team.code, home_team.code, current_round) + '" />' +
             '<span class="js-team-text">' + away_club_data.name + '</span>' +
             '<span class="c-fixture__score js-score-text">-</span>' +
             '</div>' +

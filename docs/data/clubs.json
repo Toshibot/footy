@@ -8,7 +8,9 @@
             "away": "img/teams/crows-away.png",
             "clash": {
                 "kit": "img/teams/crows-home.png",
-                "teams": ["HAW"]
+                "teams": [
+                    "HAW"
+                ]
             }
         }
     },
@@ -21,7 +23,16 @@
             "away": "img/teams/lions-away.png",
             "clash": {
                 "kit": "img/teams/lions-clash.png",
-                "teams": ["SYD","GWS","GCS","WCE","ADE","FRE","POR", "MEL"]
+                "teams": [
+                    "SYD",
+                    "GWS",
+                    "GCS",
+                    "WCE",
+                    "ADE",
+                    "FRE",
+                    "POR",
+                    "MEL"
+                ]
             }
         }
     },
@@ -34,7 +45,10 @@
             "away": "img/teams/blues-clash.png",
             "clash": {
                 "kit": "img/teams/blues-home.png",
-                "teams": ["GEE", "SYD"]
+                "teams": [
+                    "GEE",
+                    "SYD"
+                ]
             }
         }
     },
@@ -47,7 +61,10 @@
             "away": "img/teams/magpies-clash.png",
             "clash": {
                 "kit": "img/teams/magpies-home.png",
-                "teams": ["SYD", "GEE"]
+                "teams": [
+                    "SYD",
+                    "GEE"
+                ]
             }
         }
     },
@@ -60,7 +77,14 @@
             "away": "img/teams/bombers-home.png",
             "clash": {
                 "kit": "img/teams/bombers-clash.png",
-                "teams": ["MEL", "COL", "CAR", "POR", "STK", "RIC"]
+                "teams": [
+                    "MEL",
+                    "COL",
+                    "CAR",
+                    "POR",
+                    "STK",
+                    "RIC"
+                ]
             }
         }
     },
@@ -73,7 +97,10 @@
             "away": "img/teams/dockers-away.png",
             "clash": {
                 "kit": "img/teams/dockers-home.png",
-                "teams": ["SYD", "GEE"]
+                "teams": [
+                    "SYD",
+                    "GEE"
+                ]
             }
         }
     },
@@ -86,7 +113,12 @@
             "away": "img/teams/cats-home.png",
             "clash": {
                 "kit": "img/teams/cats-clash.png",
-                "teams": []
+                "teams": [
+                    "NM"
+                ]
+            },
+            "special": {
+                "wo": "img/teams/cats-wo.png"
             }
         }
     },
@@ -99,7 +131,13 @@
             "away": "img/teams/suns-away.png",
             "clash": {
                 "kit": "img/teams/suns-home.png",
-                "teams": ["WBD", "CAR", "FRE", "NM", "WCE"]
+                "teams": [
+                    "WBD",
+                    "CAR",
+                    "FRE",
+                    "NM",
+                    "WCE"
+                ]
             }
         }
     },
@@ -112,7 +150,10 @@
             "away": "img/teams/gws-away.png",
             "clash": {
                 "kit": "img/teams/gws-home.png",
-                "teams": ["SYD", "GEE"]
+                "teams": [
+                    "SYD",
+                    "GEE"
+                ]
             }
         }
     },
@@ -125,7 +166,9 @@
             "away": "img/teams/hawks-away.png",
             "clash": {
                 "kit": "img/teams/hawks-home.png",
-                "teams": ["GWS"]
+                "teams": [
+                    "GWS"
+                ]
             }
         }
     },
@@ -151,7 +194,9 @@
             "away": "img/teams/kangaroos-clash.png",
             "clash": {
                 "kit": "img/teams/kangaroos-home.png",
-                "teams": ["COL"]
+                "teams": [
+                    "COL"
+                ]
             }
         }
     },
@@ -164,7 +209,10 @@
             "away": "img/teams/port-clash.png",
             "clash": {
                 "kit": "img/teams/port-home.png",
-                "teams": ["SYD", "GEE"]
+                "teams": [
+                    "SYD",
+                    "GEE"
+                ]
             }
         }
     },
@@ -177,7 +225,9 @@
             "away": "img/teams/tigers-away.png",
             "clash": {
                 "kit": "img/teams/tigers-home.png",
-                "teams": ["HAW"]
+                "teams": [
+                    "HAW"
+                ]
             }
         }
     },
@@ -190,7 +240,10 @@
             "away": "img/teams/saints-away.png",
             "clash": {
                 "kit": "img/teams/saints-home.png",
-                "teams": ["SYD", "GEE"]
+                "teams": [
+                    "SYD",
+                    "GEE"
+                ]
             }
         }
     },
@@ -216,7 +269,10 @@
             "away": "img/teams/dogs-away.png",
             "clash": {
                 "kit": "img/teams/dogs-home.png",
-                "teams": ["SYD","GEE"]
+                "teams": [
+                    "SYD",
+                    "GEE"
+                ]
             }
         }
     },
@@ -229,7 +285,9 @@
             "away": "img/teams/eagles-away.png",
             "clash": {
                 "kit": "img/teams/eagles-home.png",
-                "teams": ["HAW"]
+                "teams": [
+                    "HAW"
+                ]
             }
         }
     }
