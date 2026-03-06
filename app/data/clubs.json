@@ -11,6 +11,9 @@
                 "teams": [
                     "HAW"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/crows-home.png"
             }
         }
     },
@@ -33,6 +36,9 @@
                     "POR",
                     "MEL"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/lions-home.png"
             }
         }
     },
@@ -49,6 +55,9 @@
                     "GEE",
                     "SYD"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/blues-home.png"
             }
         }
     },
@@ -65,6 +74,9 @@
                     "SYD",
                     "GEE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/magpies-home.png"
             }
         }
     },
@@ -85,6 +97,9 @@
                     "STK",
                     "RIC"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/bombers-home.png"
             }
         }
     },
@@ -101,6 +116,9 @@
                     "SYD",
                     "GEE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/dockers-home.png"
             }
         }
     },
@@ -118,7 +136,8 @@
                 ]
             },
             "special": {
-                "wo": "img/teams/cats-wo.png"
+                "wo": "img/teams/cats-wo.png",
+                "anzac": "img/teams/cats-anzac.png"
             }
         }
     },
@@ -138,6 +157,9 @@
                     "NM",
                     "WCE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/suns-home.png"
             }
         }
     },
@@ -154,6 +176,9 @@
                     "SYD",
                     "GEE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/gws-home.png"
             }
         }
     },
@@ -169,6 +194,9 @@
                 "teams": [
                     "GWS"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/hawks-home.png"
             }
         }
     },
@@ -182,6 +210,9 @@
             "clash": {
                 "kit": "img/teams/demons-home.png",
                 "teams": []
+            },
+            "special": {
+                "anzac": "img/teams/demons-home.png"
             }
         }
     },
@@ -197,6 +228,9 @@
                 "teams": [
                     "COL"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/kangaroos-home.png"
             }
         }
     },
@@ -213,6 +247,9 @@
                     "SYD",
                     "GEE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/port-home.png"
             }
         }
     },
@@ -228,6 +265,9 @@
                 "teams": [
                     "HAW"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/tigers-home.png"
             }
         }
     },
@@ -244,6 +284,9 @@
                     "SYD",
                     "GEE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/saints-home.png"
             }
         }
     },
@@ -257,6 +300,9 @@
             "clash": {
                 "kit": "img/teams/swans-home.png",
                 "teams": []
+            },
+            "special": {
+                "anzac": "img/teams/swans-home.png"
             }
         }
     },
@@ -273,6 +319,9 @@
                     "SYD",
                     "GEE"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/dogs-home.png"
             }
         }
     },
@@ -288,6 +337,9 @@
                 "teams": [
                     "HAW"
                 ]
+            },
+            "special": {
+                "anzac": "img/teams/eagles-home.png"
             }
         }
     }

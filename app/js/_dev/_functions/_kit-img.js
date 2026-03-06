@@ -1,8 +1,10 @@
 function kitSwitcher(kit_data, team, away_team, home_team, round_number) {
     console.log(team);
 
-    if (round_number == "14" & team == "GEE") {
-        return kit_data.special.wo
+    if (round_number == 14 & team == "GEE") {
+        return kit_data.special.wo;
+    } else if (round_number == 7) {
+        return kit_data.special.anzac;
     } else if (team == away_team) {
         return awayKit(kit_data, home_team);
     } else {

@@ -118,7 +118,8 @@
                 ]
             },
             "special": {
-                "wo": "img/teams/cats-wo.png"
+                "wo": "img/teams/cats-wo.png",
+                "anzac": "img/teams/cats-anzac.png"
             }
         }
     },
