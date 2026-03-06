@@ -1,16 +1,20 @@
 .c-fixture {
 
     h2 {
-        @media screen and (min-width: $break-m){
+        @media screen and (min-width: $break-m) {
             padding-bottom: 62px;
         }
+    }
+
+    &__container {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 16px;
     }
 
     &__game {
         background: $color-grey-dark;
         width: 32%;
-        margin-bottom: 17px;
-        margin-right: 1.5%;
         display: inline-block;
 
         &:nth-child(4),
@@ -23,7 +27,7 @@
             background: $color-offwhite;
             color: $color-black;
         }
-        
+
         &--completed {
             background: #444;
         }
@@ -38,8 +42,8 @@
         padding: $size-base 0;
         font-size: 12px;
     }
-    
-    
+
+
     &__date {
         padding: $size-base 0 3px;
         line-height: 1.5;

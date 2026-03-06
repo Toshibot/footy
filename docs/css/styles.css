@@ -1888,11 +1888,14 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
     padding-bottom: 62px;
   }
 }
+.c-fixture__container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+}
 .c-fixture__game {
   background: #666;
   width: 32%;
-  margin-bottom: 17px;
-  margin-right: 1.5%;
   display: inline-block;
 }
 .c-fixture__game:nth-child(4), .c-fixture__game:nth-child(7), .c-fixture__game:nth-child(10) {
