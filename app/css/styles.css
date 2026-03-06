@@ -1911,7 +1911,6 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 @media screen and (max-width: 64em) {
   .c-fixture__game {
     width: 100%;
-    margin: 0 0 36px;
   }
 }
 .c-fixture__venue {
