@@ -9,7 +9,8 @@
             "clash": {
                 "kit": "img/teams/crows-home.png",
                 "teams": [
-                    "HAW"
+                    "GEE",
+                    "NM"
                 ]
             },
             "special": {
@@ -192,7 +193,13 @@
             "clash": {
                 "kit": "img/teams/hawks-home.png",
                 "teams": [
-                    "GWS"
+                    "MEL",
+                    "ESS",
+                    "COL",
+                    "CAR",
+                    "POR",
+                    "STK",
+                    "RIC"
                 ]
             },
             "special": {
