@@ -1,9 +1,38 @@
 .c-fixture {
 
     h2 {
+        position: relative;
+
         @media screen and (min-width: $break-m) {
             padding-bottom: 62px;
         }
+    }
+
+    &__button {
+        position: absolute;
+        height: 29px;
+        width: 29px;
+        line-height: 29px;
+        text-align: center;
+        font-family: $font-icon;
+        cursor: pointer;
+
+        &.previous {
+            left: 0;
+
+            &:before {
+                content: '';
+            }
+        }
+
+        &.next {
+            right: 0;
+
+            &:before {
+                content: '';
+            }
+        }
+
     }
 
     &__container {

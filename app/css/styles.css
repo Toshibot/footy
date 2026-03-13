@@ -1883,10 +1883,34 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
   }
 }
 
+.c-fixture h2 {
+  position: relative;
+}
 @media screen and (min-width: 75em) {
   .c-fixture h2 {
     padding-bottom: 62px;
   }
+}
+.c-fixture__button {
+  position: absolute;
+  height: 29px;
+  width: 29px;
+  line-height: 29px;
+  text-align: center;
+  font-family: "Font Awesome";
+  cursor: pointer;
+}
+.c-fixture__button.previous {
+  left: 0;
+}
+.c-fixture__button.previous:before {
+  content: "\f053";
+}
+.c-fixture__button.next {
+  right: 0;
+}
+.c-fixture__button.next:before {
+  content: "\f054";
 }
 .c-fixture__container {
   display: flex;
