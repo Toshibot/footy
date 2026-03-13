@@ -1,5 +1,4 @@
 function kitSwitcher(kit_data, team, away_team, home_team, round_number) {
-    console.log(team);
 
     if (round_number == 14 & team == "GEE") {
         return kit_data.special.wo;

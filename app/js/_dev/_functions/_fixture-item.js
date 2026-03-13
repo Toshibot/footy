@@ -10,7 +10,7 @@ function fixtureItem(fixture_data, clubs, current_round) {
     if (match_status == 'Pre Game') {
 
         $('.js-fixture .js-insert').before(
-            '<div class="c-fixture__game js-game-pregame">' +
+            '<div class="c-fixture__game js-game-' + current_round + ' js-game-pregame">' +
             '<div class= "c-fixture__date c-date" >' +
             '<span class="c-date__day">' + date.day + '</span>' +
             '<span class="c-date__month">' + date.month + '</span>' +
@@ -35,7 +35,7 @@ function fixtureItem(fixture_data, clubs, current_round) {
     } else if (match_status == "Full Time") {
 
         $('.js-fixture .js-insert').before(
-            '<div class="c-fixture__game c-fixture__game--completed">' +
+            '<div class="c-fixture__game  js-game-' + current_round + ' c-fixture__game--completed">' +
             '<div class= "c-fixture__date c-date" >' +
             '<span class="c-date__day">' + date.day + '</span>' +
             '<span class="c-date__month">' + date.month + '</span>' +
@@ -60,7 +60,7 @@ function fixtureItem(fixture_data, clubs, current_round) {
     } else {
 
         $('.js-fixture .js-insert').before(
-            '<div class="c-fixture__game c-fixture__game--in-progress">' +
+            '<div class="c-fixture__game  js-game-' + current_round + ' c-fixture__game--in-progress">' +
             '<div class= "c-fixture__date c-date" >' +
             '<span class="c-date__live">LIVE</span>' +
             '<span class="c-date__status">' + match_status + '</span>' +

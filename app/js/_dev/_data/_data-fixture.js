@@ -15,47 +15,58 @@ function dataFixture(clubs) {
         $.getJSON('data/fixture.json', function (round_data) {
 
             var today = new Date;
-            var currentRound = [];
+            var displayedRound = [];
             var finalsData = [];
             var currentRoundNo = roundCalc(today, round_data);
+            var displayedRoundNo = currentRoundNo;
+            var previousRoundButton = $('.js-previous');
+            var nextRoundButton = $('.js-next');
 
-            for (i = 0; i < json.length; i++) {
-                const element = json[i];
+            function buildFixture(data, round_number) {
+                var displayed_round = [];
 
-                if (element.round.number == currentRoundNo) {
-                    currentRound.push(element);
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
 
-                    $('.js-fixture-round').text(element.round.name);
+                    if (element.round.number == round_number) {
+                        displayed_round.push(element);
+
+                        $('.js-fixture-round').text(element.round.name);
+                    }
+                }
+
+                generateFixture(displayed_round, round_number);
+            }
+
+            previousRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
+            });
+
+            nextRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
+            })
+
+            function clearFixture(round_number) {
+                $('.js-game-' + round_number).remove();
+            }
+
+            function fixtureChange(round_number, new_round_number) {
+                displayedRoundNo = new_round_number;
+                clearFixture(round_number);
+                buildFixture(json, new_round_number);
+            }
+
+            function generateFixture(data, round_number) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    fixtureItem(element, clubs, round_number);
                 }
             }
 
-            // console.log(currentRound);
-
-            var game1 = currentRound[8];
-
-            for (i = 0; i < currentRound.length; i++) {
-                const element = currentRound[i];
-
-                fixtureItem(element, clubs, currentRoundNo);
-            }
-
-            // scroll();
+            buildFixture(json, currentRoundNo);
 
         });
-
-        var finalsData = [];
-
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
-
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
-
-        console.log(finalsData);
-
-        finals(finalsData, clubs);
 
     });
 }

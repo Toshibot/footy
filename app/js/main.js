@@ -21,47 +21,58 @@ function dataFixture(clubs) {
         $.getJSON('data/fixture.json', function (round_data) {
 
             var today = new Date;
-            var currentRound = [];
+            var displayedRound = [];
             var finalsData = [];
             var currentRoundNo = roundCalc(today, round_data);
+            var displayedRoundNo = currentRoundNo;
+            var previousRoundButton = $('.js-previous');
+            var nextRoundButton = $('.js-next');
 
-            for (i = 0; i < json.length; i++) {
-                const element = json[i];
+            function buildFixture(data, round_number) {
+                var displayed_round = [];
 
-                if (element.round.number == currentRoundNo) {
-                    currentRound.push(element);
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
 
-                    $('.js-fixture-round').text(element.round.name);
+                    if (element.round.number == round_number) {
+                        displayed_round.push(element);
+
+                        $('.js-fixture-round').text(element.round.name);
+                    }
+                }
+
+                generateFixture(displayed_round, round_number);
+            }
+
+            previousRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
+            });
+
+            nextRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
+            })
+
+            function clearFixture(round_number) {
+                $('.js-game-' + round_number).remove();
+            }
+
+            function fixtureChange(round_number, new_round_number) {
+                displayedRoundNo = new_round_number;
+                clearFixture(round_number);
+                buildFixture(json, new_round_number);
+            }
+
+            function generateFixture(data, round_number) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    fixtureItem(element, clubs, round_number);
                 }
             }
 
-            // console.log(currentRound);
-
-            var game1 = currentRound[8];
-
-            for (i = 0; i < currentRound.length; i++) {
-                const element = currentRound[i];
-
-                fixtureItem(element, clubs, currentRoundNo);
-            }
-
-            // scroll();
+            buildFixture(json, currentRoundNo);
 
         });
-
-        var finalsData = [];
-
-        for (i = 0; i < json.length; i++) {
-            const e = json[i];
-
-            if (e.is_final == true) {
-                finalsData.push(e);
-            }
-        }
-
-        console.log(finalsData);
-
-        finals(finalsData, clubs);
 
     });
 }
@@ -96,59 +107,6 @@ function data() {
         dataFixture(clubs);
     });
 }
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
 function scroll() {
    $(window).on('scroll', function(){
       if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
@@ -391,7 +349,7 @@ function fixtureItem(fixture_data, clubs, current_round) {
     if (match_status == 'Pre Game') {
 
         $('.js-fixture .js-insert').before(
-            '<div class="c-fixture__game js-game-pregame">' +
+            '<div class="c-fixture__game js-game-' + current_round + ' js-game-pregame">' +
             '<div class= "c-fixture__date c-date" >' +
             '<span class="c-date__day">' + date.day + '</span>' +
             '<span class="c-date__month">' + date.month + '</span>' +
@@ -416,7 +374,7 @@ function fixtureItem(fixture_data, clubs, current_round) {
     } else if (match_status == "Full Time") {
 
         $('.js-fixture .js-insert').before(
-            '<div class="c-fixture__game c-fixture__game--completed">' +
+            '<div class="c-fixture__game  js-game-' + current_round + ' c-fixture__game--completed">' +
             '<div class= "c-fixture__date c-date" >' +
             '<span class="c-date__day">' + date.day + '</span>' +
             '<span class="c-date__month">' + date.month + '</span>' +
@@ -441,7 +399,7 @@ function fixtureItem(fixture_data, clubs, current_round) {
     } else {
 
         $('.js-fixture .js-insert').before(
-            '<div class="c-fixture__game c-fixture__game--in-progress">' +
+            '<div class="c-fixture__game  js-game-' + current_round + ' c-fixture__game--in-progress">' +
             '<div class= "c-fixture__date c-date" >' +
             '<span class="c-date__live">LIVE</span>' +
             '<span class="c-date__status">' + match_status + '</span>' +
@@ -464,7 +422,6 @@ function fixtureItem(fixture_data, clubs, current_round) {
     }
 }
 function kitSwitcher(kit_data, team, away_team, home_team, round_number) {
-    console.log(team);
 
     if (round_number == 14 & team == "GEE") {
         return kit_data.special.wo;
@@ -512,3 +469,55 @@ function roundCalc(target_date, round_data) {
         } 
     }
 }
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
