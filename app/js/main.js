@@ -4,109 +4,6 @@
 
 // Core Functions 
 data();
-
-// Data - Fixture/Results
-
-function dataFixture(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // Dummy Dev File
-        // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        // console.log('fixture loaded');
-        // console.log(json);
-
-        $.getJSON('data/fixture.json', function (round_data) {
-
-            var today = new Date;
-            var displayedRound = [];
-            var finalsData = [];
-            var currentRoundNo = roundCalc(today, round_data);
-            var displayedRoundNo = currentRoundNo;
-            var previousRoundButton = $('.js-previous');
-            var nextRoundButton = $('.js-next');
-
-            function buildFixture(data, round_number) {
-                var displayed_round = [];
-
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    if (element.round.number == round_number) {
-                        displayed_round.push(element);
-
-                        $('.js-fixture-round').text(element.round.name);
-                    }
-                }
-
-                generateFixture(displayed_round, round_number);
-            }
-
-            previousRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
-            });
-
-            nextRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
-            })
-
-            function clearFixture(round_number) {
-                $('.js-game-' + round_number).remove();
-            }
-
-            function fixtureChange(round_number, new_round_number) {
-                displayedRoundNo = new_round_number;
-                clearFixture(round_number);
-                buildFixture(json, new_round_number);
-            }
-
-            function generateFixture(data, round_number) {
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    fixtureItem(element, clubs, round_number);
-                }
-            }
-
-            buildFixture(json, currentRoundNo);
-
-        });
-
-    });
-}
-
-//
-// Data
-// ====
-
-function dataLadder(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        // console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const ladder_data = json.teams[i];
-            const club_data = clubs[ladder_data.code];
-            ladderItem(ladder_data, i + 1, club_data);
-        }
-
-    });
-}
-function data() {
-    $.getJSON('data/clubs.json', function (clubs) {
-        dataLadder(clubs);
-        dataFixture(clubs);
-    });
-}
 function scroll() {
    $(window).on('scroll', function(){
       if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
@@ -468,6 +365,109 @@ function roundCalc(target_date, round_data) {
             return round.round;
         } 
     }
+}
+
+// Data - Fixture/Results
+
+function dataFixture(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // Dummy Dev File
+        // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        // console.log('fixture loaded');
+        // console.log(json);
+
+        $.getJSON('data/fixture.json', function (round_data) {
+
+            var today = new Date;
+            var displayedRound = [];
+            var finalsData = [];
+            var currentRoundNo = roundCalc(today, round_data);
+            var displayedRoundNo = currentRoundNo;
+            var previousRoundButton = $('.js-previous');
+            var nextRoundButton = $('.js-next');
+
+            function buildFixture(data, round_number) {
+                var displayed_round = [];
+
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    if (element.round.number == round_number) {
+                        displayed_round.push(element);
+
+                        $('.js-fixture-round').text(element.round.name);
+                    }
+                }
+
+                generateFixture(displayed_round, round_number);
+            }
+
+            function clearFixture(round_number) {
+                $('.js-game-' + round_number).remove();
+            }
+
+            function fixtureChange(round_number, new_round_number) {
+                displayedRoundNo = new_round_number;
+                clearFixture(round_number);
+                buildFixture(json, new_round_number);
+            }
+
+            function generateFixture(data, round_number) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    fixtureItem(element, clubs, round_number);
+                }
+            }
+
+            buildFixture(json, currentRoundNo);
+
+            previousRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
+            });
+
+            nextRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
+            })
+
+        });
+
+    });
+}
+
+//
+// Data
+// ====
+
+function dataLadder(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        // console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const ladder_data = json.teams[i];
+            const club_data = clubs[ladder_data.code];
+            ladderItem(ladder_data, i + 1, club_data);
+        }
+
+    });
+}
+function data() {
+    $.getJSON('data/clubs.json', function (clubs) {
+        dataLadder(clubs);
+        dataFixture(clubs);
+    });
 }
 //
 // Layout - Vertically Centered

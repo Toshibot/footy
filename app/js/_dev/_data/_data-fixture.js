@@ -38,14 +38,6 @@ function dataFixture(clubs) {
                 generateFixture(displayed_round, round_number);
             }
 
-            previousRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
-            });
-
-            nextRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
-            })
-
             function clearFixture(round_number) {
                 $('.js-game-' + round_number).remove();
             }
@@ -65,6 +57,14 @@ function dataFixture(clubs) {
             }
 
             buildFixture(json, currentRoundNo);
+
+            previousRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
+            });
+
+            nextRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
+            })
 
         });
 
