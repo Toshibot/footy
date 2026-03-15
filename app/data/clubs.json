@@ -26,7 +26,7 @@
             "home": "img/teams/lions-home.png",
             "away": "img/teams/lions-away.png",
             "clash": {
-                "kit": "img/teams/lions-clash.png",
+                "kit": "img/teams/lions-home.png",
                 "teams": [
                     "SYD",
                     "GWS",
