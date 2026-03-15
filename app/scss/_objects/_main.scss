@@ -2,6 +2,8 @@
     min-height: $width-12;
     height: auto !important;
     margin-bottom: -$height-footer;
+    position: relative;
+    z-index: 1;
 
     &:after {
         content: '';
