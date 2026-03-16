@@ -40,12 +40,15 @@ function dataFixture(clubs) {
 
             function clearFixture(round_number) {
                 $('.js-game-' + round_number).remove();
+                $('.js-bye-item-' + round_number).remove();
             }
 
             function fixtureChange(round_number, new_round_number) {
                 displayedRoundNo = new_round_number;
                 clearFixture(round_number);
                 buildFixture(json, new_round_number);
+                $('.c-fixture__bye--title').removeClass('u-block');
+                bye(new_round_number, bye_data, clubs);
             }
 
             function generateFixture(data, round_number) {
@@ -65,6 +68,42 @@ function dataFixture(clubs) {
             nextRoundButton.on("click", function () {
                 fixtureChange(displayedRoundNo, displayedRoundNo + 1);
             })
+
+            var bye_data = [
+                {
+                    round_number: 2,
+                    teams: ["BRI", "COL", "CAR", "GEE"]
+                },
+                {
+                    round_number: 3,
+                    teams: ["GCS", "WBD", "HAW", "SYD"]
+                },
+                {
+                    round_number: 4,
+                    teams: ["STK", "GWS"]
+                },
+                {
+                    round_number: 12,
+                    teams: ["ADE", "GCS", "NM", "POR"]
+                },
+                {
+                    round_number: 13,
+                    teams: ["GWS", "RIC"]
+                },
+                {
+                    round_number: 14,
+                    teams: ["COL", "CAR", "HAW", "FRE"]
+                },
+                {
+                    round_number: 15,
+                    teams: ["BRI", "ESS", "SYD", "WCE"]
+                },
+                {
+                    round_number: 16,
+                    teams: ["WBD", "GEE", "STK", "MEL"]
+                }
+            ]
+
 
         });
 

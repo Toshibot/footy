@@ -1261,6 +1261,22 @@ table {
   justify-content: center;
 }
 
+.u-hidden {
+  display: none !important;
+}
+
+.u-block {
+  display: block !important;
+}
+
+.u-inline {
+  display: inline !important;
+}
+
+.u-inline-block {
+  display: inline-block !important;
+}
+
 .t-dark {
   color: #fff;
   background-color: #333;
@@ -1983,6 +1999,36 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 .c-fixture__score-total {
   display: inline !important;
   font-weight: 600;
+}
+.c-fixture__bye {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.c-fixture__bye--title {
+  display: none;
+  padding-top: 8px;
+  font-weight: 600;
+}
+.c-fixture__bye--items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.c-fixture__bye--item {
+  display: flex;
+  flex-direction: row;
+  padding-right: 10px;
+}
+.c-fixture__bye--item-logo {
+  height: 41px;
+  width: 41px;
+}
+.c-fixture__bye--item-name {
+  line-height: 41px;
+  padding-left: 8px;
 }
 
 .c-finals {

@@ -118,4 +118,40 @@
             font-weight: 600;
         }
     }
+
+    &__bye {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: left;
+
+        &--title {
+            display: none;
+            padding-top: 8px;
+            font-weight: 600;
+        }
+
+        &--items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        &--item {
+            display: flex;
+            flex-direction: row;
+            padding-right: 10px;
+
+            &-logo {
+                height: 41px;
+                width: 41px;
+            }
+
+            &-name {
+                line-height: 41px;
+                padding-left: 8px;
+            }
+        }
+    }
 }
