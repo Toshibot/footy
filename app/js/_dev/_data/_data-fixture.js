@@ -22,53 +22,6 @@ function dataFixture(clubs) {
             var previousRoundButton = $('.js-previous');
             var nextRoundButton = $('.js-next');
 
-            function buildFixture(data, round_number) {
-                var displayed_round = [];
-
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    if (element.round.number == round_number) {
-                        displayed_round.push(element);
-
-                        $('.js-fixture-round').text(element.round.name);
-                    }
-                }
-
-                generateFixture(displayed_round, round_number);
-            }
-
-            function clearFixture(round_number) {
-                $('.js-game-' + round_number).remove();
-                $('.js-bye-item-' + round_number).remove();
-            }
-
-            function fixtureChange(round_number, new_round_number) {
-                displayedRoundNo = new_round_number;
-                clearFixture(round_number);
-                buildFixture(json, new_round_number);
-                $('.c-fixture__bye--title').removeClass('u-block');
-                bye(new_round_number, bye_data, clubs);
-            }
-
-            function generateFixture(data, round_number) {
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    fixtureItem(element, clubs, round_number);
-                }
-            }
-
-            buildFixture(json, currentRoundNo);
-
-            previousRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
-            });
-
-            nextRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
-            })
-
             var bye_data = [
                 {
                     round_number: 2,
@@ -103,6 +56,53 @@ function dataFixture(clubs) {
                     teams: ["WBD", "GEE", "STK", "MEL"]
                 }
             ]
+
+            function buildFixture(data, round_number) {
+                var displayed_round = [];
+
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    if (element.round.number == round_number) {
+                        displayed_round.push(element);
+
+                        $('.js-fixture-round').text(element.round.name);
+                    }
+                }
+
+                generateFixture(displayed_round, round_number);
+                $('.c-fixture__bye--title').removeClass('u-block');
+                bye(round_number, bye_data, clubs);
+            }
+
+            function clearFixture(round_number) {
+                $('.js-game-' + round_number).remove();
+                $('.js-bye-item-' + round_number).remove();
+            }
+
+            function fixtureChange(round_number, new_round_number) {
+                displayedRoundNo = new_round_number;
+                clearFixture(round_number);
+                buildFixture(json, new_round_number);
+            }
+
+            function generateFixture(data, round_number) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    fixtureItem(element, clubs, round_number);
+                }
+            }
+
+            buildFixture(json, currentRoundNo);
+
+            previousRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
+            });
+
+            nextRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
+            })
 
 
         });
