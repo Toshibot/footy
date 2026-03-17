@@ -5,6 +5,7 @@ function bye(round_number, bye_data, team_data) {
     if (round_number == element.round_number) {
       byeItem(element.teams, team_data, round_number);
       console.log(element);
+      break;
     }
   }
 }

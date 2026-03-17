@@ -2,6 +2,8 @@ function kitSwitcher(kit_data, team, away_team, home_team, round_number) {
 
     if (round_number == 14 & team == "GEE") {
         return kit_data.special.wo;
+    } else if ((round_number == 3 | round_number == 24) && team == "BRI") {
+        return kit_data.special.heritage;
     } else if (round_number == 7) {
         return kit_data.special.anzac;
     } else if (team == away_team) {

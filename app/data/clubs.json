@@ -39,6 +39,7 @@
                 ]
             },
             "special": {
+                "heritage": "img/teams/lions-heritage.png",
                 "anzac": "img/teams/lions-home.png"
             }
         }

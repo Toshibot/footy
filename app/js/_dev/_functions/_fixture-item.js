@@ -43,13 +43,13 @@ function fixtureItem(fixture_data, clubs, current_round) {
             '<span class="c-date__time">FT</span>' +
             '</div >' +
             '<div class="c-fixture__team js-fixture-team-1">' +
-            '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
+            '<img class="js-team-img" src="' + kitSwitcher(home_club_data.kit, home_team.code, away_team.code, home_team.code, current_round) + '" />' +
             '<span class="js-team-text">' + home_club_data.name + '</span>' +
             '<span class="c-fixture__score js-score-text">' + home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span></span>' +
             '</div>' +
             '<div class="c-fixture__vs">vs</div>' +
             '<div class="c-fixture__team js-fixture-team-2">' +
-            '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
+            '<img class="js-team-img" src="' + kitSwitcher(away_club_data.kit, away_team.code, away_team.code, home_team.code, current_round) + '" />' +
             '<span class="js-team-text">' + away_club_data.name + '</span>' +
             '<span class="c-fixture__score js-score-text">' + away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span></span>' +
             '</div>' +
@@ -67,13 +67,13 @@ function fixtureItem(fixture_data, clubs, current_round) {
             '<span class="c-date__time">' + fixture_data.match_time + '</span>' +
             '</div >' +
             '<div class="c-fixture__team js-fixture-team-1">' +
-            '<img class="js-team-img" src="' + home_club_data.kit.home + '" />' +
+            '<img class="js-team-img" src="' + kitSwitcher(home_club_data.kit, home_team.code, away_team.code, home_team.code, current_round) + '" />' +
             '<span class="js-team-text">' + home_club_data.name + '</span>' +
             '<span class="c-fixture__score js-score-text">' + home_team.goals + '. ' + home_team.behinds + '. <span class="c-fixture__score-total">' + home_team.score + '</span></span>' +
             '</div>' +
             '<div class="c-fixture__vs">vs</div>' +
             '<div class="c-fixture__team js-fixture-team-2">' +
-            '<img class="js-team-img" src="' + awayKit(away_club_data.kit, home_team.code) + '" />' +
+            '<img class="js-team-img" src="' + kitSwitcher(away_club_data.kit, away_team.code, away_team.code, home_team.code, current_round) + '" />' +
             '<span class="js-team-text">' + away_club_data.name + '</span>' +
             '<span class="c-fixture__score js-score-text">' + away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span></span>' +
             '</div>' +
