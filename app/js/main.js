@@ -4,6 +4,42 @@
 
 // Core Functions 
 data();
+function scroll() {
+   $(window).on('scroll', function(){
+      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
+         $('.js-scrollto-fixture').addClass('is-hidden');
+      } else {
+         $('.js-scrollto-fixture').removeClass('is-hidden');
+      }
+   });
+
+   $('.js-scrollto-fixture').on('click', function(){
+      $('html, body').animate(
+         {
+            scrollTop: $('.js-game-pregame').offset().top - 36,
+         }, {
+            duration: 400,
+            specialEasing: 'easeInOut'
+         }
+      )
+   });
+
+   $('.c-fixture__game').each(function(){
+      if ($(this).hasClass('c-fixture__game--in-progress')){
+         $('.js-scrollto-fixture').addClass('has-live');
+         $('.js-scrollto-fixture').on('click', function(){
+            $('html, body').animate(
+               {
+                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
+               }, {
+                  duration: 400,
+                  specialEasing: 'easeInOut'
+               }
+            )
+         });
+      }
+   });
+}
 
 // Data - Fixture/Results
 
@@ -457,6 +493,8 @@ function kitSwitcher(kit_data, team, away_team, home_team, round_number) {
         return kit_data.special.wo;
     } else if ((round_number == 3 | round_number == 24) && team == "BRI") {
         return kit_data.special.heritage;
+    } else if (round_number == 5) {
+        return kit_data.special.gather;
     } else if (round_number == 7) {
         return kit_data.special.anzac;
     } else if (team == away_team) {
@@ -500,42 +538,6 @@ function roundCalc(target_date, round_data) {
             return round.round;
         } 
     }
-}
-function scroll() {
-   $(window).on('scroll', function(){
-      if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
-         $('.js-scrollto-fixture').addClass('is-hidden');
-      } else {
-         $('.js-scrollto-fixture').removeClass('is-hidden');
-      }
-   });
-
-   $('.js-scrollto-fixture').on('click', function(){
-      $('html, body').animate(
-         {
-            scrollTop: $('.js-game-pregame').offset().top - 36,
-         }, {
-            duration: 400,
-            specialEasing: 'easeInOut'
-         }
-      )
-   });
-
-   $('.c-fixture__game').each(function(){
-      if ($(this).hasClass('c-fixture__game--in-progress')){
-         $('.js-scrollto-fixture').addClass('has-live');
-         $('.js-scrollto-fixture').on('click', function(){
-            $('html, body').animate(
-               {
-                  scrollTop: $('.c-fixture__game--in-progress').offset().top - 36,
-               }, {
-                  duration: 400,
-                  specialEasing: 'easeInOut'
-               }
-            )
-         });
-      }
-   });
 }
 //
 // Layout - Vertically Centered
