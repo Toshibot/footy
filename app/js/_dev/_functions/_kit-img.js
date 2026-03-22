@@ -4,6 +4,8 @@ function kitSwitcher(kit_data, team, away_team, home_team, round_number) {
         return kit_data.special.wo;
     } else if ((round_number == 3 | round_number == 24) && team == "BRI") {
         return kit_data.special.heritage;
+    } else if (round_number == 2 && team == "MEL") {
+        return kit_data.special.flame;
     } else if (round_number == 5) {
         return kit_data.special.gather;
     } else if (round_number == 7) {

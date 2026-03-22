@@ -231,7 +231,8 @@
             },
             "special": {
                 "anzac": "img/teams/demons-home.png",
-                "gather": "img/teams/demons-home.png"
+                "gather": "img/teams/demons-flame.png",
+                "flame": "img/teams/demons-flame.png"
             }
         }
     },
@@ -241,11 +242,12 @@
         "pattern": "img/teams/kangaroos.svg",
         "kit": {
             "home": "img/teams/kangaroos-home.png",
-            "away": "img/teams/kangaroos-clash.png",
+            "away": "img/teams/kangaroos-home.png",
             "clash": {
-                "kit": "img/teams/kangaroos-home.png",
+                "kit": "img/teams/kangaroos-clash.png",
                 "teams": [
-                    "COL"
+                    "COL",
+                    "GEE"
                 ]
             },
             "special": {
