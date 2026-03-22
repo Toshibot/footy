@@ -337,12 +337,14 @@
         "pattern": "img/teams/dogs.svg",
         "kit": {
             "home": "img/teams/dogs-home.png",
-            "away": "img/teams/dogs-away.png",
+            "away": "img/teams/dogs-home.png",
             "clash": {
-                "kit": "img/teams/dogs-home.png",
+                "kit": "img/teams/dogs-away.png",
                 "teams": [
-                    "SYD",
-                    "GEE"
+                    "MEL",
+                    "FRE",
+                    "WCE",
+                    "BRI"
                 ]
             },
             "special": {
