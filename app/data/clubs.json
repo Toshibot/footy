@@ -15,7 +15,7 @@
             },
             "special": {
                 "anzac": "img/teams/crows-home.png",
-                "gather": "img/teams/crows-home.png"
+                "gather": "img/teams/crows-gather.png"
             }
         }
     },
@@ -273,7 +273,7 @@
             },
             "special": {
                 "anzac": "img/teams/port-home.png",
-                "gather": "img/teams/port-home.png"
+                "gather": "img/teams/port-gather.png"
             }
         }
     },
