@@ -231,7 +231,7 @@
             },
             "special": {
                 "anzac": "img/teams/demons-home.png",
-                "gather": "img/teams/demons-flame.png",
+                "gather": "img/teams/demons-gather.png",
                 "flame": "img/teams/demons-flame.png"
             }
         }
@@ -312,7 +312,7 @@
             },
             "special": {
                 "anzac": "img/teams/saints-home.png",
-                "gather": "img/teams/saints-home.png"
+                "gather": "img/teams/saints-gather.png"
             }
         }
     },

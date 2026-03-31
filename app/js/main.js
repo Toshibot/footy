@@ -4,148 +4,6 @@
 
 // Core Functions 
 data();
-
-// Data - Fixture/Results
-
-function dataFixture(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // Dummy Dev File
-        // $.getJSON('../data/data-fixture.json', function(json){
-
-        // console.log(json);
-        // console.log('fixture loaded');
-        // console.log(json);
-
-        $.getJSON('data/fixture.json', function (round_data) {
-
-            var today = new Date;
-            var displayedRound = [];
-            var finalsData = [];
-            var currentRoundNo = roundCalc(today, round_data);
-            var displayedRoundNo = currentRoundNo;
-            var previousRoundButton = $('.js-previous');
-            var nextRoundButton = $('.js-next');
-
-            var bye_data = [
-                {
-                    round_number: 2,
-                    teams: ["BRI", "COL", "CAR", "GEE"]
-                },
-                {
-                    round_number: 3,
-                    teams: ["GCS", "WBD", "HAW", "SYD"]
-                },
-                {
-                    round_number: 4,
-                    teams: ["STK", "GWS"]
-                },
-                {
-                    round_number: 12,
-                    teams: ["ADE", "GCS", "NM", "POR"]
-                },
-                {
-                    round_number: 13,
-                    teams: ["GWS", "RIC"]
-                },
-                {
-                    round_number: 14,
-                    teams: ["COL", "CAR", "HAW", "FRE"]
-                },
-                {
-                    round_number: 15,
-                    teams: ["BRI", "ESS", "SYD", "WCE"]
-                },
-                {
-                    round_number: 16,
-                    teams: ["WBD", "GEE", "STK", "MEL"]
-                }
-            ]
-
-            function buildFixture(data, round_number) {
-                var displayed_round = [];
-
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    if (element.round.number == round_number) {
-                        displayed_round.push(element);
-
-                        $('.js-fixture-round').text(element.round.name);
-                    }
-                }
-
-                generateFixture(displayed_round, round_number);
-                $('.c-fixture__bye--title').removeClass('u-block');
-                bye(round_number, bye_data, clubs);
-            }
-
-            function clearFixture(round_number) {
-                $('.js-game-' + round_number).remove();
-                $('.js-bye-item-' + round_number).remove();
-            }
-
-            function fixtureChange(round_number, new_round_number) {
-                displayedRoundNo = new_round_number;
-                clearFixture(round_number);
-                buildFixture(json, new_round_number);
-            }
-
-            function generateFixture(data, round_number) {
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    fixtureItem(element, clubs, round_number);
-                }
-            }
-
-            buildFixture(json, currentRoundNo);
-
-            previousRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
-            });
-
-            nextRoundButton.on("click", function () {
-                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
-            })
-
-
-        });
-
-    });
-}
-
-//
-// Data
-// ====
-
-function dataLadder(clubs) {
-
-    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
-
-        // $.getJSON('../data/dummy_data.json', function (json) {
-        var round = $('.c-ladder__round');
-
-        // console.log(json);
-        // Round Number
-        // round.text('AFL Ladder ' + json.round.name);
-
-        // Construct the Ladder
-        for (i = 0; i < json.teams.length; i++) {
-            const ladder_data = json.teams[i];
-            const club_data = clubs[ladder_data.code];
-            ladderItem(ladder_data, i + 1, club_data);
-        }
-
-    });
-}
-function data() {
-    $.getJSON('data/clubs.json', function (clubs) {
-        dataLadder(clubs);
-        dataFixture(clubs);
-    });
-}
 function scroll() {
    $(window).on('scroll', function(){
       if ($(this).scrollTop() >= $('.c-fixture__round').offset().top - 500){
@@ -182,59 +40,6 @@ function scroll() {
       }
    });
 }
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
 function bye(round_number, bye_data, team_data) {
   for (i = 0; i < bye_data.length; i++) {
     const element = bye_data[i];
@@ -594,3 +399,197 @@ function roundCalc(target_date, round_data) {
         } 
     }
 }
+
+// Data - Fixture/Results
+
+function dataFixture(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/fixturesandresults.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // Dummy Dev File
+        // $.getJSON('../data/data-fixture.json', function(json){
+
+        // console.log(json);
+        // console.log('fixture loaded');
+        // console.log(json);
+
+        $.getJSON('data/fixture.json', function (round_data) {
+
+            var today = new Date;
+            var displayedRound = [];
+            var finalsData = [];
+            var currentRoundNo = roundCalc(today, round_data);
+            var displayedRoundNo = currentRoundNo;
+            var previousRoundButton = $('.js-previous');
+            var nextRoundButton = $('.js-next');
+
+            var bye_data = [
+                {
+                    round_number: 2,
+                    teams: ["BRI", "COL", "CAR", "GEE"]
+                },
+                {
+                    round_number: 3,
+                    teams: ["GCS", "WBD", "HAW", "SYD"]
+                },
+                {
+                    round_number: 4,
+                    teams: ["STK", "GWS"]
+                },
+                {
+                    round_number: 12,
+                    teams: ["ADE", "GCS", "NM", "POR"]
+                },
+                {
+                    round_number: 13,
+                    teams: ["GWS", "RIC"]
+                },
+                {
+                    round_number: 14,
+                    teams: ["COL", "CAR", "HAW", "FRE"]
+                },
+                {
+                    round_number: 15,
+                    teams: ["BRI", "ESS", "SYD", "WCE"]
+                },
+                {
+                    round_number: 16,
+                    teams: ["WBD", "GEE", "STK", "MEL"]
+                }
+            ]
+
+            function buildFixture(data, round_number) {
+                var displayed_round = [];
+
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    if (element.round.number == round_number) {
+                        displayed_round.push(element);
+
+                        $('.js-fixture-round').text(element.round.name);
+                    }
+                }
+
+                generateFixture(displayed_round, round_number);
+                $('.c-fixture__bye--title').removeClass('u-block');
+                bye(round_number, bye_data, clubs);
+            }
+
+            function clearFixture(round_number) {
+                $('.js-game-' + round_number).remove();
+                $('.js-bye-item-' + round_number).remove();
+            }
+
+            function fixtureChange(round_number, new_round_number) {
+                displayedRoundNo = new_round_number;
+                clearFixture(round_number);
+                buildFixture(json, new_round_number);
+            }
+
+            function generateFixture(data, round_number) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    fixtureItem(element, clubs, round_number);
+                }
+            }
+
+            buildFixture(json, currentRoundNo);
+
+            previousRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo - 1);
+            });
+
+            nextRoundButton.on("click", function () {
+                fixtureChange(displayedRoundNo, displayedRoundNo + 1);
+            })
+
+
+        });
+
+    });
+}
+
+//
+// Data
+// ====
+
+function dataLadder(clubs) {
+
+    $.getJSON('https://statsapi.foxsports.com.au/3.0/api/sports/afl/series/1/seasons/131/ladder.json?userkey=6B2F4717-A97C-49F6-8514-3600633439B9', function (json) {
+
+        // $.getJSON('../data/dummy_data.json', function (json) {
+        var round = $('.c-ladder__round');
+
+        // console.log(json);
+        // Round Number
+        // round.text('AFL Ladder ' + json.round.name);
+
+        // Construct the Ladder
+        for (i = 0; i < json.teams.length; i++) {
+            const ladder_data = json.teams[i];
+            const club_data = clubs[ladder_data.code];
+            ladderItem(ladder_data, i + 1, club_data);
+        }
+
+    });
+}
+function data() {
+    $.getJSON('data/clubs.json', function (clubs) {
+        dataLadder(clubs);
+        dataFixture(clubs);
+    });
+}
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
