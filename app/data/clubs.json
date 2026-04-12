@@ -42,7 +42,7 @@
             "special": {
                 "heritage": "img/teams/lions-heritage.png",
                 "anzac": "img/teams/lions-home.png",
-                "gather": "img/teams/lions-home.png"
+                "gather": "img/teams/lions-away.png"
             }
         }
     },
@@ -252,7 +252,7 @@
             },
             "special": {
                 "anzac": "img/teams/kangaroos-home.png",
-                "gather": "img/teams/kangaroos-home.png"
+                "gather": "img/teams/kangaroos-gather.png"
             }
         }
     },
