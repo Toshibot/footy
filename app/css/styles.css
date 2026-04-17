@@ -1807,9 +1807,13 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
   background: #efefef;
   color: #333;
 }
-.c-ladder__item-5, .c-ladder__item-6, .c-ladder__item-7, .c-ladder__item-8 {
+.c-ladder__item-5, .c-ladder__item-6 {
   background: #ccc;
   color: #333;
+}
+.c-ladder__item-7, .c-ladder__item-8, .c-ladder__item-9, .c-ladder__item-10 {
+  background: #999;
+  color: #222;
 }
 .c-ladder__position {
   -ms-flex-preferred-size: 8.333%;
