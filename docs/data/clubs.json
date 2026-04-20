@@ -212,7 +212,7 @@
                 ]
             },
             "special": {
-                "anzac": "img/teams/hawks-home.png",
+                "anzac": "img/teams/hawks-anzac.png",
                 "gather": "img/teams/hawks-gather.png"
             }
         }
@@ -271,7 +271,7 @@
                 ]
             },
             "special": {
-                "anzac": "img/teams/port-home.png",
+                "anzac": "img/teams/port-anzac.png",
                 "gather": "img/teams/port-gather.png"
             }
         }
