@@ -1,0 +1,70 @@
+{
+  "2": {
+    "round_number": 2,
+    "teams": [
+      "BRI",
+      "COL",
+      "CAR",
+      "GEE"
+    ]
+  },
+  "3": {
+    "round_number": 3,
+    "teams": [
+      "GCS",
+      "WBD",
+      "HAW",
+      "SYD"
+    ]
+  },
+  "4": {
+    "round_number": 4,
+    "teams": [
+      "STK",
+      "GWS"
+    ]
+  },
+  "12": {
+    "round_number": 12,
+    "teams": [
+      "ADE",
+      "GCS",
+      "NM",
+      "POR"
+    ]
+  },
+  "13": {
+    "round_number": 13,
+    "teams": [
+      "GWS",
+      "RIC"
+    ]
+  },
+  "14": {
+    "round_number": 14,
+    "teams": [
+      "COL",
+      "CAR",
+      "HAW",
+      "FRE"
+    ]
+  },
+  "15": {
+    "round_number": 15,
+    "teams": [
+      "BRI",
+      "ESS",
+      "SYD",
+      "WCE"
+    ]
+  },
+  "16": {
+    "round_number": 16,
+    "teams": [
+      "WBD",
+      "GEE",
+      "STK",
+      "MEL"
+    ]
+  }
+}
