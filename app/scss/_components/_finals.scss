@@ -125,14 +125,14 @@
         }
     }
 
-    &__venue {
-        padding: $size-base 0 $size-base;
+    .c-fixture__venue {
+        padding: 15px 0 20px;
         font-size: 12px;
     }
 
 
     &__date {
-        padding: $size-base 0 3px;
+        padding: $size-base/2 0 3px;
         line-height: 1.5;
     }
 

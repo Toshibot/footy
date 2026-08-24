@@ -2131,12 +2131,12 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
     margin-top: -3px;
   }
 }
-.c-finals__venue {
-  padding: 25px 0 25px;
+.c-finals .c-fixture__venue {
+  padding: 15px 0 20px;
   font-size: 12px;
 }
 .c-finals__date {
-  padding: 25px 0 3px;
+  padding: 12.5px 0 3px;
   line-height: 1.5;
 }
 .c-finals__vs {
