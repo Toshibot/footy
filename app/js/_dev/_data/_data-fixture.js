@@ -8,7 +8,7 @@ function dataFixture(clubs) {
         // Dummy Dev File
         // $.getJSON('../data/data-fixture.json', function(json){
 
-        // console.log(json);
+        console.log(json);
         // console.log('fixture loaded');
         // console.log(json);
 
@@ -94,6 +94,19 @@ function dataFixture(clubs) {
                 }
             }
 
+            function setFinalsData(data, callback) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    if (element.is_final == true) {
+
+                        finalsData.push(element);
+
+                    }
+                }
+                callback;
+            }
+
             buildFixture(json, currentRoundNo);
 
             previousRoundButton.on("click", function () {
@@ -104,6 +117,10 @@ function dataFixture(clubs) {
                 fixtureChange(displayedRoundNo, displayedRoundNo + 1);
             })
 
+            setFinalsData(json);
+            console.log(finalsData);
+
+            finals(finalsData, clubs);
 
         });
 

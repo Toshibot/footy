@@ -49,7 +49,7 @@ function finals(data, clubs) {
          team_2.children('.js-team-img').attr('src', awayKit(away_club_data.kit, home_team.code));
          team_2.children('.js-team-text').text(away_club_data.name);
       } else {
-         
+
       }
       if (final.match_status !== 'Pre Game') {
          team_2.children('.js-score-text').text('').append(away_team.goals + '. ' + away_team.behinds + '. <span class="c-fixture__score-total">' + away_team.score + '</span>');
@@ -83,28 +83,34 @@ function finals(data, clubs) {
       }
    }
 
+   // Wildcard Round =========
+   // First Wildcard Game
+   finalBuilder($('.js-finals-wc1'), data[0]);
+   // Second Wildcard Game
+   finalBuilder($('.js-finals-wc2'), data[1]);
+
    // Qualifying / Elimiation Finals =========
    // First Qualifying Final
-   finalBuilder($('.js-finals-qf1'), data[1]);
+   finalBuilder($('.js-finals-qf1'), data[2]);
    // Second Qualifying Final
-   finalBuilder($('.js-finals-qf2'), data[2]);
+   finalBuilder($('.js-finals-qf2'), data[4]);
    // First Elimination Final
-   finalBuilder($('.js-finals-ef1'), data[0]);
+   finalBuilder($('.js-finals-ef1'), data[5]);
    // Second Elimination Final
    finalBuilder($('.js-finals-ef2'), data[3]);
 
 
    // Semi Finals ============
    // First Semi Final
-   finalBuilder($('.js-finals-sf1'), data[4]);
+   finalBuilder($('.js-finals-sf1'), data[7]);
    // Second Semi Final
-   finalBuilder($('.js-finals-sf2'), data[5]);
+   finalBuilder($('.js-finals-sf2'), data[6]);
 
    // Preliminary Finals ============
    // First Prelim Final
-   finalBuilder($('.js-finals-pf1'), data[7]);
+   finalBuilder($('.js-finals-pf1'), data[9]);
    // Second Prelim Final
-   finalBuilder($('.js-finals-pf2'), data[6]);
+   finalBuilder($('.js-finals-pf2'), data[8]);
 
    // Grand Final ==============
    finalBuilder($('.js-finals-gf'), grand_final);

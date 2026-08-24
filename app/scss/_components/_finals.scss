@@ -1,32 +1,32 @@
 .c-finals {
-   position: relative;
-   overflow: hidden;
+    position: relative;
+    overflow: hidden;
 
-   &-alt {
+    &-alt {
         @media screen and (max-width: $break-m) {
             background: $color-black-dark;
         }
-   }
+    }
 
-   &-prem {
-       margin-bottom: -$size-base;
-   }
+    &-prem {
+        margin-bottom: -$size-base;
+    }
 
-   &__prem {
+    &__prem {
         background-color: #222;
-       -webkit-background-size: 100%;
-       -moz-background-size: 100%;
-       -o-background-size: 100%;
-       background-size: 100%;
-       display: inline-block;
-       width: 40%;
-       margin: 0 0 $size-base-lg;
+        -webkit-background-size: 100%;
+        -moz-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%;
+        display: inline-block;
+        width: 40%;
+        margin: 0 0 $size-base-lg;
 
-       @media screen and (max-width: $break-m) {
-           width: 100%;
-       }
+        @media screen and (max-width: $break-m) {
+            width: 100%;
+        }
 
-       &-overlay {
+        &-overlay {
             // background-color: rgba(0, 0, 0, 0.33);
             padding: $size-base-lg 0 $size-base;
 
@@ -34,143 +34,157 @@
                 background: #333;
                 margin: $size-base 0;
             }
-       }
-   }
+        }
+    }
 
-   h2 {
-       @media screen and (min-width: $break-m){
-           padding-bottom: $size-base;
-       }
-   }
+    h2 {
+        @media screen and (min-width: $break-m) {
+            padding-bottom: $size-base;
+        }
+    }
 
-   &__game {
-       background: $color-grey-dark;
-       width: 23%;
-       margin-bottom: 35px;
-       margin-right: 1.5%;
-       display: inline-block;
+    &__game {
+        background: $color-grey-dark;
+        width: 23%;
+        margin-bottom: 35px;
+        margin-right: 1.5%;
+        display: inline-block;
 
-       &:nth-child(5),
-       &:nth-child(10) {
-           margin-right: 0;
-       }
+        &:nth-child(6),
+        &:nth-child(11) {
+            margin-right: 0;
+        }
 
-       &.live {
-           background: $color-offwhite;
-           color: $color-black;
+        &.live {
+            background: $color-offwhite;
+            color: $color-black;
 
-           .c-date__day,
-           .c-date__month,
-           .c-date__date,
-           .c-date__time {
-               display: none;
-           }
-       }
-       
-       &.full-time {
-           background: #444;
-       }
+            .c-date__day,
+            .c-date__month,
+            .c-date__date,
+            .c-date__time {
+                display: none;
+            }
+        }
 
-       @media screen and (max-width: $break-s) {
-           width: $width-12;
-           margin: 0 0 36px;
-       }
-   }
+        &.full-time {
+            background: #444;
+        }
 
-   &-2 {
-      .c-finals__game:nth-child(4) {
-         // margin-right: 0;
-      }
-   }
+        @media screen and (max-width: $break-s) {
+            width: $width-12;
+            margin: 0 0 36px;
+        }
+    }
 
-   &-1 {
-    //   margin-bottom: -$size-base;
+    &-2 {
+        .c-finals__game:nth-child(4) {
+            // margin-right: 0;
+        }
+    }
 
-      .c-finals__game {
-         margin-right: 0;
-      }
-   }
+    &-1 {
+        //   margin-bottom: -$size-base;
 
-   &-semi {
-      .c-finals__game:nth-child(5) {
-         margin-right: 0;
-      }
+        .c-finals__game {
+            margin-right: 0;
+        }
+    }
 
-      @media screen and (min-width: $break-m) {
-         padding-top: 50px;
-      }
-   }
+    &-wc {
+        .c-finals__game:nth-child(3) {
+            margin-right: 0;
+        }
 
-   &-pre {
-      .c-finals__game:nth-child(5) {
-         margin-right: 0 !important;
-      }
-      @media screen and (min-width: $break-m) {
-         padding-top: 125px; 
-         margin-top: -3px;
-      }
-   }
+    }
 
-   &__venue {
-       padding: $size-base 0 $size-base;
-       font-size: 12px;
-   }
-   
-   
-   &__date {
-       padding: $size-base 0 3px;
-       line-height: 1.5;
-   }
+    &-semi {
+        .c-finals__game:nth-child(5) {
+            margin-right: 0;
+        }
 
-   &__vs {
-       display: inline-block;
-       padding: 0 $size-base;
-       vertical-align: top;
-       margin-top: $size-base-lg;
-   }
+        @media screen and (min-width: $break-m) {
+            padding-top: 50px;
+        }
+    }
 
-   &__team {
-       display: inline-block;
-       text-align: center;
-       width: 90px;
+    &-quali {
+        @media screen and (min-width: $break-m) {
+            padding-top: 25px;
+        }
+    }
 
-       img,
-       span {
-           display: block;
+    &-pre {
+        .c-finals__game:nth-child(5) {
+            margin-right: 0 !important;
+        }
 
-           &.js-score-text {
-               padding-top: $size-base-xs;
-           }
+        @media screen and (min-width: $break-m) {
+            padding-top: 125px;
+            margin-top: -3px;
+        }
+    }
 
-           &.js-team-text {
-               white-space: nowrap;
-               display: inline-block;
-           }
-       }
+    &__venue {
+        padding: $size-base 0 $size-base;
+        font-size: 12px;
+    }
 
-       img {
-           width: 70px;
-           height: 70px;
-           text-align: center;
-           margin: 9px 10px;
-           display: inline-block;
-           // @include boxShadow(3, $color-black);
-       }
-   }
 
-   &__score {
-       font-size: 15px;
-       font-weight: 300;
+    &__date {
+        padding: $size-base 0 3px;
+        line-height: 1.5;
+    }
 
-       &-total {
-           display: inline !important;
-           font-weight: 600;
-       }
-   }
+    &__vs {
+        display: inline-block;
+        padding: 0 $size-base;
+        vertical-align: top;
+        margin-top: $size-base-lg;
+    }
 
-   @media screen and (max-width: $break-s) {
-       &:first-child {
-           padding-top: 50px;
-       }
-   }
+    &__team {
+        display: inline-block;
+        text-align: center;
+        width: 90px;
+
+        img,
+        span {
+            display: block;
+
+            &.js-score-text {
+                padding-top: $size-base-xs;
+            }
+
+            &.js-team-text {
+                white-space: nowrap;
+                display: inline-block;
+            }
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            margin: 9px 10px;
+            display: inline-block;
+            // @include boxShadow(3, $color-black);
+        }
+    }
+
+    &__score {
+        font-size: 15px;
+        font-weight: 300;
+
+        &-total {
+            display: inline !important;
+            font-weight: 600;
+        }
+    }
+
+    @media screen and (max-width: $break-s) {
+        &:first-child {
+            padding-top: 50px;
+        }
+    }
 }
