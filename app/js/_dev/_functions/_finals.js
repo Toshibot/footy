@@ -89,11 +89,12 @@ function finals(data, clubs) {
    // Second Wildcard Game
    finalBuilder($('.js-finals-wc2'), data[1]);
 
-   // Qualifying / Elimiation Finals =========
+   // Qualifying / Elimination Finals =========
    // First Qualifying Final
    finalBuilder($('.js-finals-qf1'), data[2]);
    // Second Qualifying Final
    finalBuilder($('.js-finals-qf2'), data[4]);
+
    // First Elimination Final
    finalBuilder($('.js-finals-ef1'), data[3]);
    // Second Elimination Final
