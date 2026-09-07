@@ -85,9 +85,9 @@ function finals(data, clubs) {
 
    // Wildcard Round =========
    // First Wildcard Game
-   finalBuilder($('.js-finals-wc1'), data[0]);
+   finalBuilder($('.js-finals-wc1'), data[1]);
    // Second Wildcard Game
-   finalBuilder($('.js-finals-wc2'), data[1]);
+   finalBuilder($('.js-finals-wc2'), data[0]);
 
    // Qualifying / Elimination Finals =========
    // First Qualifying Final
