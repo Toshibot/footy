@@ -1,6 +1,6 @@
 function finals(data, clubs) {
 
-   var grand_final = data[8];
+   var grand_final = data[10];
 
    $('.js-finals-series-year').text(data[0].season.year);
    $('.js-premiership-year').text(data[0].season.year);
